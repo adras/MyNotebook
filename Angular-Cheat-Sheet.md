@@ -10,3 +10,9 @@ But to be sure the file gets used, you can use this to start the server manually
  ng serve --proxy-config proxy.conf.json --verbose
 
 make sure to stop all node.exe instances before, otherwise the port will be blocked
+
+# Install Windows
+* Install node.js
+* Install Chrome
+
+Maybe also:  npm install -g @angular/cli

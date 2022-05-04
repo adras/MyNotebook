@@ -26,37 +26,25 @@ export class ALoginComponent implements OnInit {
   onLogin(): void {
     // Note: Using SHA256 to hash passwords on the client side seems to be deprecated
     // See: https://stackoverflow.com/a/43903139/7671671
-    // TODO: Research alternatives
+    // Who cares, if the backend is rewritten everything changes anyway
     // Since it's not planned to update the backend right now, sha256 needs to be used
 
     var url = "http://yourserver.com/notes/index.php";
     var shaPwd = sha256(this.password).toString();
 
-    //SHA256.fuu;
-    //var body = {
-    //  action: "login",
-    //  password: shaPwd
-    //}
     const params = new HttpParams()
       .set("action", "login")
       .set("password", shaPwd)
 
-    // POST
-    // action: login
-    // password: hash
-    const headers = { 'content-type': 'application/json' };
-
-    let response = this.http.post<LoginResponse>(url, { params });
-    response.subscribe({
+    this.http.post<LoginResponse>(url, params).subscribe({
       next(loginResponse) {
-        alert("IT'S WORKING");
-        console.log('IsLoggedIn: ', loginResponse.isLoggedIn);
-        console.log('message: ', loginResponse.message);
-        console.log('result: ', loginResponse.result);
+
       },
       error(msg) {
         console.log('Error Getting Location: ', msg);
       }
     });
+
+
   }
 }
