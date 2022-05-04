@@ -46,9 +46,10 @@ export class ALoginComponent implements OnInit {
     // password: hash
     const headers = { 'content-type': 'application/json' };
 
-    let response = this.http.get<LoginResponse>(url, { params });
+    let response = this.http.post<LoginResponse>(url, { params });
     response.subscribe({
       next(loginResponse) {
+        alert("IT'S WORKING");
         console.log('IsLoggedIn: ', loginResponse.isLoggedIn);
         console.log('message: ', loginResponse.message);
         console.log('result: ', loginResponse.result);
