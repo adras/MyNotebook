@@ -5,6 +5,11 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Frontend", "Frontend\Frontend.esproj", "{7A3D96A3-BB6E-4077-9F23-B217BE9CD2D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E14A1BBF-5F6E-4239-B721-48D9DBC9B63E}"
+	ProjectSection(SolutionItems) = preProject
+		Angular-Cheat-Sheet.md = Angular-Cheat-Sheet.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
