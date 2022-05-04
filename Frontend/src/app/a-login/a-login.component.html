@@ -2,6 +2,6 @@
 
 <div id="login">
   <label>Password: </label>
-  <input type="password" />
-  <button>Login</button>
+  <input type="password" [(ngModel)]="password" />
+  <button (click)="onLogin()">Login</button>
 </div>
