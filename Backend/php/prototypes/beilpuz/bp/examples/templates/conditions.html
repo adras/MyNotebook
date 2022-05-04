@@ -1,0 +1,12 @@
+<bp:if value="headline">
+	<h1><bp:$headline/></h1>
+	<bp:if value="subject" is="World" cacheable="true">
+		You should not see me.
+	</bp:if>
+	<bp:elseif value="subject" is="Kitty">
+		<font color="#FFAACC"><bp:$subject/></font>
+	</bp:elseif>
+	<bp:else>
+		Me too.
+	</bp:else>
+</bp:if>

@@ -1,0 +1,13 @@
+<html>
+<body>
+<h3>non-direct</h3>
+<bp:if expr="$number>=$border && $border==5">
+	Number is: <bp:$number/><br/>
+	Border is: <bp:$border/><br/>
+</bp:if>
+<h3>direct</h3>
+<bp:if expr="$number>=$border && $border==5" direct="true">
+	Number is: <bp:$number/><br/>
+	Border is: <bp:$border/><br/>
+</bp:if>
+</body></html>

@@ -1,0 +1,32 @@
+Phase 1
+- Gather all requirements
+- Make all required investigations which libraries will be used to meet feature requirements
+	* This involes prototypes which demonstrate the successful implementation
+	* Every prototype must have a performance evaluation
+- Plan the workflow/responsibilities of both backend and frontend
+- Plan which classes are required
+- Create template from design
+- Start writing JS code for frontend functionality
+- Continue writing PHP backend code for backend functionality
+- Goal: New Note, Edit Note, Delete Note / no tinyMCE yet
+
+Phase 2 - Preview
+- Continue adding features
+- Settings e.g. AES encryption, which is the default tag, which is the one for new notes (Settings don't have to have an impact yet)
+- Implement Tag System
+- Implement search feature
+- Create documentation
+
+Beta
+- Fix bugs (there shouldn't be a single one)
+- Implement tinyMCE
+- Check for browsercompatibility in: Chrome, Internet Explorer x, y, z, Firefox, Opera, other
+- Goal: Feature Complete
+
+
+Release Candidate
+- Extensive testing involving as much people as possible with different server configurations
+- Fix Remaining bugs
+
+Final
+- Drink as much champaign, beer, red whine, sambuca, jaegermeister as possible

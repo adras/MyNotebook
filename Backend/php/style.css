@@ -1,0 +1,217 @@
+body.body
+{
+	background-color: #DADADA;
+
+	width: 800px; 
+	margin: 0px auto;
+	
+}
+/*
+div.content
+{
+	width: 800px;
+	margin:0px auto;
+}
+*/
+div.tagArea
+{
+	background-color: #FFFFFF;
+
+	float: right;
+	width: 200px;
+	font-size: 16pt;
+	
+	color: #FF8040;
+	margin: 0px auto;
+	text-align: center;
+	position: relative;
+	left: 220px;
+	top: 80px;
+	font-family: Helvetica;
+}
+
+div.tag
+{
+	margin-left: 10px;
+	margin-right: 3px;
+	cursor: pointer;
+	display: inline;
+}
+
+div.selectedTag
+{
+	margin-left: 10px;
+	margin-right: 3px;
+	font-weight: bold;
+	color: #AA0000;
+	cursor: pointer;
+	display: inline;
+}
+/*********************** NOTE **************************/
+div.noteHeader
+{
+	height: 25px;
+	background-color: #FDFDFD;
+}
+
+div.note
+{
+	background-color: #FFFFFF;
+	margin: 0px auto;
+	margin-bottom: 10px;
+	display: block;
+	font-size: 14pt;
+	word-wrap: break-word;
+ }
+
+div.noteTags
+{
+}
+
+div.hiddenNote
+{
+	display: none;
+}
+
+div.noteContent
+{
+	background-color: #FFFFFF;
+	font-family: verdana;
+}
+
+div.noteDate
+{
+	float:left;
+	margin-right: 10px;
+}
+div.noteFunctions
+{
+	float:left;
+	margin-right: 10px;
+}
+div.noteVisibility
+{
+	float: right;
+	display: inline;
+}
+/*************************** end NOTE *******************************/
+
+div.newNoteWindow
+{
+	background-color: #AA5555;
+	width: 700px;
+	height: 400px;
+}
+.newNoteWindowTextArea
+{
+	background-color: #AA5555;
+	margin-left: 200px;
+}
+
+div.newNoteWindowTags
+{
+	margin: auto;
+}
+
+span.searchText
+{
+	color: #FF0000;
+}
+
+button.leftButton
+{
+	float: left;
+	margin-top: 15px;
+}
+
+button.rightButton
+{
+	float: right;
+	margin-top: 15px;
+}
+
+button.editButton
+{
+	border: 0px;
+	height: 20px;
+	width: 58px;
+	margin: 0px;
+	position: relative;
+	
+	color: #FF8040;
+}
+
+button.deleteButton
+{
+	border: 0px;
+	height: 20px;
+	width: 60px;
+	margin:0px;
+	position: relative;
+	
+	color: #FF8040;
+}
+
+button.settingsButton
+{
+	color: #FF8040;
+	border: 0px;
+	width: 69px;
+	height: 25px;
+}
+
+button.logoutButton
+{
+	color: #FF8040;
+	border: 0px;
+	width: 69px;
+	height: 25px;
+}
+
+button.createNoteButton
+{
+	//background-image : url(images/btnCreateNote.png);
+	border: 0px;
+	width:103px;
+	height: 25px;
+	color: #FF8040;
+}
+
+
+td.settingsTableLeftColumn
+{
+	width: 300px;
+}
+
+td.settingsTableRightColumn
+{
+	width: 300px;
+	text-align: right;
+}
+
+input.tagNameInput
+{
+	border: 1px solid;
+}
+
+div.autoSuggestHighlight
+{
+	color: #FFFFFF;
+	background-color: #FF8040;
+	display: inline;
+}
+
+span.autoSuggestSearch
+{
+	color: #FF0000;
+}
+
+div.autoSuggest
+{
+	border: 1px solid; 
+	
+	background-color: #BBBBBB;
+	color: #000000;
+	z-index: 5;
+	position: absolute;
+}

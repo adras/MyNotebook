@@ -1,0 +1,1 @@
+According to: http://docs.jquery.com/Using_jQuery_with_Other_Libraries there are no drawbacks on using JQuery together with Prototype. Since JQuery offers an easy way to access elements it should be considered to use JQuery together with Prototype

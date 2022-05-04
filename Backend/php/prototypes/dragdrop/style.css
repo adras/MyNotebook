@@ -1,0 +1,72 @@
+.tagArea
+{
+}
+
+span.tag
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	cursor: point;
+}
+
+span.selectedTag
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+	color: #AA0000;
+	cursor: point;
+}
+
+div.noteHeader
+{
+	height: 20px;
+	background-color: #AAFFAA;
+}
+
+div.note
+{
+	width: 600px;
+	border: 1px solid black;
+	margin-bottom: 10px;
+	display: block;
+}
+
+div.hiddenNote
+{
+	display: none;
+}
+
+div.noteContent
+{
+	background-color: #88AA88;
+}
+
+div.noteDate
+{
+	float:left;
+	margin-right: 10px;
+}
+div.noteFunctions
+{
+	float:left;
+	margin-right: 10px;
+}
+div.newNoteWindow
+{
+	background-color: #AA5555;
+	width: 700px;
+	height: 400px;
+}
+
+button.leftButton
+{
+	background-color: #55AAAA;
+	float: left;
+}
+
+button.rightButton
+{
+	float: right;
+	background-color: #55AAAA;
+}

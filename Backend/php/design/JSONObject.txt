@@ -1,0 +1,7 @@
+ResultObject
+	error = "Error message"
+	notes[]
+		id
+		content
+		tags
+	tags	

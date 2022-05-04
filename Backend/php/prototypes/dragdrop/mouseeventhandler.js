@@ -1,0 +1,1 @@
+var WindowManager = Class.create({	initialize: function () {		this.mouseDownHa	},		hideEditNoteWindow : function () {		this.editNoteWindow.hide();	}	});

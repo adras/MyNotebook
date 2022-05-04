@@ -1,0 +1,19 @@
+<html><body>
+All Animals:<br>
+<ul>
+<bp:foreach in="animals" as="animal" index="type" >
+	<li><bp:$type/></li>
+	<ul>
+	<bp:foreach in="animal" as="name" index="number" direct="true">
+		<li><bp:$number/>. <bp:$name/></li>
+	</bp:foreach>
+	</ul>
+</bp:foreach>
+</ul>
+Object:
+<ul>
+<li><bp:$entry.getNow()/></li>
+<li><bp:$entry.nr/></li>
+<li><bp:$entry.array[3]/></li>
+</ul>
+</body></html>

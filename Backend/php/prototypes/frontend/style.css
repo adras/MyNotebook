@@ -1,0 +1,40 @@
+div.noteHeader
+{
+	height: 20px;
+	background-color: #AAFFAA;
+}
+
+div.note
+{
+	width: 600px;
+	border: 1px solid black;
+	margin-bottom: 10px;
+}
+
+div.noteContent
+{
+	background-color: #88AA88;
+}
+
+div.noteDate
+{
+	float:left;
+	margin-right: 10px;
+}
+div.noteFunctions
+{
+	float:left;
+	margin-right: 10px;
+}
+div.noteTags
+{
+
+}
+
+.tagMenu
+{
+}
+
+div.main
+{
+}

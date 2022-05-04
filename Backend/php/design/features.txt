@@ -1,0 +1,15 @@
+Features:
+	* Upload of content:
+		- images
+		- files of any type
+	* Template Engine:
+		- Should enable the user to implement MyNotebook somewhere, or to redesign it
+		- How can that goal be achieved?
+	* Performance improvements
+	* New Design
+	* Improved usability
+	* New Databasetable for settings - Extensibility important
+	* Implement or make preparations for multi user support. It should also support public notes and a permission system
+	* AES encryption for notes / Add a new column to each note indicating if it's encrypted or not. This way an indicator exists which may help to "repair" the database
+	Set tinyMCE encoding to raw for properly save and search Unicode.
+	Changes to notes.suggest.js and notes.tags.php to make it accept Unicode chars for tags (maybe this need some review)

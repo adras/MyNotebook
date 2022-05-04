@@ -1,0 +1,17 @@
+<html>
+<title><bp:print_title cacheable="true" /></title>
+<body>
+<h3><bp:value name="number" cacheable="true"/></h3>
+<bp:check_range cacheable="true" >
+	<b>Im in the allowed range of cacheable templates.</b><br>
+	I was created at: <bp:now/>
+</bp:check_range>
+<hr>
+Caching is only allowed for numbers between 20 and 40.<br>
+Please enter a number below, to see if its in the range.
+<form name="form" method="get">
+Enter: <input type="text" name="number" value="<bp:value name="number" cacheable="true"/>" size="5"/>
+Submit: <input type="submit"/>
+</form>
+</body>
+</html>
