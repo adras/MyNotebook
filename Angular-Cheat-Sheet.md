@@ -29,6 +29,10 @@ Maybe also:  npm install -g @angular/cli
 
 # Deployment
 Use the developer console and run:
-* ng build
-This will automatically use the production configuration
+* npm run build-prod
 
+Since the project is supposed to also run in a subdirectory of a server the baseHref needs to be a relative path like "./".
+This however doesn't work when running the project locally, there will be an erorr like "Get / ...". To fix that, there's
+no baseHref defined normally. Instead there's a "build-prod" definition in package.json which passes the baseHref parameter to 'ng build'
+
+TODO: It would be nice to have this in the production.json file or something. This seems to be a bit hacky
