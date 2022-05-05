@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as sha256 from 'crypto-js/sha256';
-import { AuthResponse } from '../Models/AuthResponse';
+import { BaseResponse } from '../Models/BaseResponse';
+import { QueryAllResponse } from '../Models/QueryAllResponse';
 import { AuthObserver } from '../Observers/AuthObserver';
 import { QueryAllObserver } from '../Observers/QueryAllObserver';
 import { EndpointService } from './endpoint.service';
@@ -37,7 +38,7 @@ export class AMainServiceService {
 
     this.isLoggedIn = false;
 
-    this.http.post<AuthResponse>(this.apiPath, params).subscribe(this.authObserver);
+    this.http.post<BaseResponse>(this.apiPath, params).subscribe(this.authObserver);
   }
 
   public onLogout() {
@@ -48,15 +49,13 @@ export class AMainServiceService {
 
     this.isLoggedIn = false;
 
-    this.http.post<AuthResponse>(this.apiPath, params).subscribe(this.authObserver);
+    this.http.post<BaseResponse>(this.apiPath, params).subscribe(this.authObserver);
   }
 
   public onQueryAll() {
     const params = new HttpParams()
       .set("action", "queryAll")
 
-    this.isLoggedIn = false;
-
-    this.http.post<AuthResponse>(this.apiPath, params).subscribe(this.queryAllObserver);
+    this.http.post<QueryAllResponse>(this.apiPath, params).subscribe(this.queryAllObserver);
   }
 }

@@ -1,4 +1,4 @@
-import { AuthResponse } from "../Models/AuthResponse";
+import { BaseResponse } from "../Models/BaseResponse";
 import { QueryAllResponse } from "../Models/QueryAllResponse";
 import { AMainServiceService } from "../Services/a-main.service";
 
