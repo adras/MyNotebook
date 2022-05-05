@@ -1,7 +1,9 @@
 <p>a-notes works!</p>
 <div *ngFor="let note of notes()" class="note">
-  <label><b>Tags:&nbsp;</b> <span *ngFor="let tag of note.tags" class="note-tag">{{tag.name}}</span></label>
-  <!--<span class="badge">{{note.content}}</span>-->
+  <div class="note-tag-area">
+  <b>Tags:&nbsp;</b> <span *ngFor="let tag of note.tags" class="note-tag">{{tag.name}}&nbsp;</span>
+  </div>
+
   <div [innerHTML]="note.content"></div>
   <br />
 </div>

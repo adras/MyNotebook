@@ -3,6 +3,8 @@
     border-width: 1px;
     border-color: black;
     border-style: solid;
+    border-radius: 4px;
+    padding: 4px;
 
     /*Not sure how to space notes, for now we use a bottom margin*/
     margin-bottom: 10px;
@@ -11,4 +13,9 @@
 .note-tag {
     color: #FFAA00;
     font-weight: bold;
+}
+
+.note-tag-area{
+    padding-bottom: 4px;
+    border-bottom: 1px solid black;
 }

@@ -12,6 +12,8 @@ export class ALoginComponent implements OnInit {
   public password: string = "";
 
   constructor(private mainService: AMainService) {
+    // Query all notes, this will determine the initial state
+    mainService.onQueryAll();
   }
 
   isLoggedIn(): boolean {
