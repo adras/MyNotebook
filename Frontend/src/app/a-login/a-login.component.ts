@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AMainServiceService } from '../Services/a-main.service';
+import { AMainService } from '../Services/a-main.service';
 
 @Component({
   selector: 'app-a-login',
@@ -8,16 +8,13 @@ import { AMainServiceService } from '../Services/a-main.service';
   styleUrls: ['./a-login.component.css']
 })
 
-
 export class ALoginComponent implements OnInit {
   public password: string = "";
 
-  constructor(private mainService: AMainServiceService) {
+  constructor(private mainService: AMainService) {
   }
 
   isLoggedIn(): boolean {
-    console.log("IsLoggedInProperty: " + this.mainService.isLoggedIn);
-    
     return this.mainService.isLoggedIn;
   }
 

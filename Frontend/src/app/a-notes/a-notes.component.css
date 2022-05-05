@@ -1,0 +1,14 @@
+.note {
+    background-color: #EAEAEA;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+
+    /*Not sure how to space notes, for now we use a bottom margin*/
+    margin-bottom: 10px;
+}
+
+.note-tag {
+    color: #FFAA00;
+    font-weight: bold;
+}

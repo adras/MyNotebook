@@ -2,7 +2,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as sha256 from 'crypto-js/sha256';
 import { BaseResponse } from '../Models/BaseResponse';
+import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
+import { Setting } from '../Models/Setting';
+import { Tag } from '../Models/Tag';
 import { AuthObserver } from '../Observers/AuthObserver';
 import { QueryAllObserver } from '../Observers/QueryAllObserver';
 import { EndpointService } from './endpoint.service';
@@ -10,9 +13,13 @@ import { EndpointService } from './endpoint.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AMainServiceService {
+export class AMainService {
   private authObserver: AuthObserver;
   private queryAllObserver: QueryAllObserver;
+
+  public allNotes: Array<Note> = [];
+  public allTags: Array<Tag> = [];
+  public allSettings: Array<Setting> = [];
 
   private apiPath: string;
   public isLoggedIn: boolean = false;

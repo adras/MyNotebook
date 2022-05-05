@@ -1,14 +1,16 @@
 import { BaseResponse } from "../Models/BaseResponse";
 import { QueryAllResponse } from "../Models/QueryAllResponse";
-import { AMainServiceService } from "../Services/a-main.service";
+import { AMainService } from "../Services/a-main.service";
 
 export class QueryAllObserver {
 
-  constructor(private mainService: AMainServiceService) {
+  constructor(private mainService: AMainService) {
   }
 
   public next(queryAllResponse: QueryAllResponse) {
-    console.log("After request: " + this.mainService.isLoggedIn);
+    this.mainService.allNotes = queryAllResponse.notes;
+    this.mainService.allTags = queryAllResponse.tags;
+    this.mainService.allSettings = queryAllResponse.settings;
   }
 
   public error(message: string) {

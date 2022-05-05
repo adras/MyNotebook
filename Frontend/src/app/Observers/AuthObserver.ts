@@ -1,9 +1,9 @@
 import { BaseResponse } from "../Models/BaseResponse";
-import { AMainServiceService } from "../Services/a-main.service";
+import { AMainService } from "../Services/a-main.service";
 
 export class AuthObserver {
 
-  constructor(private mainService: AMainServiceService) {
+  constructor(private mainService: AMainService) {
   }
 
   public next(authResponse: BaseResponse) {
