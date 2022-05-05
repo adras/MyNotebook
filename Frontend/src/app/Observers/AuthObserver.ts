@@ -1,7 +1,7 @@
 import { AuthResponse } from "../Models/AuthResponse";
 import { AMainServiceService } from "../Services/a-main.service";
 
-export class LoginObserver {
+export class AuthObserver {
 
   constructor(private mainService: AMainServiceService) {
   }
