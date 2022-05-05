@@ -4,6 +4,7 @@
 
 # Adding new services
 E.g. for dependency injection
+NOTE: "Service" will be automatically added to the name of the service which is created. e.g. ng generate service myService becomes myServiceService
 * Right-click on the Frontend-project in Visual Studio, choose Open in Terminal
 * In Terminal type: ng generate service heroes/hero
 
