@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as sha256 from 'crypto-js/sha256';
 import { Observable } from 'rxjs';
+import { LoginObserver } from './LoginObserver';
 import { LoginResponse } from './LoginResponse'
 
 @Component({
@@ -14,10 +15,11 @@ import { LoginResponse } from './LoginResponse'
 
 export class ALoginComponent implements OnInit {
   public password: string = "";
-  //private http: HttpClient;
+  public isLoggedIn: boolean = false;
+  private loginObserver: LoginObserver;
 
   constructor(private http: HttpClient) {
-    //this.http = http;
+    this.loginObserver = new LoginObserver(this);
   }
 
   ngOnInit(): void {
@@ -29,22 +31,15 @@ export class ALoginComponent implements OnInit {
     // Who cares, if the backend is rewritten everything changes anyway
     // Since it's not planned to update the backend right now, sha256 needs to be used
 
-    var url = "http://yourserver.com/notes/index.php";
+    var url = "http://localhost:4200/notes/index.php";
     var shaPwd = sha256(this.password).toString();
 
     const params = new HttpParams()
       .set("action", "login")
       .set("password", shaPwd)
 
-    this.http.post<LoginResponse>(url, params).subscribe({
-      next(loginResponse) {
+    this.isLoggedIn = false;
 
-      },
-      error(msg) {
-        console.log('Error Getting Location: ', msg);
-      }
-    });
-
-
+    this.http.post<LoginResponse>(url, params).subscribe(this.loginObserver);
   }
 }

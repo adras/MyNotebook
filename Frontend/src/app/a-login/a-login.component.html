@@ -1,6 +1,5 @@
-<h1>Welcome to MyNotebook - Please login</h1>
 
-<div id="login">
+<div *ngIf="!isLoggedIn">
   <label>Password: </label>
   <input type="password" [(ngModel)]="password" />
   <button (click)="onLogin()">Login</button>
