@@ -26,3 +26,9 @@ although the requests will end up being send to myserver, in your code you use l
 * Install Chrome
 
 Maybe also:  npm install -g @angular/cli
+
+# Deployment
+Use the developer console and run:
+* ng build
+This will automatically use the production configuration
+
