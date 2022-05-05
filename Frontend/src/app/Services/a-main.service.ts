@@ -3,16 +3,19 @@ import { Injectable } from '@angular/core';
 import * as sha256 from 'crypto-js/sha256';
 import { AuthResponse } from '../Models/AuthResponse';
 import { LogoutObserver } from '../Observers/LogoutObserver';
+import { EndpointService } from './endpoint.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AMainServiceService {
   private logoutObserver: LogoutObserver;
+  private apiPath: string;
   public isLoggedIn: boolean = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private endpointService: EndpointService) {
     this.logoutObserver = new LogoutObserver(this);
+    this.apiPath = endpointService.getEndpointPath();
   }
 
   public onLogin(password: string) {
@@ -20,27 +23,28 @@ export class AMainServiceService {
     // See: https://stackoverflow.com/a/43903139/7671671
     // Who cares, if the backend is rewritten everything changes anyway
     // Since it's not planned to update the backend right now, sha256 needs to be used
-    //this.mainService.helloWorld();
-    var url = "http://localhost:4200/MyNotebook-Uranus/index.php";
+
     var shaPwd = sha256(password).toString();
+    console.log("ApiPath: " + this.apiPath);
 
     const params = new HttpParams()
       .set("action", "login")
-      .set("password", shaPwd)
-    console.log("Before request: " + this.isLoggedIn);
+      .set("password", shaPwd);
+
     this.isLoggedIn = false;
 
-    this.http.post<AuthResponse>(url, params).subscribe(this.logoutObserver);
+    this.http.post<AuthResponse>(this.apiPath, params).subscribe(this.logoutObserver);
   }
+
   public onLogout() {
-    var url = "http://localhost:4200/MyNotebook-Uranus/index.php";
+    console.log("ApiPath: " + this.apiPath);
 
     const params = new HttpParams()
       .set("action", "logout")
-    console.log("Before request: " + this.isLoggedIn);
+
     this.isLoggedIn = false;
 
-    this.http.post<AuthResponse>(url, params).subscribe(this.logoutObserver);
+    this.http.post<AuthResponse>(this.apiPath, params).subscribe(this.logoutObserver);
   }
 
 }
