@@ -5,37 +5,4 @@
     "changeOrigin": true,
     "logLevel": "debug"
   }
-
-
-  //// [webpack-dev-server] [HPM] Proxy created: /notes  -> http://yourserver.com
-  //"/notes": {
-  //  "target": "http://yourserver.com",
-  //  "secure": false,
-  //  "changeOrigin": true,
-  //  "logLevel": "debug",
-  //  "urlRewrite": {
-  //    "^/notes": "/notes/"
-  //  }
-  //},
-  //// [webpack-dev-server] [HPM] Proxy created: undefined  -> http://yourserver.com
-  //"/*": {
-  //  "target": "http://yourserver.com",
-  //  "secure": false,
-  //  "changeOrigin": true,
-  //  "logLevel": "debug"
-  //},
-  //// [webpack-dev-server] [HPM] Proxy created: **  -> http://yourserver.com
-  //"*": {
-  //  "target": "http://yourserver.com",
-  //  "secure": false,
-  //  "changeOrigin": true,
-  //  "logLevel": "debug"
-  //},
-  //// [webpack-dev-server] [HPM] Proxy created: /notes  -> http://yourserver.com/
-  //"/notes/*": {
-  //  "target": "http://yourserver.com/",
-  //  "secure": false,
-  //  "changeOrigin": true,
-  //  "logLevel": "debug"
-  //}
 }
