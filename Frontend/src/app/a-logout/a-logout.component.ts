@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AMainServiceService } from '../a-main-service.service';
 
 @Component({
   selector: 'app-a-logout',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ALogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mainService: AMainServiceService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  onLogout(): void {
+    this.mainService.onLogout();
   }
 
 }

@@ -33,4 +33,15 @@ export class AMainServiceService {
 
     this.http.post<LoginResponse>(url, params).subscribe(this.loginObserver);
   }
+  public onLogout() {
+    var url = "http://localhost:4200/notes/index.php";
+
+    const params = new HttpParams()
+      .set("action", "logout")
+    console.log("Before request: " + this.isLoggedIn);
+    this.isLoggedIn = false;
+
+    this.http.post<LoginResponse>(url, params).subscribe(this.loginObserver);
+  }
+
 }
