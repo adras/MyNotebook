@@ -2,9 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { AMainServiceService } from '../a-main-service.service';
 import { LoginObserver } from '../Observers/LoginObserver';
 import { AuthResponse } from '../Models/AuthResponse'
+import { AMainServiceService } from '../Services/a-main.service';
 
 @Component({
   selector: 'app-a-login',

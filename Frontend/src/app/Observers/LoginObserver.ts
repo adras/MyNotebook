@@ -1,6 +1,5 @@
-import { AMainServiceService } from "../a-main-service.service";
-import { ALoginComponent } from "../a-login/a-login.component";
 import { AuthResponse } from "../Models/AuthResponse";
+import { AMainServiceService } from "../Services/a-main.service";
 
 export class LoginObserver {
 

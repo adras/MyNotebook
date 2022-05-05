@@ -1,9 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginObserver } from './Observers/LoginObserver';
 import * as sha256 from 'crypto-js/sha256';
-import { AuthResponse } from './Models/AuthResponse';
-import { LogoutObserver } from './Observers/LogoutObserver';
+import { AuthResponse } from '../Models/AuthResponse';
+import { LogoutObserver } from '../Observers/LogoutObserver';
 
 @Injectable({
   providedIn: 'root'
