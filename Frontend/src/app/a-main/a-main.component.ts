@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AMainServiceService } from '../a-main-service.service';
 
 @Component({
   selector: 'app-a-main',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AMainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mainService: AMainServiceService) {
+  }
+
+  isLoggedIn(): boolean {
+    return this.mainService.isLoggedIn;
+  }
 
   ngOnInit(): void {
   }
