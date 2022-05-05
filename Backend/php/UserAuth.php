@@ -35,6 +35,8 @@
 
 		public function logout ()
 		{
+			$_SESSION["loggedIn"] = false;
+			unset($_SESSION);
 			session_destroy();
 		}
 	}
