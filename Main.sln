@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E14A1BBF-5F6E-4239-B721-48D9DBC9B63E}"
 	ProjectSection(SolutionItems) = preProject
 		Angular-Cheat-Sheet.md = Angular-Cheat-Sheet.md
+		Frontend\component-overview.md = Frontend\component-overview.md
 	EndProjectSection
 EndProject
 Global
