@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { AMainServiceService } from '../a-main-service.service';
-import { LoginObserver } from './LoginObserver';
-import { LoginResponse } from './LoginResponse'
+import { LoginObserver } from '../Observers/LoginObserver';
+import { AuthResponse } from '../Models/AuthResponse'
 
 @Component({
   selector: 'app-a-login',
@@ -20,6 +20,8 @@ export class ALoginComponent implements OnInit {
   }
 
   isLoggedIn(): boolean {
+    console.log("IsLoggedInProperty: " + this.mainService.isLoggedIn);
+    
     return this.mainService.isLoggedIn;
   }
 

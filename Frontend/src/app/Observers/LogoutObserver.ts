@@ -1,14 +1,14 @@
 import { AMainServiceService } from "../a-main-service.service";
-import { ALoginComponent } from "./a-login.component";
-import { LoginResponse } from "./LoginResponse";
+import { ALoginComponent } from "../a-login/a-login.component";
+import { AuthResponse } from "../Models/AuthResponse";
 
-export class LoginObserver {
+export class LogoutObserver {
 
   constructor(private mainService: AMainServiceService) {
   }
 
-  public next(loginResponse: LoginResponse) {
-    this.mainService.isLoggedIn = loginResponse.isLoggedIn;
+  public next(authResponse: AuthResponse) {
+    this.mainService.isLoggedIn = authResponse.isLoggedIn;
     console.log("After request: " + this.mainService.isLoggedIn);
   }
 

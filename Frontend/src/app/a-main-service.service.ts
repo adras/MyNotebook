@@ -1,19 +1,19 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginObserver } from './a-login/LoginObserver';
+import { LoginObserver } from './Observers/LoginObserver';
 import * as sha256 from 'crypto-js/sha256';
-import { LoginResponse } from './a-login/LoginResponse';
+import { AuthResponse } from './Models/AuthResponse';
+import { LogoutObserver } from './Observers/LogoutObserver';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AMainServiceService {
-  private loginObserver: LoginObserver;
+  private logoutObserver: LogoutObserver;
   public isLoggedIn: boolean = false;
 
   constructor(private http: HttpClient) {
-    this.loginObserver = new LoginObserver(this);
-    console.log("Construct");
+    this.logoutObserver = new LogoutObserver(this);
   }
 
   public onLogin(password: string) {
@@ -31,7 +31,7 @@ export class AMainServiceService {
     console.log("Before request: " + this.isLoggedIn);
     this.isLoggedIn = false;
 
-    this.http.post<LoginResponse>(url, params).subscribe(this.loginObserver);
+    this.http.post<AuthResponse>(url, params).subscribe(this.logoutObserver);
   }
   public onLogout() {
     var url = "http://localhost:4200/notes/index.php";
@@ -41,7 +41,7 @@ export class AMainServiceService {
     console.log("Before request: " + this.isLoggedIn);
     this.isLoggedIn = false;
 
-    this.http.post<LoginResponse>(url, params).subscribe(this.loginObserver);
+    this.http.post<AuthResponse>(url, params).subscribe(this.logoutObserver);
   }
 
 }
