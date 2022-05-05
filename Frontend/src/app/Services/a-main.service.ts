@@ -21,7 +21,7 @@ export class AMainServiceService {
     // Who cares, if the backend is rewritten everything changes anyway
     // Since it's not planned to update the backend right now, sha256 needs to be used
     //this.mainService.helloWorld();
-    var url = "http://localhost:4200/notes/index.php";
+    var url = "http://localhost:4200/MyNotebook-Uranus/index.php";
     var shaPwd = sha256(password).toString();
 
     const params = new HttpParams()
@@ -33,7 +33,7 @@ export class AMainServiceService {
     this.http.post<AuthResponse>(url, params).subscribe(this.logoutObserver);
   }
   public onLogout() {
-    var url = "http://localhost:4200/notes/index.php";
+    var url = "http://localhost:4200/MyNotebook-Uranus/index.php";
 
     const params = new HttpParams()
       .set("action", "logout")

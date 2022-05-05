@@ -1,12 +1,12 @@
 {
-  "/notes/*": {
-    "target": "http://yourserver.com/notes/index.php",
+  "/MyNotebook-Uranus/*": {
+    "target": "http://yourserver.com/MyNotebook-Uranus/index.php",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   }
 
-  
+
   //// [webpack-dev-server] [HPM] Proxy created: /notes  -> http://yourserver.com
   //"/notes": {
   //  "target": "http://yourserver.com",
