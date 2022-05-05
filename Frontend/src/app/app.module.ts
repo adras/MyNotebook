@@ -9,6 +9,7 @@ import { ALogoutComponent } from './a-logout/a-logout.component';
 import { ANotesComponent } from './a-notes/a-notes.component';
 import { ASearchComponent } from './a-search/a-search.component';
 import { ATagsComponent } from './a-tags/a-tags.component';
+import { AMainComponent } from './a-main/a-main.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ATagsComponent } from './a-tags/a-tags.component';
     ALogoutComponent,
     ANotesComponent,
     ASearchComponent,
-    ATagsComponent
+    ATagsComponent,
+    AMainComponent
   ],
   imports: [
     BrowserModule,
