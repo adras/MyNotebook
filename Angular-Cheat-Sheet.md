@@ -2,6 +2,11 @@
 * Right-click on the Frontend-project in Visual Studio, choose Open in Terminal
 * In Terminal type: ng generate component xyz
 
+# Adding new services
+E.g. for dependency injection
+* Right-click on the Frontend-project in Visual Studio, choose Open in Terminal
+* In Terminal type: ng generate service heroes/hero
+
 # Proxy config
 Proxy config is required to access e.g. mynotebook.xx/notes
 For this the proxy.conf.json is enabled, and there's a reference in angular.json to it
