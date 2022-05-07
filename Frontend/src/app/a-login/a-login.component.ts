@@ -23,6 +23,12 @@ export class ALoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onKeyPress(event: KeyboardEvent): void {
+    if (event.keyCode == 13) {
+      this.onLogin();
+    }
+  }
+
   onLogin(): void {
     this.mainService.onLogin(this.password);
   }
