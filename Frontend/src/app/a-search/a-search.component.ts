@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./a-search.component.css']
 })
 export class ASearchComponent implements OnInit {
+  public searchText: string = "";
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onKeyUp(event: KeyboardEvent): void {
+
   }
 
 }
