@@ -1,1 +1,6 @@
-<p>a-tags works!</p>
+<div class="tag-container">Tags
+  <div *ngFor="let tag of tags()">
+    <div>{{tag.name}}</div>
+  </div>
+
+</div>

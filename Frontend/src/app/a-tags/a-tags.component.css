@@ -1,0 +1,19 @@
+/*@media (min-width: 40em) {*/
+  .tag-container {
+    display: inline-block;
+
+    background-color: #EAEAEA;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 4px;
+    float: right;
+    position: sticky;
+    top: 82px;
+  }
+/*}*/
+
+.tag {
+
+}

@@ -6,6 +6,7 @@
     border-radius: 4px;
     padding: 4px;
 
+    margin-right: 8em;
     /*Not sure how to space notes, for now we use a bottom margin*/
     margin-bottom: 10px;
 }

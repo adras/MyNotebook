@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tag } from '../Models/Tag';
+import { AMainService } from '../Services/a-main.service';
 
 @Component({
   selector: 'app-a-tags',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ATagsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mainService: AMainService) { }
 
   ngOnInit(): void {
   }
 
+  tags(): Array<Tag> {
+    return this.mainService.allTags;
+  }
 }
