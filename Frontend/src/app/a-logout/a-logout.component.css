@@ -1,0 +1,10 @@
+.logout-container {
+  display: inline-block;
+  position:absolute;
+  top: 10px;
+  margin: 0px;
+
+  padding: 4px;
+  float: right;
+  position: sticky;
+}

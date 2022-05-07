@@ -1,7 +1,10 @@
 <div *ngIf="isLoggedIn()">
-  <app-a-search></app-a-search>
-  <app-a-tags></app-a-tags>
-  <app-a-logout></app-a-logout>
-  <app-a-notes>
-  </app-a-notes>
+  <h1>MyNotebook</h1>
+  <div class="main-container">
+    <app-a-logout></app-a-logout><br /><br />
+    <app-a-search></app-a-search><br /><br />
+    <app-a-tags></app-a-tags>
+    <app-a-notes>
+    </app-a-notes>
+  </div>
 </div>

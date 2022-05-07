@@ -1,6 +1,7 @@
 
-<div *ngIf="!isLoggedIn()">
+<div *ngIf="!isLoggedIn()" class="login-container">
+  <h1>Welcome to MyNotebook - Please login</h1>
   <label>Password: </label>
-  <input type="password" [(ngModel)]="password" (keypress)="onKeyPress($event)"/>
+  <input type="password" [(ngModel)]="password" (keypress)="onKeyPress($event)" />
   <button (click)="onLogin()">Login</button>
 </div>

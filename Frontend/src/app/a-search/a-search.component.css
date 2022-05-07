@@ -1,5 +1,5 @@
 .search-container {
     top: 5em;
-    position: fixed;
+    position: sticky;
     float: right;
 }
