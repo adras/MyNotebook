@@ -20,4 +20,13 @@ It may happen that this no longer works properly, so feel free to open an issue 
 
 Once the old php project is running you can configure the new angular.js to use it as a backend.
 
-In order to do so you need to.... WIP
+In order to do so you need to update two files to point to your php-backend
+
+Both files need a url which points to the index.php of your MyNotebook installation.
+
+## proxy.conf.json
+This file is required to avoid CORS issues when running the program locally. The proxy basically maps the path of 
+your backend to localhost so any CORS issues are avoided. That proxy is not active in a production environment.
+
+## src/environment.prod.ts
+This file is required for the production environment to run properly.
