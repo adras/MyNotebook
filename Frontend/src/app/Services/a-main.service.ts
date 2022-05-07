@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as sha256 from 'crypto-js/sha256';
+import * as CryptoJS from 'crypto-js';
 import { BaseResponse } from '../Models/BaseResponse';
 import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
@@ -35,8 +35,11 @@ export class AMainService {
     // See: https://stackoverflow.com/a/43903139/7671671
     // Who cares, if the backend is rewritten everything changes anyway
     // Since it's not planned to update the backend right now, sha256 needs to be used
+    //CryptoJS.SHA256()
+    var shaPwd = CryptoJS.SHA256(password).toString();
+    
+    //var shaPwd = sha256(password).toString();
 
-    var shaPwd = sha256(password).toString();
     console.log("ApiPath: " + this.apiPath);
 
     const params = new HttpParams()
