@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "jest-editor-support": "^30.0.2"
+  }
+}
