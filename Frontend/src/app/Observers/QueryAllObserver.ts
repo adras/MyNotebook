@@ -8,10 +8,7 @@ export class QueryAllObserver {
   }
 
   public next(queryAllResponse: QueryAllResponse) {
-    this.mainService.isLoggedIn = queryAllResponse.isLoggedIn;
-    this.mainService.allNotes = queryAllResponse.notes;
-    this.mainService.allTags = queryAllResponse.tags;
-    this.mainService.allSettings = queryAllResponse.settings;
+    this.mainService.onQueryAll(queryAllResponse);
   }
 
   public error(message: string) {

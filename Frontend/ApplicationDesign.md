@@ -18,3 +18,8 @@ The search box
 
 ## a-tags
 The tag selector
+
+# MainService and components
+Main.service has two kinds of methods ```onXXX``` and ```execXXX```. Whenever a request should be send to the backend
+the exec methods are used. The response will be handled by a related observer which on success calls the related 
+```on``` method in main.service which processes the response.

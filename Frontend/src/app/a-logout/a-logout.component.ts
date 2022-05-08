@@ -15,7 +15,7 @@ export class ALogoutComponent implements OnInit {
   }
 
   onLogout(): void {
-    this.mainService.onLogout();
+    this.mainService.execLogout();
   }
 
 }

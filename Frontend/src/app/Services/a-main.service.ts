@@ -24,7 +24,7 @@ export class AMainService {
   public allSettings: Array<Setting> = [];
 
   // States
-  public selectedTags: Array<Tag> = [];
+  public selectedTags: Array<string> = [];
 
   public isLoggedIn: boolean = false;
 
@@ -39,7 +39,7 @@ export class AMainService {
   }
 
   // Requests - move to dedicated file
-  public onLogin(password: string) {
+  public execLogin(password: string) {
     // Note: Using SHA256 to hash passwords on the client side seems to be deprecated
     // See: https://stackoverflow.com/a/43903139/7671671
     // Who cares, if the backend is rewritten everything changes anyway
@@ -60,7 +60,7 @@ export class AMainService {
     this.http.post<BaseResponse>(this.apiPath, params).subscribe(this.authObserver);
   }
 
-  public onLogout() {
+  public execLogout() {
     console.log("ApiPath: " + this.apiPath);
 
     const params = new HttpParams()
@@ -71,10 +71,37 @@ export class AMainService {
     this.http.post<BaseResponse>(this.apiPath, params).subscribe(this.authObserver);
   }
 
-  public onQueryAll() {
+  public execQueryAll() {
     const params = new HttpParams()
       .set("action", "queryAll")
 
     this.http.post<QueryAllResponse>(this.apiPath, params).subscribe(this.queryAllObserver);
+  }
+
+  // Request-Response actions
+  public onQueryAll(response: QueryAllResponse) {
+    this.isLoggedIn = response.isLoggedIn;
+    if (!this.isLoggedIn) {
+      return;
+    }
+    this.allNotes = response.notes;
+    this.allTags = response.tags;
+    this.allSettings = response.settings;
+
+
+
+    const defaultTags = response.settings.filter(x => x.name == "defaultTags");
+
+    this.selectedTags = defaultTags.map(tag => tag.name);
+  }
+
+  public onLogin(response: BaseResponse) {
+    this.isLoggedIn = response.isLoggedIn;
+    if (this.isLoggedIn) {
+      this.execQueryAll();
+    }
+  }
+
+  public onLogout(response: BaseResponse) {
   }
 }

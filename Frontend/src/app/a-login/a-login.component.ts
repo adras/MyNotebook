@@ -13,7 +13,7 @@ export class ALoginComponent implements OnInit {
 
   constructor(private mainService: AMainService) {
     // Query all notes, this will determine the initial state
-    mainService.onQueryAll();
+    mainService.execQueryAll();
   }
 
   isLoggedIn(): boolean {
@@ -30,6 +30,6 @@ export class ALoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    this.mainService.onLogin(this.password);
+    this.mainService.execLogin(this.password);
   }
 }

@@ -9,10 +9,7 @@ export class AuthObserver {
   public next(authResponse: BaseResponse) {
     this.mainService.isLoggedIn = authResponse.isLoggedIn;
 
-    // Is this ok, when this happens here?
-    if (this.mainService.isLoggedIn) {
-      this.mainService.onQueryAll();
-    }
+    this.mainService.onLogin(authResponse);
   }
 
   public error(message: string) {
