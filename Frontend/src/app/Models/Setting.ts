@@ -1,5 +1,5 @@
-export class Setting {
-  public name: string = "";
-  public value: string = "";
-  public description: string = "";
+export interface Setting {
+  name: string;
+  value: string;
+  description: string;
 }

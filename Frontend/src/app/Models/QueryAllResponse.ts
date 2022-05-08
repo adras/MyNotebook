@@ -3,15 +3,13 @@ import { Note } from "./Note";
 import { Setting } from "./Setting";
 import { Tag } from "./Tag";
 
-export class QueryAllResponse implements BaseResponse{
-  public isLoggedIn: boolean = false;
-  public message: string = "";
-  public result: boolean = false;
+export interface QueryAllResponse extends BaseResponse {
+  isLoggedIn: boolean;
+  message: string;
+  result: boolean;
 
-  public notes: Array<Note> = [];
-  public tags: Array<Tag> = [];
-  public settings: Array<Setting> = [];
+  notes: Array<Note>;
+  tags: Array<Tag>;
+  settings: Array<Setting>;
 
-  constructor() {
-  }
 }

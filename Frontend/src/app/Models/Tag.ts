@@ -1,4 +1,4 @@
-export class Tag {
-  public id:string = "";
-  public name: string = "";
+export interface Tag {
+  id: string;
+  name: string;
 }
