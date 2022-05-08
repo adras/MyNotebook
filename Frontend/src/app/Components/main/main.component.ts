@@ -45,13 +45,15 @@ export class MainComponent implements OnInit {
   }
 
   updateSelectedNotes(): void {
-    
-    var test = this.allNotes[10].tags.map((tag) => tag.name);
-    console.log(test);
-    //this.selectedNotes = this.allNotes.filter((note) => note.tags.map((tag) => tag.name).);
-    //this.selectedNotes = this.allNotes.filter(
-    //  (note) => this.selectedTags.includes(note.tags.map(tag => tag.name)))
+    // If allnotes tag is selected, show all notes
+    const allNotesTag = this.allSettings?.allNotesTagName.value as string;
+    if (this.selectedTags.includes(allNotesTag)) {
+      this.selectedNotes = Object.assign([], this.allNotes);
+      return;
+    }
 
+    // Show all notes which contain one of the selected tags
+    // There should be a more modern way to do this
     this.selectedNotes.splice(0, this.selectedNotes.length);
     for (var i = 0; i < this.allNotes.length; i++) {
       for (var j = 0; j < this.allNotes[i].tags.length; j++) {
@@ -61,6 +63,10 @@ export class MainComponent implements OnInit {
         }
       }
     }
+
+    // TODO, search selectedNotes for searchText? could also be done in the loop above
+    // Figure out what's faster
+    
   }
 
   doLogin(event: OnLogin) {
