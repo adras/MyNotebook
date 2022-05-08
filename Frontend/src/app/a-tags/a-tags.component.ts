@@ -7,6 +7,7 @@ import { AMainService } from '../Services/a-main.service';
   templateUrl: './a-tags.component.html',
   styleUrls: ['./a-tags.component.css']
 })
+
 export class ATagsComponent implements OnInit {
 
   constructor(private mainService: AMainService) { }

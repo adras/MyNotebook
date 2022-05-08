@@ -1,4 +1,21 @@
 
+
+.mat-button-toggle-checked {
+  background-color: #000000 !important;
+  color: #FF0000 !important;
+}
+
+.mat-button-toggle {
+  background-color: #BABABA;
+  color: white;
+}
+
+.mat-button-toggle-group {
+
+}
+
+
+
 .tag-container {
   display: inline-block;
   background-color: #EAEAEA;
@@ -13,7 +30,4 @@
   padding: 1em 1em 1em 1em;
 }
 
-
-.tag {
-}
 
