@@ -1,19 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
-import { OnLogin } from '../Events/OnLogin';
+import { OnLogin } from '../Events/OnLoginEvent';
 import { BaseResponse } from '../Models/BaseResponse';
-import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
-import { Setting } from '../Models/Setting';
-import { Settings } from '../Models/Settings';
-import { Tag } from '../Models/Tag';
 import { EndpointService } from './endpoint.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AMainService {
+export class MainService {
   private apiPath: string;
 
   constructor(private http: HttpClient, private endpointService: EndpointService) {

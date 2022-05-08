@@ -1,11 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-a-logout',
-  templateUrl: './a-logout.component.html',
-  styleUrls: ['./a-logout.component.css']
+  selector: 'app-logout',
+  templateUrl: './logout.component.html',
+  styleUrls: ['./logout.component.css']
 })
-export class ALogoutComponent implements OnInit {
+export class LogoutComponent implements OnInit {
   @Output() onLogout = new EventEmitter();
 
   constructor() {

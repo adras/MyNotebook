@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { OnLogin } from '../../Events/OnLogin';
-import { TagChange } from '../../Events/TagChange';
+import { OnLogin } from '../../Events/OnLoginEvent';
+import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
 import { Note } from '../../Models/Note';
 import { QueryAllResponse } from '../../Models/QueryAllResponse';
 import { Settings } from '../../Models/Settings';
 import { Tag } from '../../Models/Tag';
-import { AMainService } from '../../Services/a-main.service';
+import { MainService } from '../../Services/main.service';
 
 @Component({
-  selector: 'app-a-main',
-  templateUrl: './a-main.component.html',
-  styleUrls: ['./a-main.component.css']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css']
 })
-export class AMainComponent implements OnInit {
+export class MainComponent implements OnInit {
   // Note data
   allNotes: Array<Note> = [];
   allTags: Array<Tag> = [];
@@ -24,7 +24,7 @@ export class AMainComponent implements OnInit {
   isLoggedIn: boolean = false;
   selectedNotes: Array<Note> = [];
 
-  constructor(private mainService: AMainService) {
+  constructor(private mainService: MainService) {
   }
 
   ngOnInit(): void {

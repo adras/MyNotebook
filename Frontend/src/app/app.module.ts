@@ -5,25 +5,25 @@ import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { ALoginComponent } from './Components/a-login/a-login.component';
+import { LoginComponent } from './Components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ALogoutComponent } from './Components/a-logout/a-logout.component';
-import { ANotesComponent } from './Components/a-notes/a-notes.component';
-import { ASearchComponent } from './Components/a-search/a-search.component';
-import { ATagsComponent } from './Components/a-tags/a-tags.component';
+import { LogoutComponent } from './Components/logout/logout.component';
+import { NotesComponent } from './Components/notes/notes.component';
+import { SearchComponent } from './Components/search/search.component';
+import { TagsComponent } from './Components/tags/tags.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { AMainComponent } from './Components/a-main/a-main.component';
+import { MainComponent } from './Components/main/main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ALoginComponent,
-    ALogoutComponent,
-    ANotesComponent,
-    ASearchComponent,
-    ATagsComponent,
-    AMainComponent
+    LoginComponent,
+    LogoutComponent,
+    NotesComponent,
+    SearchComponent,
+    TagsComponent,
+    MainComponent
   
   ],
   imports: [

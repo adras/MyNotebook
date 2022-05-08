@@ -1,0 +1,16 @@
+
+<div *ngIf="!isLoggedIn" class="login-container">
+  <h1>Welcome to MyNotebook - Please login</h1>
+  <app-login (onLogin)="doLogin($event)"></app-login>
+</div>
+
+<div *ngIf="isLoggedIn">
+  <h1>MyNotebook</h1>
+  <div class="main-container">
+    <app-logout (onLogout)="doLogout()"></app-logout>
+    <app-search></app-search>
+    <app-tags (tagsChanged)="tagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
+    <app-notes [selectedNotes]="selectedNotes">
+    </app-notes>
+  </div>
+</div>

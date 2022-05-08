@@ -1,14 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { OnLogin } from '../../Events/OnLogin';
+import { OnLogin } from '../../Events/OnLoginEvent';
 
 
 @Component({
-  selector: 'app-a-login',
-  templateUrl: './a-login.component.html',
-  styleUrls: ['./a-login.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 
-export class ALoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
   @Output() onLogin = new EventEmitter<OnLogin>();
 
   constructor() {
