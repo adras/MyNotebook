@@ -1,5 +1,9 @@
 .search-container {
-    top: 5em;
-    position: sticky;
-    float: right;
+  top: 5em;
+  position:sticky;
+  width: 100%;
+}
+
+.search-elements {
+  text-align: right;
 }

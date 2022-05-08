@@ -16,12 +16,16 @@ import { EndpointService } from './endpoint.service';
 export class AMainService {
   private authObserver: AuthObserver;
   private queryAllObserver: QueryAllObserver;
+  private apiPath: string;
 
+  // Note data
   public allNotes: Array<Note> = [];
   public allTags: Array<Tag> = [];
   public allSettings: Array<Setting> = [];
 
-  private apiPath: string;
+  // States
+  public selectedTags: Array<Tag> = [];
+
   public isLoggedIn: boolean = false;
 
   constructor(private http: HttpClient, private endpointService: EndpointService) {
@@ -30,6 +34,11 @@ export class AMainService {
     this.apiPath = endpointService.getEndpointPath();
   }
 
+  public visibleNotes(): Array<Note> {
+    return this.allNotes;
+  }
+
+  // Requests - move to dedicated file
   public onLogin(password: string) {
     // Note: Using SHA256 to hash passwords on the client side seems to be deprecated
     // See: https://stackoverflow.com/a/43903139/7671671
