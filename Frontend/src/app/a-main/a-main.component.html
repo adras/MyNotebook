@@ -3,7 +3,7 @@
   <div class="main-container">
     <app-a-logout></app-a-logout>
     <app-a-search></app-a-search>
-    <app-a-tags></app-a-tags>
+    <app-a-tags (tagsChanged)="tagsChanged($event)" [selectedTags]="selectedTags"></app-a-tags><!--(newItemEvent)="updateTags($event)"-->
     <app-a-notes>
     </app-a-notes>
   </div>

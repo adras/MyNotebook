@@ -12,7 +12,7 @@ import { ANotesComponent } from './a-notes/a-notes.component';
 import { ASearchComponent } from './a-search/a-search.component';
 import { ATagsComponent } from './a-tags/a-tags.component';
 import { AMainComponent } from './a-main/a-main.component';
-import { MatButtonToggle, MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 @NgModule({

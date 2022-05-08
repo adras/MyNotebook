@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { TagChange } from '../Events/TagChange';
 import { Tag } from '../Models/Tag';
 import { AMainService } from '../Services/a-main.service';
 
@@ -9,11 +11,17 @@ import { AMainService } from '../Services/a-main.service';
 })
 
 export class ATagsComponent implements OnInit {
+  @Output() tagsChanged = new EventEmitter<TagChange>();
+  @Input() selectedTags: Array<string> = [];
 
-  constructor(private mainService: AMainService) { }
+  constructor(public mainService: AMainService) { }
 
   ngOnInit(): void {
-    // this.mainService.allSettings["defaultTags"]
+  }
+
+  tagChange(change: MatButtonToggleChange): void {
+    const event = new TagChange(change.source.checked, change.value);
+    this.tagsChanged.emit(event);
   }
 
   tags(): Array<Tag> {
