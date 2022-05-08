@@ -13,6 +13,7 @@ export class ATagsComponent implements OnInit {
   constructor(private mainService: AMainService) { }
 
   ngOnInit(): void {
+    // this.mainService.allSettings["defaultTags"]
   }
 
   tags(): Array<Tag> {
