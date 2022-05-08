@@ -8,7 +8,15 @@
   </div>
   <div *ngIf="isEditing">
     <app-note-editor></app-note-editor>
-    <label>Tags:</label><input type="text" />
-    <button (click)="doCancel()">Cancel</button><button (click)="doSave()">Save</button>
+
+    <div class="button-container">
+      <button (click)="doCancel()" class="cancel-button">Cancel</button>
+      <button (click)="doSave()" class="save-button">Save</button>
+      <div class="tags-container">
+        <label>Tags:</label>
+        <input type="text" [value]="note!.tags"/>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
   </div>
 </div>

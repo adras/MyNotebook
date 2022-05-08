@@ -25,6 +25,7 @@ export class MainComponent implements OnInit {
   selectedNotes: Array<Note> = [];
 
   constructor(private mainService: MainService) {
+    this.doQueryAll();
   }
 
   ngOnInit(): void {
