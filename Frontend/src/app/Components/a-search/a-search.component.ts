@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { OnSearch } from '../Events/OnSearch';
+import { OnSearch } from '../../Events/OnSearch';
 
 @Component({
   selector: 'app-a-search',

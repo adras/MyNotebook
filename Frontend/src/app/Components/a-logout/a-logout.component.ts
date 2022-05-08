@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AMainService } from '../Services/a-main.service';
 
 @Component({
   selector: 'app-a-logout',

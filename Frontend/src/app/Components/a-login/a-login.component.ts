@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { OnLogin } from '../Events/OnLogin';
+import { OnLogin } from '../../Events/OnLogin';
 
-import { AMainService } from '../Services/a-main.service';
 
 @Component({
   selector: 'app-a-login',

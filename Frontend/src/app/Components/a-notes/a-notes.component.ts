@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Note } from '../Models/Note';
-import { AMainService } from '../Services/a-main.service';
+import { Note } from '../../Models/Note';
 
 @Component({
   selector: 'app-a-notes',

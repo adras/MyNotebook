@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { OnLogin } from '../Events/OnLogin';
-import { TagChange } from '../Events/TagChange';
-import { BaseResponse } from '../Models/BaseResponse';
-import { Note } from '../Models/Note';
-import { QueryAllResponse } from '../Models/QueryAllResponse';
-import { Settings } from '../Models/Settings';
-import { Tag } from '../Models/Tag';
-import { AMainService } from '../Services/a-main.service';
+import { OnLogin } from '../../Events/OnLogin';
+import { TagChange } from '../../Events/TagChange';
+import { BaseResponse } from '../../Models/BaseResponse';
+import { Note } from '../../Models/Note';
+import { QueryAllResponse } from '../../Models/QueryAllResponse';
+import { Settings } from '../../Models/Settings';
+import { Tag } from '../../Models/Tag';
+import { AMainService } from '../../Services/a-main.service';
 
 @Component({
   selector: 'app-a-main',
