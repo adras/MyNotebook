@@ -1,6 +1,6 @@
 import { BaseResponse } from "./BaseResponse";
 import { Note } from "./Note";
-import { Setting } from "./Setting";
+import { Settings } from "./Settings";
 import { Tag } from "./Tag";
 
 export interface QueryAllResponse extends BaseResponse {
@@ -10,6 +10,5 @@ export interface QueryAllResponse extends BaseResponse {
 
   notes: Array<Note>;
   tags: Array<Tag>;
-  settings: Array<Setting>;
-
+  settings: Settings;
 }

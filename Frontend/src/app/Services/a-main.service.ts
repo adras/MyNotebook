@@ -5,6 +5,7 @@ import { BaseResponse } from '../Models/BaseResponse';
 import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
 import { Setting } from '../Models/Setting';
+import { Settings } from '../Models/Settings';
 import { Tag } from '../Models/Tag';
 import { AuthObserver } from '../Observers/AuthObserver';
 import { QueryAllObserver } from '../Observers/QueryAllObserver';
@@ -21,7 +22,7 @@ export class AMainService {
   // Note data
   public allNotes: Array<Note> = [];
   public allTags: Array<Tag> = [];
-  public allSettings: Array<Setting> = [];
+  public allSettings: Settings | undefined;
 
   // States
   public selectedTags: Array<string> = [];
@@ -88,11 +89,9 @@ export class AMainService {
     this.allTags = response.tags;
     this.allSettings = response.settings;
 
-
-
-    const defaultTags = response.settings.filter(x => x.name == "defaultTags");
-
-    this.selectedTags = defaultTags.map(tag => tag.name);
+    // value in Settings is defined as string, however for defaultTags it's an array
+    // Casting the string directly to an array would result in an error, therefore we cast to unknown first
+    this.selectedTags = this.allSettings.defaultTags.value as unknown as Array<string>;
   }
 
   public onLogin(response: BaseResponse) {
