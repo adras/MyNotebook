@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OnLogin } from '../Events/OnLogin';
 
 import { AMainService } from '../Services/a-main.service';
 
@@ -9,27 +10,22 @@ import { AMainService } from '../Services/a-main.service';
 })
 
 export class ALoginComponent implements OnInit {
-  public password: string = "";
+  @Output() onLogin = new EventEmitter<OnLogin>();
 
-  constructor(private mainService: AMainService) {
-    // Query all notes, this will determine the initial state
-    mainService.execQueryAll();
-  }
-
-  isLoggedIn(): boolean {
-    return this.mainService.isLoggedIn;
+  constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  onKeyPress(event: KeyboardEvent): void {
-    if (event.keyCode == 13) {
-      this.onLogin();
-    }
+  execLogin(password: string): void {
+    const event = new OnLogin(password);
+    this.onLogin.emit(event);
   }
 
-  onLogin(): void {
-    this.mainService.execLogin(this.password);
+  onKeyPress(event: KeyboardEvent, password:string): void {
+    if (event.keyCode == 13) {
+      this.execLogin(password);
+    }
   }
 }

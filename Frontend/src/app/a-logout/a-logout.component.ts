@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AMainService } from '../Services/a-main.service';
 
 @Component({
@@ -7,15 +7,15 @@ import { AMainService } from '../Services/a-main.service';
   styleUrls: ['./a-logout.component.css']
 })
 export class ALogoutComponent implements OnInit {
+  @Output() onLogout = new EventEmitter();
 
-  constructor(private mainService: AMainService) {
+  constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  onLogout(): void {
-    this.mainService.execLogout();
+  execLogout(): void {
+    this.onLogout.emit();
   }
-
 }

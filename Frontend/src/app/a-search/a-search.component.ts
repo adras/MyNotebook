@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OnSearch } from '../Events/OnSearch';
 
 @Component({
   selector: 'app-a-search',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./a-search.component.css']
 })
 export class ASearchComponent implements OnInit {
+  @Output() onSearch = new EventEmitter<OnSearch>();
   public searchText: string = "";
 
   constructor() { }
@@ -13,8 +15,9 @@ export class ASearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onKeyUp(event: KeyboardEvent): void {
-
+  onKeyUp(keyboardEvent: KeyboardEvent): void {
+    const event = new OnSearch(this.searchText);
+    this.onSearch.emit(event);
   }
 
 }

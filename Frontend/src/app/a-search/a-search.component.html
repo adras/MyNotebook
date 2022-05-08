@@ -1,6 +1,6 @@
 <div class="search-container">
   <div class="search-elements">
     <span>Search:&nbsp;</span>
-    <input type="text" [(ngModel)]="searchText" (keyup)="onKeyUp($event)" />
+    <input type="text" (keyup)="onKeyUp($event)" [value]="searchText"/>
   </div>
 </div>

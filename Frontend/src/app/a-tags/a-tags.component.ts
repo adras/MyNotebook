@@ -13,8 +13,9 @@ import { AMainService } from '../Services/a-main.service';
 export class ATagsComponent implements OnInit {
   @Output() tagsChanged = new EventEmitter<TagChange>();
   @Input() selectedTags: Array<string> = [];
+  @Input() allTags: Array<Tag> = [];
 
-  constructor(public mainService: AMainService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -22,9 +23,5 @@ export class ATagsComponent implements OnInit {
   tagChange(change: MatButtonToggleChange): void {
     const event = new TagChange(change.source.checked, change.value);
     this.tagsChanged.emit(event);
-  }
-
-  tags(): Array<Tag> {
-    return this.mainService.allTags;
   }
 }

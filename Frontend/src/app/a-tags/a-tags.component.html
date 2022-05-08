@@ -3,7 +3,7 @@
 
     <mat-button-toggle-group name="Tags" aria-label="Tags"
                              multiple vertical="true" [value]="selectedTags">
-      <mat-button-toggle *ngFor="let tag of tags()"
+      <mat-button-toggle *ngFor="let tag of allTags"
                          (change)="tagChange($event)"
                          value="{{tag.name}}">{{tag.name}}</mat-button-toggle>
     </mat-button-toggle-group>

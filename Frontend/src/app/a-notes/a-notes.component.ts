@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Note } from '../Models/Note';
 import { AMainService } from '../Services/a-main.service';
 
@@ -8,13 +8,10 @@ import { AMainService } from '../Services/a-main.service';
   styleUrls: ['./a-notes.component.css']
 })
 export class ANotesComponent implements OnInit {
-
-  constructor(private mainService: AMainService) { }
+  @Input() selectedNotes : Array<Note> = [];
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  notes(): Array<Note> {
-    return this.mainService.allNotes;
-  }
 }
