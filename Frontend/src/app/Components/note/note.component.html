@@ -1,0 +1,14 @@
+<div>
+  <div *ngIf="!isEditing" (dblclick)="enterEdit()">
+    <div class="note-tag-area">
+      <b>Tags:&nbsp;</b> <span *ngFor="let tag of note!.tags" class="note-tag">{{tag.name}}&nbsp;</span>
+    </div>
+
+    <div [innerHTML]="note!.content"></div>
+  </div>
+  <div *ngIf="isEditing">
+    <app-note-editor></app-note-editor>
+    <label>Tags:</label><input type="text" />
+    <button (click)="doCancel()">Cancel</button><button (click)="doSave()">Save</button>
+  </div>
+</div>
