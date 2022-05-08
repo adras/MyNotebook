@@ -24,6 +24,8 @@ export class NoteComponent implements OnInit {
   }
 
   doCancel() {
+    // TODO: Since the editor is databound to the note
+    // Cancel needs to undo the changes made
     this.isEditing = false;
   }
 
