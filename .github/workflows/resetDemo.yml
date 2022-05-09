@@ -1,7 +1,11 @@
 name: "Reset demo db"
 on:
+  push:
+    branches:
+      - master
+      
   schedule:
-  - cron: "0 1 2 * *"
+  - cron: "0 */1 * * *"
 
 jobs:
   stale:
