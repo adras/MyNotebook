@@ -9,7 +9,7 @@ import { Editor } from 'ngx-editor';
 export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() html: string = '';
   editor!: Editor;
-  //html: string = '';
+
 
   ngOnInit(): void {
     this.editor = new Editor();

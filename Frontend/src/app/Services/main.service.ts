@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
-import { OnLogin } from '../Events/OnLoginEvent';
+import { OnLoginEvent } from '../Events/OnLoginEvent';
 import { BaseResponse } from '../Models/BaseResponse';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
 import { EndpointService } from './endpoint.service';
@@ -16,7 +16,7 @@ export class MainService {
     this.apiPath = endpointService.getEndpointPath();
   }
 
-  public doLogin(event: OnLogin) {
+  public doLogin(event: OnLoginEvent) {
     // Note: Using SHA256 to hash passwords on the client side seems to be deprecated
     // See: https://stackoverflow.com/a/43903139/7671671
     // Who cares, if the backend is rewritten everything changes anyway

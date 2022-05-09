@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
 import { Note } from '../../Models/Note';
 import { Tag } from '../../Models/Tag';
 
@@ -7,8 +8,11 @@ import { Tag } from '../../Models/Tag';
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.css']
 })
+
 export class NoteComponent implements OnInit {
   @Input() note: Note | undefined;
+  @Output() onEdit =  new EventEmitter<OnEditNoteEvent>();
+
   isEditing: boolean = false;
 
   constructor() { }

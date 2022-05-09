@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OnLogin } from '../../Events/OnLoginEvent';
+import { OnLoginEvent } from '../../Events/OnLoginEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
 import { Note } from '../../Models/Note';
@@ -70,7 +70,7 @@ export class MainComponent implements OnInit {
     
   }
 
-  doLogin(event: OnLogin) {
+  doLogin(event: OnLoginEvent) {
     this.mainService.doLogin(event).subscribe((response: BaseResponse) => this.onLogin(response));
   }
 

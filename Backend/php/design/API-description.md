@@ -28,3 +28,10 @@ Request:
 
 Response:
 TODO
+
+# Edit Note
+Request:
+	action: "editNote"
+	note: TODO
+
+Model: Note
