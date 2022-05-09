@@ -35,4 +35,4 @@ Since the project is supposed to also run in a subdirectory of a server the base
 This however doesn't work when running the project locally, there will be an erorr like "Get / ...". To fix that, there's
 no baseHref defined normally. Instead there's a "build-prod" definition in package.json which passes the baseHref parameter to 'ng build'
 
-TODO: It would be nice to have this in the production.json file or something. This seems to be a bit hacky
+The API-path to the backend are defined in environment/environment.ts and environment.prod.ts. See readme.md on how to set that up
