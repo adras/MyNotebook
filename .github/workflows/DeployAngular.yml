@@ -23,14 +23,13 @@ jobs:
     - name: Directory dump
       run: |
         ls -la
-        cd ./Frontend
-        ls -la
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: ./Frontend/package-lock.json
-    - run: 
+    - run: |
+        cd Frontend
         npm run build-prod
 
