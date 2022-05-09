@@ -23,6 +23,9 @@ jobs:
     - name: Directory dump
       run: |
         ls -la
+    - name: Configure environment.prod.ts
+      run: |
+        cp ./Frontend/src/environments/environment-demo-prod.ts ./Frontend/src/environments/environment.prod.ts
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
