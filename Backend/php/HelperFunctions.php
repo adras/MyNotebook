@@ -1,14 +1,20 @@
 <?php
 class HelperFunctions{
 	public static function MagicStripslashes ($value){
-		if (get_magic_quotes_gpc() === 1)
-		{
-			return stripslashes($value);
-		}
-		else
-		{
-			return $value;
-		}
+	// Logic removed, since get_magic_quotes was removed in PHP 7.4
+	// This could be a security risk and allow SQL-injections
+	// Please investigate
+	
+	// if (get_magic_quotes_gpc() === 1)
+	// {
+	// 	return stripslashes($value);
+	// }
+	// else
+	// {
+	// 	return $value;
+	// }
+		
+		return $value;
 	}
 	
 	// Creates an sql query with proper encoded values
