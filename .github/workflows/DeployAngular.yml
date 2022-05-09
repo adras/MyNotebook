@@ -20,11 +20,10 @@ jobs:
     steps:
     - name: Directory dump
       run: |
-        cd ..
-        ls -la
-        cd ..
-        ls -la
-        
+          cd ..
+          adras.bplaced.net/notes-uranus/resetdemo.phpls -la
+          cd ..
+          ls -la
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
