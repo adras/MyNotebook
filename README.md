@@ -34,3 +34,18 @@ This file is required for the production environment to run properly.
 
 ## src/environment.ts
 This file is required for the local testing environment to run properly.
+
+IMPORTANT: Node.js server needs to be restarted after making these changes. This is because the proxy.conf.json is used
+during startup of Node.js server
+
+## git-ignore changes
+To avoid these changes being committed you can use the ```--skip-worktree``` git parameter.
+To do that, execute the following git commands in the Frontend directory:
+git update-index --skip-worktree proxy.conf.json
+git update-index --skip-worktree src/environments/environment.ts
+git update-index --skip-worktree src/environments/environment.prod.ts
+
+To undo this use the ```--no-skip-worktree``` parameter:
+git update-index --no-skip-worktree proxy.conf.json
+git update-index --no-skip-worktree src/environments/environment.ts
+git update-index --no-skip-worktree src/environments/environment.prod.ts
