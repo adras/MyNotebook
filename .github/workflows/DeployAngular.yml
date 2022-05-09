@@ -33,4 +33,5 @@ jobs:
         cd Frontend
         npm ci
         npm run build-prod
+        ls -la
 
