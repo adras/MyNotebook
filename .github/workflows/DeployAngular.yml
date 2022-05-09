@@ -21,7 +21,7 @@ jobs:
     - name: Directory dump
       run: |
           cd ..
-          adras.bplaced.net/notes-uranus/resetdemo.phpls -la
+          ls -la
           cd ..
           ls -la
     - uses: actions/checkout@v3
