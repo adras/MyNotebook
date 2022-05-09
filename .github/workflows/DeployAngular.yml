@@ -29,12 +29,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: ./Frontend/package-lock.json
-    - name: Build angular project
+    - name: Restore node packages
       run: |
         cd Frontend
         npm ci
+    - name: Build angular project
+        cd Frontend
         npm run build-prod
-        ls -la
     - name: FTP-Upload
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
