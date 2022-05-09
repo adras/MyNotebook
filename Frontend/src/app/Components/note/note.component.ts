@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Note } from '../../Models/Note';
+import { Tag } from '../../Models/Tag';
 
 @Component({
   selector: 'app-note',
@@ -13,6 +14,14 @@ export class NoteComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getTagStringFromArray(tags: Array<Tag>): string {
+    // This method sucks. It would be cool to do this only with databinding
+    const tagNames = tags.map(tag => tag.name);
+    const allTags = tagNames.join(' ');
+
+    return allTags;
   }
 
   enterEdit() {

@@ -14,7 +14,7 @@
       <button (click)="doSave()" class="save-button">Save</button>
       <div class="tags-container">
         <label>Tags:</label>
-        <input type="text" [value]="note!.tags"/><!--This binding is a TODO-->
+        <input type="text" [value]="getTagStringFromArray(note!.tags)"/>
       </div>
       <div style="clear:both;"></div>
     </div>
