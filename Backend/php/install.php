@@ -101,9 +101,12 @@ if(is_writable("config.php"))
 					$db_pwd && $defaultTags && $db_tableName
 					&& $allNotesTagName)	
 			{
-				mysqli::connect ($adress, $db_username, $db_pwd) 
-				or die('Could not connect to MySQL server. '.mysqli::error());
-				mysqli::select_db ($db_name);
+				$mysqli = new mysqli($adress, $db_username, $db_pwd);
+				if ($mysqli->connect_errno) {
+					die ('mysqli connection error: ' . $mysqli->connect_error);
+				}
+				$mysqli->select_db ($db_name);
+
 				//$queries[]="DROP TABLE `$db_tableName`";
 				//$queries[]="DROP TABLE `$db_noteTagsTableName`";
 				//$queries[]="DROP TABLE `$db_tagTableName`";
@@ -117,16 +120,18 @@ if(is_writable("config.php"))
 				$queries[]="INSERT INTO `$db_tagTableName` (`id`, `tagname`, `rating`) VALUES (1, 'info', 0), (2, 'allnotes', 0),(3, 'new', 0),(4, 'read', 0);";
 
 				$query = "SELECT * FROM `$db_tableName`";
-				$result = mysqli::query ($query);
-				if (mysqli::num_rows($result) == 0)
+				$result = $mysqli->query ($query);
+				if ($mysqli->affected_rows == -1)
 				{
+					
 					foreach ($queries as $query)
 					{
-						$result = mysqli::query ($query);
+						$result = $mysqli->query($query);
+
 						if (!$result)
 						{
 							echo "Could not execute query: " . $query . "<br>";
-							echo mysqli::error ();
+							echo $mysqli->error;
 							die ("Could not set up database");
 						}
 					}
@@ -134,7 +139,7 @@ if(is_writable("config.php"))
 				}
 				else
 				{
-					echo "<br>Database already exists.";
+					echo "<br>Database already exists. Not installing, only updating config";
 				}
 
 				$config = "";

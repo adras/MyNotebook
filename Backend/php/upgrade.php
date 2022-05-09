@@ -2,30 +2,25 @@
 	include "libs/nanolink-sha256.inc.php";
 	
 	function connectToDatabase () {
-		global $dbURL, $dbName, $dbUserName, $dbPwd;
+		global $dbURL, $dbName, $dbUserName, $dbPwd, $mysqli;
 
-		$link = mysqli::connect($dbURL, $dbUserName, $dbPwd);
-		
-		if ($link === FALSE){
-			echo "ERROR - Could not connect to database. Check credentials";
-			exit;
-		}
-		
-		$dbSelected = mysqli::select_db ($dbName);
-		if ($dbSelected === FALSE) {
+
+		$dbSelected = $mysqli->select_db ($dbName);
+		if ($mysqli->connect_errno) {
 			echo "ERROR - Could not find database: " . $dbName . " Check credentials";
 			exit;
 		}
 	}
 
 	function checkOldDatabaseTables ($notesTableName, $noteTagsTableName, $tagsTableName) {
+		global $mysqli;
 		$queries = array();
 		$queries[0] = "SELECT * FROM " . $notesTableName;
 		$queries[1] = "SELECT * FROM " . $noteTagsTableName;
 		$queries[2] = "SELECT * FROM " . $tagsTableName;
 		
 		for ($i = 0; $i < 3; $i++) {
-			$result = mysqli::query ($queries[$i]);
+			$result = $mysqli->query ($queries[$i]);
 
 			if ($result === FALSE) {
 				return false;
@@ -35,6 +30,7 @@
 	}
 	
 	function createNotesTable ($notesTableName) {
+		global $mysqli;
 		$query = "CREATE TABLE `" . $notesTableName . "` (
 				`id` int(6) NOT NULL AUTO_INCREMENT,
 				`content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -43,32 +39,34 @@
 				PRIMARY KEY (`id`)
 			) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;";
 
-		$result = mysqli::query ($query);
+		$result = $mysqli->query ($query);
 
 		if ($result === false ) {
 			$message = "Could not create table: " . $notesTableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
 	}
 	
 	function createNoteTagsTable ($newNoteTagsTableName){
+		global $mysqli;
 		$query = "CREATE TABLE `" . $newNoteTagsTableName . "` (
 					`noteid` int(8) NOT NULL,
 					`tagid` int(11) NOT NULL,
 					PRIMARY KEY (`noteid`,`tagid`)
 				) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
-		$result = mysqli::query ($query);
+		$result  = $mysqli->query ($query);
 
 		if ($result === false ) {
 			$message = "Could not create table: " . $newNoteTagsTableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
 	}
 	
 	function createTagsTable ($newTagsTableName) {
+		global $mysqli;
 		$query = "CREATE TABLE `" . $newTagsTableName . "` (
 					`id` int(8) NOT NULL AUTO_INCREMENT,
 					`tagname` varchar(40) CHARACTER SET utf8 NOT NULL,
@@ -76,16 +74,17 @@
 					PRIMARY KEY (`id`)
 				) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;";
 		
-		$result = mysqli::query ($query);
+		$result  = $mysqli->query ($query);
 
 		if ($result === false ) {
 			$message = "Could not create table: " . $newTagsTableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
 	}
 	
 	function createSettingsTable ($tableName) {
+		global $mysqli;
 
 		$query = "CREATE TABLE `" . $tableName . "` (
 				`id` int(2) NOT NULL AUTO_INCREMENT,
@@ -95,11 +94,11 @@
 			PRIMARY KEY (`id`)
 			) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;"; 
 		
-		$result = mysqli::query ($query);
+		$result  = $mysqli->query ($query);
 
 		if ($result === false ) {
 			$message = "Could not create table: " . $tableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
 	}
@@ -112,6 +111,7 @@
 	}
 	
 	function insertSettingsData ($settingsTableName, $password) {
+		global $mysqli;
 		$query = "INSERT INTO `" . $settingsTableName . "` (`id`, `name`, `value`, `description`) VALUES 
 				(1, 'loginPassword', '" . $password . "', 'Login password'),
 				(2, 'encryptionPassword', '', 'Password for note encryption'),
@@ -120,32 +120,33 @@
 				(5, 'defaultTags', 'new', 'Tags already selected after login'),
 				(6, 'editNoteOnDoubleClick', '1', 'Allow editing note by double clicking it');";
 				
-		$result = mysqli::query ($query);
+		$result  = $mysqli->query ($query);
 		if ($result === FALSE) {
 			$message = "Could not query from: " . $settingsTableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
 	}
 	
 	function migrateTags ($oldTagsTableName, $newTagsTableName) {
+		global $mysqli;
 		$query = "SELECT * FROM `" . $oldTagsTableName . "`;";
-		$result = mysqli::query ($query);
+		$result  = $mysqli->query ($query);
 		if ($result === FALSE) {
 			$message = "Could not query from: " . $oldTagsTableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
 
-		while (($row = mysqli::fetch_array ($result)) != NULL) {
+		while (($row  = $result->fetch_array ()) != NULL) {
 			$id = $row["id"];
 			$tagName = $row["tagname"];
 			$query = "INSERT INTO `" . $newTagsTableName . "` (id, tagname) VALUES('" . $id . "','" . $tagName . "');";
-			$res = mysqli::query ($query);
+			$res  = $mysqli->query ($query);
 
 			if ($res === FALSE) {
 				$error = "Error querying from " . $newTagsTableName . "<br>\n";
-				$error .= mysqli::error ();
+				$error .= $mysqli->error;
 				echo $error;
 				exit;
 			}
@@ -153,14 +154,15 @@
 	}
 	
 	function migrateNotes ($oldNotesTableName, $newNotesTableName) {
+		global $mysqli;
 		$query = "SELECT * FROM `" . $oldNotesTableName . "`;";
-		$result = mysqli::query ($query);
+		$result  = $mysqli->query ($query);
 		if ($result === FALSE) {
 			$message = "Could not query from: " . $oldNotesTableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
-		while (($row = mysqli::fetch_array ($result)) != NULL) {
+		while (($row  = $result->fetch_array ()) != NULL) {
 			$id = $row["id"];
 			$content = $row["note"];
 			
@@ -175,11 +177,11 @@
 																										  '" . $datetime ."',
 																										  '0');";
 			
-			$res = mysqli::query ($query);
+			$res  = $mysqli->query ($query);
 
 			if ($res === FALSE) {
 				$error = "Error querying from " . $newNotesTableName . "<br>\n";
-				$error .= mysqli::error () . "<br>\n";
+				$error .= $mysqli->error . "<br>\n";
 				$error .= "ID: " . $id;
 				echo $error;
 				exit;
@@ -188,23 +190,24 @@
 	}
 
 	function migrateNoteTags ($oldNoteTagsTableName, $newNoteTagsTableName) {
+		global $mysqli;
 		$query = "SELECT * FROM `" . $oldNoteTagsTableName . "`;";
-		$result = mysqli::query ($query);
+		$result  = $mysqli->query ($query);
 		if ($result === FALSE) {
 			$message = "Could not query from: " . $oldNoteTagsTableName . "<br>\n";
-			$message .= mysqli::error();
+			$message .= $mysqli->error;
 			Throw new Exception ($message);
 		}
 
-		while (($row = mysqli::fetch_array ($result)) != NULL) {
+		while (($row  = $result->fetch_array ()) != NULL) {
 			$noteId = $row["noteid"];
 			$tagId = $row["tagid"];
 			$query = "INSERT INTO `" . $newNoteTagsTableName . "` (noteid, tagid) VALUES('" . $noteId . "','" . $tagId . "');";
-			$res = mysqli::query ($query);
+			$res  = $mysqli->query ($query);
 
 			if ($res === FALSE) {
 				$error = "Error querying from " . $newNoteTagsTableName . "<br>\n";
-				$error .= mysqli::error ();
+				$error .= $mysqli->error;
 				echo $error;
 				exit;
 			}
@@ -261,7 +264,14 @@
 		$dbName = $_POST["dbName"];
 		$dbUserName = $_POST["dbUserName"];
 		$dbPwd = $_POST["dbPwd"];
-
+		
+		$mysqli = new mysqli($dbURL, $dbUserName, $dbPwd);
+		
+		if ($mysqli->connect_errno) {
+			echo "ERROR - Could not connect to database. Check credentials";
+			exit;
+		}
+		
 		connectToDatabase();
 		
 		switch ($step) {
@@ -304,6 +314,7 @@
 					echo $exception;
 					exit;
 				}
+				echo "Success";
 				// query all tags from old table, and insert into new table
 				// query all notetags from old table, and insert into new one
 				// create tag for orphaned notes
