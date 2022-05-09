@@ -20,6 +20,7 @@ jobs:
     steps:
     - name: Change working directory
       run: |
+        ls
         cd ./Frontend
         ls
     - uses: actions/checkout@v3
