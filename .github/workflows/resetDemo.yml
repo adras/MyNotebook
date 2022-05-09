@@ -4,7 +4,7 @@ on:
     branches:
       - master
   schedule:
-  - cron: "0 */1 * * *"      
+  - cron: "2 * * * *"      
 
 jobs:
   stale:
@@ -13,6 +13,6 @@ jobs:
     - name: Reset demo db
       uses: fjogeleit/http-request-action@v1
       with:
-        url: ${{ secrets.DEMO_RESET_URL }}
+        url: '${{ secrets.DEMO_RESET_URL }}'
         method: 'GET'
 
