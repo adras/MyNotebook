@@ -1,7 +1,7 @@
 name: "Reset demo db"
 on:
   schedule:
-  - cron: "* */1 * * *"
+  - cron: "0 */1 * * *"
 
 jobs:
   stale:
