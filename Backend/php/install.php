@@ -5,7 +5,7 @@
 /* that people won't have to manually*/
 /*          edit them                */
 /*************************************/
-require "notes.misc.php";
+require "install.misc.php";
 RequestVariables ();
 $form_action = $_SERVER['PHP_SELF'];
 
