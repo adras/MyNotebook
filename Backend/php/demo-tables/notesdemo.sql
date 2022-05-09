@@ -34,7 +34,7 @@ INSERT INTO `MyNotebook_notes` (`id`, `content`, `datetime`, `visibility`) VALUE
 (2, 'This is an example of a note with \"new\" tag', 1177104604, 0x30),
 (3, 'I am a note with read Tag', 1177104647, 0x30),
 (4, 'Read and new', 1177104689, 0x30),
-(5, '<p>How about instead of changing the password you create a github action, which triggers a reset demo script that resets this notebook? I can give you a database dump.</p>\n<p>Just create a pull request. Then we can sit together, and laugh about people who think they\'re funny when they change the password while the database is reset :D</p>', 1652103734, 0x30),
+(5, '<p>How about instead of changing the password you create a github action, which triggers the database-reset script that resets this notebook?</p>\n<p>Just create a pull request. Then we can sit together, and laugh about people who think they\'re funny when they change the password while the database is reset :D</p>', 1652103734, 0x30),
 (6, '<p>Just remember, if you changed it, nobody can access this demo anymore. And people will be sad. Do you really want to make people sad?</p>', 1652104196, 0x30),
 (7, '<p>Seriously, changing it causes bad karma .... very, very bad karma</p>', 1652104206, 0x30),
 (8, '<p>Did I already mention that the password shouldn\'t be changed? :)</p>\n<p>&nbsp;</p>', 1652104233, 0x30),
