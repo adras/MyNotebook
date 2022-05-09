@@ -1,5 +1,7 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Editor } from 'ngx-editor';
+import { Note } from '../../Models/Note';
+import { Tag } from '../../Models/Tag';
 
 @Component({
   selector: 'app-note-editor',
@@ -7,7 +9,12 @@ import { Editor } from 'ngx-editor';
   styleUrls: ['./note-editor.component.css']
 })
 export class NoteEditorComponent implements OnInit, OnDestroy {
+  @Input() note: Note | undefined;
   @Input() html: string = '';
+
+  @Output() onCancel = new EventEmitter();
+  @Output() onSave = new EventEmitter<string>();
+
   editor!: Editor;
 
 
@@ -20,4 +27,21 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
     this.editor!.destroy();
   }
 
+  getTagStringFromArray(tags: Array<Tag>): string {
+    // This method sucks. It would be cool to do this only with databinding
+    const tagNames = tags.map(tag => tag.name);
+    const allTags = tagNames.join(' ');
+
+    return allTags;
+  }
+
+  doSave() {
+    this.onSave.emit();
+  }
+
+  doCancel() {
+    this.onCancel.emit();
+    // TODO: Since the editor is databound to the note
+    // Cancel needs to undo the changes made
+  }
 }

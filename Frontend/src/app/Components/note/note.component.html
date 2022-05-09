@@ -7,16 +7,6 @@
     <div [innerHTML]="note!.content"></div>
   </div>
   <div *ngIf="isEditing">
-    <app-note-editor [html]="note!.content"></app-note-editor>
-
-    <div class="button-container">
-      <button (click)="doCancel()" class="cancel-button">Cancel</button>
-      <button (click)="doSave()" class="save-button">Save</button>
-      <div class="tags-container">
-        <label>Tags:</label>
-        <input type="text" [value]="getTagStringFromArray(note!.tags)"/>
-      </div>
-      <div style="clear:both;"></div>
-    </div>
+    <app-note-editor [html]="note!.content" (onSave)="doSave($event)" (onCancel)="doCancel()"></app-note-editor>
   </div>
 </div>

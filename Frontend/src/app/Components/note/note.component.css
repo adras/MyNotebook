@@ -1,21 +1,9 @@
-.button-container {
-  margin-top: 1em;
-}
-
-.cancel-button {
-  float: left;
-  width: 100px;
-}
 
 .tags-container {
   margin: 0 auto;
   width: 25%;
 }
 
-.save-button {
-  float: right;
-  width: 100px;
-}
 
 #container {
   width: 100%;

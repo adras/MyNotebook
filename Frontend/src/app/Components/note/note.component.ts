@@ -20,25 +20,16 @@ export class NoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getTagStringFromArray(tags: Array<Tag>): string {
-    // This method sucks. It would be cool to do this only with databinding
-    const tagNames = tags.map(tag => tag.name);
-    const allTags = tagNames.join(' ');
-
-    return allTags;
-  }
 
   enterEdit() {
     this.isEditing = true;
   }
 
-  doSave() {
+  doSave(event: string) {
     this.isEditing = false;
   }
 
   doCancel() {
-    // TODO: Since the editor is databound to the note
-    // Cancel needs to undo the changes made
     this.isEditing = false;
   }
 

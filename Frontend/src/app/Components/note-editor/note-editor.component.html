@@ -4,4 +4,13 @@
               [ngModel]="html"
               [disabled]="false"
               [placeholder]="'Type here...'"></ngx-editor>
+  <div class="button-container">
+    <button (click)="doCancel()" class="cancel-button">Cancel</button>
+    <button (click)="doSave()" class="save-button">Save</button>
+    <div class="tags-container">
+      <label>Tags:</label>
+      <input type="text" [value]="getTagStringFromArray(note!.tags)" />
+    </div>
+    <div style="clear:both;"></div>
+  </div>
 </div>
