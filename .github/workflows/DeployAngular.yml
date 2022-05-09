@@ -34,6 +34,7 @@ jobs:
         cd Frontend
         npm ci
     - name: Build angular project
+      run: |
         cd Frontend
         npm run build-prod
     - name: FTP-Upload
@@ -44,4 +45,4 @@ jobs:
         password: ${{ secrets.ftp_demo_password }}
         local-dir: ./Frontend/dist/
         server-dir: /www/notes-angular/
-
+        dangerous-clean-slate: true
