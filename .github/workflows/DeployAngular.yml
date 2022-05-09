@@ -20,8 +20,9 @@ jobs:
     steps:
     - name: Directory dump
       run: |
+        cd ..
         ls -la
-        cd ./Frontend
+        cd ..
         ls -la
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
