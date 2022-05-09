@@ -61,11 +61,15 @@ during startup of Node.js server
 ## git-ignore changes
 To avoid these changes being committed you can use the ```--skip-worktree``` git parameter.
 To do that, execute the following git commands in the Frontend directory:
+```
 git update-index --skip-worktree proxy.conf.json
 git update-index --skip-worktree src/environments/environment.ts
 git update-index --skip-worktree src/environments/environment.prod.ts
+```
 
 To undo this use the ```--no-skip-worktree``` parameter:
+```
 git update-index --no-skip-worktree proxy.conf.json
 git update-index --no-skip-worktree src/environments/environment.ts
 git update-index --no-skip-worktree src/environments/environment.prod.ts
+```
