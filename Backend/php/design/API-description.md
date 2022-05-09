@@ -43,3 +43,11 @@ Response:
 ResponseModel: QueryAllResponse
 
 
+TODO
+
+# Edit Note
+Request:
+	action: "editNote"
+	note: TODO
+
+Model: Note

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { OnLogin } from '../../Events/OnLoginEvent';
+import { OnLoginEvent } from '../../Events/OnLoginEvent';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { OnLogin } from '../../Events/OnLoginEvent';
 })
 
 export class LoginComponent implements OnInit {
-  @Output() onLogin = new EventEmitter<OnLogin>();
+  @Output() onLogin = new EventEmitter<OnLoginEvent>();
 
   constructor() {
   }
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   execLogin(password: string): void {
-    const event = new OnLogin(password);
+    const event = new OnLoginEvent(password);
     this.onLogin.emit(event);
   }
 
