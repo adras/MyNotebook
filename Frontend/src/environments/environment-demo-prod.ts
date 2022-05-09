@@ -3,6 +3,6 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://adras.bplaced.net/notes-angular/index.php',
+  apiURL: 'http://adras.bplaced.net/notes-uranus/index.php',
 };
 
