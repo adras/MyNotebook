@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Reset demo db
+      id: resetRequest
       uses: fjogeleit/http-request-action@v1
       with:
         url: '${{ secrets.DEMO_RESET_URL }}'
         method: 'GET'
+    - name: Show Response
+      run: echo ${{ steps.resetRequest.outputs.response }}
 
