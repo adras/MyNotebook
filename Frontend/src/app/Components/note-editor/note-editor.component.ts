@@ -10,16 +10,16 @@ import { Tag } from '../../Models/Tag';
 })
 export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() note: Note | undefined;
-  @Input() html: string = '';
+  html: string = '';
 
   @Output() onCancel = new EventEmitter();
   @Output() onSave = new EventEmitter<string>();
 
   editor!: Editor;
 
-
   ngOnInit(): void {
     this.editor = new Editor();
+    this.html = this.note!.content;
   }
 
   // make sure to destory the editor
@@ -36,12 +36,10 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   }
 
   doSave() {
-    this.onSave.emit();
+    this.onSave.emit(this.html);
   }
 
   doCancel() {
     this.onCancel.emit();
-    // TODO: Since the editor is databound to the note
-    // Cancel needs to undo the changes made
   }
 }

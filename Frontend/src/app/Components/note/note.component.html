@@ -7,6 +7,6 @@
     <div [innerHTML]="note!.content"></div>
   </div>
   <div *ngIf="isEditing">
-    <app-note-editor [html]="note!.content" (onSave)="doSave($event)" (onCancel)="doCancel()"></app-note-editor>
+    <app-note-editor [note]="note"  (onSave)="doSave($event)" (onCancel)="doCancel()"></app-note-editor>
   </div>
 </div>
