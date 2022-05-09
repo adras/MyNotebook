@@ -6,10 +6,10 @@ on:
 jobs:
   stale:
     runs-on: ubuntu-latest
+    env: 
+        super_secret: ${{ secrets.SuperSecret }}
     steps:
       - uses: fjogeleit/http-request-action@v1
-      env:
-        super_secret: ${{ secrets.SuperSecret }}
-      with:
-        url: super_secret
-        method: 'POST'
+      - with:
+          url: super_secret
+          method: 'POST'
