@@ -11,6 +11,8 @@ Response:
 	success : bool
 }
 
+ResponseModel: BaseResponse
+
 # logout
 Request:
 	action: "logout"
@@ -22,9 +24,22 @@ Response:
 	success : bool
 }
 
+ResponseModel: BaseResponse
+
 # Query all
 Request:
 	action: "queryAll"
 
 Response:
-TODO
+{
+	isLoggedIn : bool,
+	errorMessage : string,
+	success : bool,
+	notes: [],
+	tags: [],
+	settings: {}
+}
+
+ResponseModel: QueryAllResponse
+
+
