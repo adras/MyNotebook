@@ -1,4 +1,4 @@
-name: "Close stale issues"
+name: "Reset demo db"
 on:
   schedule:
   - cron: "* */1 * * *"
@@ -7,7 +7,9 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-    - uses: fjogeleit/http-request-action@v1
+      - uses: fjogeleit/http-request-action@v1
+      env:
+        super_secret: ${{ secrets.SuperSecret }}
       with:
-        url: 'https://TODO/'
+        url: super_secret
         method: 'POST'
