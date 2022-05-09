@@ -7,14 +7,37 @@ Currently an angular.js frontend is in development. At a later stage the old PHP
 by something else.
 
 # Sourceforge project
-The old sourceforge sourcecode can be found in the backend/php subdirectory.
+The old sourceforge sourcecode can be found in the backend/php subdirectory. Unfortunately the upgrade process is a bit cumbersome since the install-script was never upgraded, and the upgrade script only upgrades the database but not the config. Anyway, I just installed it successfuly and created the following instructions.
 
-In general the setup process should be something like:
+Please read both, the install and upgrade paragraphs before you start.
+
+## Install mynotebook-delta
+There exists only an install script for mynotebook-delta, but not for mynotebook-uranus which is the most recent version.
+Therefore step one is to run the old install script, and then run an upgrade script to convert the database from delta to uranus.
+Since the database tables will be copied during the update progress it's a good idea to add a suffix e.g. "old" to the database table name during install.
+
 1. upload everything from the php folder to your server
 2. open install.php in your browser
-3. open upgrade.php in your browser
+3. fill out the form
 
-It may happen that this no longer works properly, so feel free to open an issue on github.
+If everything worked, you should see "Database created successfully"
+
+## Upgrade database
+In upgrade.php, 'Old database prefix' is the 'database table name' from install.php
+
+'new database prefix' will be the new database table prefix. Choose the final name you'd like the tables to have
+
+3. open upgrade.php in your browser
+4. fill out the form
+
+If everything worked, you should see a "Success" message.
+
+After the upgrade you can delete the tables from install.php with the "old" suffix.
+
+## upgrade config.php
+Since the upgrade script does not update the config, you have to do it manually. The config.php was rewritten by the install.php script and uses the mynotebook-delta file format. However now you need the mynotebook-uranus file format. Luckily, the config.php which comes with this repo already has the
+mynotebook-uranus format. So all you need to do is to update the Backend/php/config.php with your credentials and tablenames (choose the "new table prefix" from upgrde.php). Upload the file, and you should be able to login.
+
 
 # angular project
 This project is currently a work in progress. So far you can only login, and select tags.
