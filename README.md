@@ -33,7 +33,9 @@ your backend to localhost so any CORS issues are avoided. That proxy is not acti
 This file is required for the production environment to run properly.
 
 ## src/environment.ts
-This file is required for the local testing environment to run properly.
+This file is required for the local testing environment to run properly. ONLY update the path, not the hostname. The
+hostname has to be localhost
+
 
 IMPORTANT: Node.js server needs to be restarted after making these changes. This is because the proxy.conf.json is used
 during startup of Node.js server
