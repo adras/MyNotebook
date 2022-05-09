@@ -23,14 +23,29 @@ jobs:
     - name: Directory dump
       run: |
         ls -la
-        cd ./Frontend
-        ls -la
+    - name: Configure environment.prod.ts
+      run: |
+        cp ./Frontend/src/environments/environment-demo-prod.ts ./Frontend/src/environments/environment.prod.ts
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: ./Frontend/package-lock.json
-    - run: 
+    - name: Restore node packages
+      run: |
+        cd Frontend
+        npm ci
+    - name: Build angular project
+      run: |
+        cd Frontend
         npm run build-prod
-
+    - name: FTP-Upload
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.ftp_demo_server }}
+        username: ${{ secrets.ftp_demo_user }}
+        password: ${{ secrets.ftp_demo_password }}
+        local-dir: ./Frontend/dist/
+        server-dir: /www/notes-angular/
+        dangerous-clean-slate: true
