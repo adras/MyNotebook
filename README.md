@@ -38,6 +38,7 @@ After the upgrade you can delete the tables from install.php with the "old" suff
 Since the upgrade script does not update the config, you have to do it manually. The config.php was rewritten by the install.php script and uses the mynotebook-delta file format. However now you need the mynotebook-uranus file format. Luckily, the config.php which comes with this repo already has the
 mynotebook-uranus format. So all you need to do is to update the Backend/php/config.php with your credentials and tablenames (choose the "new table prefix" from upgrde.php). Upload the file, and you should be able to login.
 
+**IMPORTANT** Make sure to delete install.php and upgrade.php when you're done.
 
 # angular project
 This project is currently a work in progress. So far you can only login, and select tags.
