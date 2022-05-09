@@ -34,4 +34,12 @@ jobs:
         npm ci
         npm run build-prod
         ls -la
+    - name: FTP-Upload
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.ftp_demo_server }}
+        username: ${{ secrets.ftp_demo_user }}
+        password: ${{ secrets.ftp_demo_password }}
+        local-dir: ./dist/
+        server-dir: /www/notes-angular/
 
