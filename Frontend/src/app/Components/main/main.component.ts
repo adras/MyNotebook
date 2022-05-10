@@ -33,10 +33,11 @@ export class MainComponent implements OnInit {
   }
 
   doTagsChanged(change: TagChange): void {
+    console.log("Tag change: " + change.tagName + " " + change.isChecked);
     // We require some casts since we consider these values to be never undefined
     const allNotesTagName = this.allSettings?.allNotesTagName.value as string;
     const isAllNotesTag = allNotesTagName == change.tagName;
-    const defaultSelectedTags = this.allSettings?.defaultTags.value.split(' ') as string[];
+    const defaultSelectedTags = this.allSettings?.defaultTags.value as unknown as string[];
 
     // Check if the selected tag is the allNotes tag
     if (isAllNotesTag) {
@@ -56,6 +57,7 @@ export class MainComponent implements OnInit {
         // Add default tags
         this.selectedTags.push(...defaultSelectedTags);
       }
+      this.updateSelectedNotes();
       return;
     }
 
