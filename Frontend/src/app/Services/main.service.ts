@@ -4,6 +4,7 @@ import * as CryptoJS from 'crypto-js';
 import { OnEditNoteEvent } from '../Events/OnEditNoteEvent';
 import { OnLoginEvent } from '../Events/OnLoginEvent';
 import { BaseResponse } from '../Models/BaseResponse';
+import { EditNoteResponse } from '../Models/EditNoteResponse';
 import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
 import { EndpointService } from './endpoint.service';
@@ -58,7 +59,7 @@ export class MainService {
       .set("action", "editNote")
       .set("note", JSON.stringify(event.note));
 
-    const result = this.http.post<QueryAllResponse>(this.apiPath, params);
+    const result = this.http.post<EditNoteResponse>(this.apiPath, params);
     return result;
 
   }

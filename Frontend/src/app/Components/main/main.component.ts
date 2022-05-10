@@ -3,6 +3,7 @@ import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
 import { OnLoginEvent } from '../../Events/OnLoginEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
+import { EditNoteResponse } from '../../Models/EditNoteResponse';
 import { Note } from '../../Models/Note';
 import { QueryAllResponse } from '../../Models/QueryAllResponse';
 import { Settings } from '../../Models/Settings';
@@ -117,7 +118,7 @@ export class MainComponent implements OnInit {
   }
 
   doEditNote(event: OnEditNoteEvent) {
-    this.mainService.doEditNote(event).subscribe((response: BaseResponse) => this.onEditNote(response));
+    this.mainService.doEditNote(event).subscribe((response: EditNoteResponse) => this.onEditNote(response));
   }
 
   doLogin(event: OnLoginEvent) {
@@ -133,7 +134,7 @@ export class MainComponent implements OnInit {
   }
 
   // Response methods
-  public onQueryAll(response: QueryAllResponse) {
+  onQueryAll(response: QueryAllResponse) {
     this.isLoggedIn = response.isLoggedIn;
     if (!this.isLoggedIn) {
       return;
@@ -149,18 +150,20 @@ export class MainComponent implements OnInit {
     this.updateSelectedNotes();
   }
 
-  public onLogin(response: BaseResponse) {
+  onLogin(response: BaseResponse) {
     this.isLoggedIn = response.isLoggedIn;
     if (this.isLoggedIn) {
       this.doQueryAll();
     }
   }
 
-  public onLogout(response: BaseResponse) {
+  onLogout(response: BaseResponse) {
     this.isLoggedIn = response.isLoggedIn;
   }
 
-  public onEditNote(response: BaseResponse) {
+  onEditNote(response: EditNoteResponse) {
     // TODO: Umlauts broken in edited note, fix that somehow
+    // Response needs to be evaluated, and UI needs to be updated with new note and tags
+    console.log("Edit done");
   }
 }
