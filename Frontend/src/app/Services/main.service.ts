@@ -55,9 +55,19 @@ export class MainService {
   }
 
   public doEditNote(event: OnEditNoteEvent) {
+    // PHP Backend does not accept a tag array, instead it's a string of tags separated by spaces
+    const tagNames = event.note.tags.map(tag => tag.name);
+    const tagString = tagNames.join(' ');
+    var note = ({
+      id: event.note.id,
+      tags: tagString,
+      content: event.note.content
+    });
+
+
     const params = new HttpParams()
       .set("action", "editNote")
-      .set("note", JSON.stringify(event.note));
+      .set("note", JSON.stringify(note));
 
     const result = this.http.post<EditNoteResponse>(this.apiPath, params);
     return result;
