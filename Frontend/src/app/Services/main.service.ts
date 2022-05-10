@@ -56,6 +56,7 @@ export class MainService {
 
   public doEditNote(event: OnEditNoteEvent) {
     // PHP Backend does not accept a tag array, instead it's a string of tags separated by spaces
+    // Working code
     const tagNames = event.note.tags.map(tag => tag.name);
     const tagString = tagNames.join(' ');
     var note = ({
@@ -64,6 +65,9 @@ export class MainService {
       content: event.note.content
     });
 
+    // TODO: There was a bug where tags were send as an array which was encapsulated with quotes and therefore interpreted by
+    // the backend as string and not array. This needs to be investigated at one point, because the tag-handling in the backend
+    // is quite cumbersome at the moment
 
     const params = new HttpParams()
       .set("action", "editNote")
