@@ -9,10 +9,8 @@
   <div class="main-container">
     <app-logout (onLogout)="doLogout()"></app-logout>
     <app-search></app-search>
-    <app-new-note></app-new-note>
-
-    <app-tags (tagsChanged)="tagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
-    <app-notes [selectedNotes]="selectedNotes">
+    <app-tags (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
+    <app-notes [selectedNotes]="selectedNotes" (onEditNote)="doEditNote($event)">
     </app-notes>
   </div>
 </div>

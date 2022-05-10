@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
+import { OnSearch } from '../../Events/OnSearchEvent';
 import { Note } from '../../Models/Note';
-import { Tag } from '../../Models/Tag';
 
 @Component({
   selector: 'app-note',
@@ -11,7 +11,7 @@ import { Tag } from '../../Models/Tag';
 
 export class NoteComponent implements OnInit {
   @Input() note: Note | undefined;
-  @Output() onEdit =  new EventEmitter<OnEditNoteEvent>();
+  @Output() onEditNote = new EventEmitter<OnEditNoteEvent>();
 
   isEditing: boolean = false;
 
@@ -25,7 +25,10 @@ export class NoteComponent implements OnInit {
     this.isEditing = true;
   }
 
-  doSave(event: string) {
+  doSave(note: Note) {
+    var event = new OnEditNoteEvent(note);
+    this.onEditNote.emit(event);
+
     this.isEditing = false;
   }
 

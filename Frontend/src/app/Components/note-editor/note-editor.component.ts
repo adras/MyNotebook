@@ -13,7 +13,7 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   html: string = '';
 
   @Output() onCancel = new EventEmitter();
-  @Output() onSave = new EventEmitter<string>();
+  @Output() onSave = new EventEmitter<Note>();
 
   editor!: Editor;
 
@@ -36,7 +36,9 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   }
 
   doSave() {
-    this.onSave.emit(this.html);
+    var newNote = Object.assign({} , this.note);
+    newNote.content = this.html;
+    this.onSave.emit(newNote);
   }
 
   doCancel() {

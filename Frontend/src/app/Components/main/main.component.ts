@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
 import { OnLoginEvent } from '../../Events/OnLoginEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
+import { EditNoteResponse } from '../../Models/EditNoteResponse';
 import { Note } from '../../Models/Note';
 import { QueryAllResponse } from '../../Models/QueryAllResponse';
 import { Settings } from '../../Models/Settings';
@@ -31,7 +33,46 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  tagsChanged(change: TagChange): void {
+  doTagsChanged(change: TagChange): void {
+
+
+    // We require some casts since we consider these values to be never undefined
+    const allNotesTagName = this.allSettings?.allNotesTagName.value as string;
+    const isAllNotesTag = allNotesTagName == change.tagName;
+    const defaultSelectedTags = this.allSettings?.defaultTags.value as unknown as string[];
+
+    // Check if the selected tag is the allNotes tag
+    if (isAllNotesTag) {
+      if (change.isChecked == true) {
+        // Allnotes tag was selected
+        // Clear all selected tags
+        this.selectedTags.splice(0, this.selectedTags.length);
+
+        // Add all notes tag
+        this.selectedTags.push(allNotesTagName);
+      }
+      else {
+        // AllNotes was deselected
+        // Clear all selected tags
+        this.selectedTags.splice(0, this.selectedTags.length);
+
+        // Add default tags
+        this.selectedTags.push(...defaultSelectedTags);
+      }
+      // TODO: Figure out why this is
+      // For some reason, the databinding doesn't work properly, when
+      // just splicing and pushing the array
+      // Therefore we reassign it, which fixes that
+      this.selectedTags = Object.assign([], this.selectedTags);
+      this.updateSelectedNotes();
+      return;
+    }
+
+    const allNoteTagIdx = this.selectedTags.indexOf(allNotesTagName)
+    if (allNoteTagIdx != -1) {
+      this.selectedTags.splice(allNoteTagIdx, 1);
+    }
+
     if (change.isChecked) {
       this.selectedTags.push(change.tagName);
     }
@@ -42,6 +83,12 @@ export class MainComponent implements OnInit {
         this.selectedTags.splice(index, 1);
       }
     }
+
+    // TODO: Figure out why this is
+    // For some reason, the databinding doesn't work properly, when
+    // just splicing and pushing the array
+    // Therefore we reassign it, which fixes that
+    this.selectedTags = Object.assign([], this.selectedTags);
     this.updateSelectedNotes();
   }
 
@@ -67,7 +114,11 @@ export class MainComponent implements OnInit {
 
     // TODO, search selectedNotes for searchText? could also be done in the loop above
     // Figure out what's faster
-    
+
+  }
+
+  doEditNote(event: OnEditNoteEvent) {
+    this.mainService.doEditNote(event).subscribe((response: EditNoteResponse) => this.onEditNote(response));
   }
 
   doLogin(event: OnLoginEvent) {
@@ -83,14 +134,14 @@ export class MainComponent implements OnInit {
   }
 
   // Response methods
-  public onQueryAll(response: QueryAllResponse) {
+  onQueryAll(response: QueryAllResponse) {
     this.isLoggedIn = response.isLoggedIn;
     if (!this.isLoggedIn) {
       return;
     }
     this.allNotes = response.notes;
     this.allTags = response.tags;
-    this.allSettings = response.settings;   
+    this.allSettings = response.settings;
 
     // value in Settings is defined as string, however for defaultTags it's an array
     // Casting the string directly to an array would result in an error, therefore we cast to unknown first
@@ -99,14 +150,20 @@ export class MainComponent implements OnInit {
     this.updateSelectedNotes();
   }
 
-  public onLogin(response: BaseResponse) {
+  onLogin(response: BaseResponse) {
     this.isLoggedIn = response.isLoggedIn;
     if (this.isLoggedIn) {
       this.doQueryAll();
     }
   }
 
-  public onLogout(response: BaseResponse) {
+  onLogout(response: BaseResponse) {
     this.isLoggedIn = response.isLoggedIn;
+  }
+
+  onEditNote(response: EditNoteResponse) {
+    // TODO: Umlauts broken in edited note, fix that somehow
+    // Response needs to be evaluated, and UI needs to be updated with new note and tags
+    console.log("Edit done");
   }
 }
