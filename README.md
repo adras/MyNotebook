@@ -22,4 +22,5 @@ It uses the same backend and therefore the same database as the demo. Password i
 # Install
 To install MyNotebook-Uranus see the install instructions in [install.md](https://github.com/adras/MyNotebook/blob/main/Install.md)
 
-
+#  Discussions
+If you have any ideas or suggestions don't hesitate to create an [issue](https://github.com/adras/MyNotebook/issues)
