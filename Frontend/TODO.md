@@ -4,6 +4,7 @@
 * Implement create note functionality
 * Implement note edit functionality
 * Implement search for notes
+* Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
 * Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
   * Checkout angular styling which is a bit different to css
 * Implement mobile phone support -> Allow for the layout to change between portrait and landscape
