@@ -1,8 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
+import { OnEditNoteEvent } from '../Events/OnEditNoteEvent';
 import { OnLoginEvent } from '../Events/OnLoginEvent';
 import { BaseResponse } from '../Models/BaseResponse';
+import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
 import { EndpointService } from './endpoint.service';
 
@@ -50,5 +52,15 @@ export class MainService {
     const result = this.http.post<QueryAllResponse>(this.apiPath, params);
     return result;
   }
- 
+
+  public doEditNote(event: OnEditNoteEvent) {
+    const params = new HttpParams()
+      .set("action", "editNote")
+      .set("note", JSON.stringify(event.note));
+
+    const result = this.http.post<QueryAllResponse>(this.apiPath, params);
+    return result;
+
+  }
+
 }

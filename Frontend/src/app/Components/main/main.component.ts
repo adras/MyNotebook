@@ -117,7 +117,7 @@ export class MainComponent implements OnInit {
   }
 
   doEditNote(event: OnEditNoteEvent) {
-
+    this.mainService.doEditNote(event).subscribe((response: BaseResponse) => this.onEditNote(response));
   }
 
   doLogin(event: OnLoginEvent) {
@@ -158,5 +158,9 @@ export class MainComponent implements OnInit {
 
   public onLogout(response: BaseResponse) {
     this.isLoggedIn = response.isLoggedIn;
+  }
+
+  public onEditNote(response: BaseResponse) {
+    // TODO: Umlauts broken in edited note, fix that somehow
   }
 }

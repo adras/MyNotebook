@@ -25,7 +25,10 @@ export class NoteComponent implements OnInit {
     this.isEditing = true;
   }
 
-  doSave(event: string) {
+  doSave(note: Note) {
+    var event = new OnEditNoteEvent(note);
+    this.onEditNote.emit(event);
+
     this.isEditing = false;
   }
 
