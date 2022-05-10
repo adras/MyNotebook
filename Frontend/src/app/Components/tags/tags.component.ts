@@ -16,11 +16,17 @@ export class TagsComponent implements OnInit {
 
   constructor() { }
 
+  testX() {
+    this.selectedTags = ["hallo", "neu"];
+
+  }
+
   ngOnInit(): void {
   }
 
   tagChange(change: MatButtonToggleChange): void {
     const event = new TagChange(change.source.checked, change.value);
     this.tagsChanged.emit(event);
+
   }
 }

@@ -33,7 +33,8 @@ export class MainComponent implements OnInit {
   }
 
   doTagsChanged(change: TagChange): void {
-    console.log("Tag change: " + change.tagName + " " + change.isChecked);
+
+
     // We require some casts since we consider these values to be never undefined
     const allNotesTagName = this.allSettings?.allNotesTagName.value as string;
     const isAllNotesTag = allNotesTagName == change.tagName;
@@ -57,6 +58,11 @@ export class MainComponent implements OnInit {
         // Add default tags
         this.selectedTags.push(...defaultSelectedTags);
       }
+      // TODO: Figure out why this is
+      // For some reason, the databinding doesn't work properly, when
+      // just splicing and pushing the array
+      // Therefore we reassign it, which fixes that
+      this.selectedTags = Object.assign([], this.selectedTags);
       this.updateSelectedNotes();
       return;
     }
@@ -76,6 +82,12 @@ export class MainComponent implements OnInit {
         this.selectedTags.splice(index, 1);
       }
     }
+
+    // TODO: Figure out why this is
+    // For some reason, the databinding doesn't work properly, when
+    // just splicing and pushing the array
+    // Therefore we reassign it, which fixes that
+    this.selectedTags = Object.assign([], this.selectedTags);
     this.updateSelectedNotes();
   }
 

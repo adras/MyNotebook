@@ -2,10 +2,10 @@
 
     <!--TODO: Fix tag binding, it seems like it doesn't work when tags are deselected -->
     <mat-button-toggle-group name="Tags" aria-label="Tags"
-                             multiple vertical="true" [value]="selectedTags">
+                             multiple="true" vertical="true" [value]="selectedTags">
       <mat-button-toggle *ngFor="let tag of allTags"
                          (change)="tagChange($event)"
                          value="{{tag.name}}">{{tag.name}}</mat-button-toggle>
     </mat-button-toggle-group>
-
+    <button (click)="testX()">XXXXXX</button>
 </div>
