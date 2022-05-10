@@ -16,6 +16,7 @@ import { MainComponent } from './Components/main/main.component';
 import { NoteComponent } from './Components/note/note.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { NoteEditorComponent } from './Components/note-editor/note-editor.component';
+import { NewNoteComponent } from './Components/new-note/new-note.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NoteEditorComponent } from './Components/note-editor/note-editor.compon
     TagsComponent,
     MainComponent,
     NoteComponent,
-    NoteEditorComponent
+    NoteEditorComponent,
+    NewNoteComponent
   
   ],
   imports: [
