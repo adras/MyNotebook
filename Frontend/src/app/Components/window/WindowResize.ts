@@ -25,20 +25,36 @@ export class WindowResize {
   }
 
   public static resizeFromLeft(event: MouseEvent, window: WindowComponent, resizeState: ResizeState) {
+    // Fucking piece of shit object possibly undefined, it's fucking set you dumbass compiler
+    if (!window.left || !window.width || !window.top || !window.height)
+      return;
+
     window.left += event.movementX;
     window.width -= event.movementX;
   }
 
   public static resizeFromRight(event: MouseEvent, window: WindowComponent, resizeState: ResizeState) {
+    // Fucking piece of shit object possibly undefined, it's fucking set you dumbass compiler
+    if (!window.left || !window.width || !window.top || !window.height)
+      return;
+
     window.width += event.movementX;
   }
 
   public static resizeFromTop(event: MouseEvent, window: WindowComponent, resizeState: ResizeState) {
+    // Fucking piece of shit object possibly undefined, it's fucking set you dumbass compiler
+    if (!window.left || !window.width || !window.top || !window.height)
+      return;
+
     window.top += event.movementY;
     window.height -= event.movementY;
   }
 
   public static resizeFromBottom(event: MouseEvent, window: WindowComponent, resizeState: ResizeState) {
+    // Fucking piece of shit object possibly undefined, it's fucking set you dumbass compiler
+    if (!window.left || !window.width || !window.top || !window.height)
+      return;
+
     window.height += event.movementY;
   }
 

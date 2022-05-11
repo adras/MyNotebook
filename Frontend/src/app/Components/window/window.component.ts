@@ -11,15 +11,16 @@ import { WindowResize } from './WindowResize';
 
 export class WindowComponent implements OnInit {
   @Input() isVisible: boolean = false;
-  @Input() width: number = 400;
-  @Input() height: number = 300;
+  @Input() width: number | undefined;
+  @Input() height: number | undefined;
+  @Input() zIndex: number | undefined;
 
   @Input() showTitleBar: boolean = true;
 
   // These should be calculated at the start in case they are not set
   // so that the window is in the center
-  @Input() left: number = 200;
-  @Input() top: number = 100;
+  @Input() left: number | undefined;
+  @Input() top: number | undefined;
 
   resizeStartLocations = ResizeStartLocations;
 
@@ -27,9 +28,43 @@ export class WindowComponent implements OnInit {
   private isDragging: boolean = false;
   private resizeState: ResizeState | undefined;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    if (this.zIndex === undefined) {
+      this.zIndex = 1;
+    }
+    // If the user didn't specify width, height, top, left, do so now
+    //const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    //const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+
+    // Use a default width
+    if (this.width === undefined) {
+      this.width = screenWidth * 80 / 100;
+    }
+
+    // Use a default height
+    if (this.height === undefined) {
+      this.height = screenHeight * 80 / 100;
+    }
+
+    // Center window horizontally
+    if (this.left === undefined) {
+      this.left = screenWidth / 2 - this.width / 2;
+    }
+
+    // Center window vertically
+    if (this.top == undefined) {
+      this.top = screenHeight / 2 - this.height / 2;
+    }
+
+    console.log("top: " + this.top);
+    console.log("left: " + this.left);
+    console.log("width: " + this.width);
+    console.log("height: " + this.height);
   }
 
   toggle() {
@@ -54,6 +89,7 @@ export class WindowComponent implements OnInit {
   doMouseMove(event: MouseEvent) {
     this.doResizeMouseMove(event);
     this.doDragMouseMove(event);
+    //console.log("mousepos: " + event.screenY);
   }
 
   doResizeMouseMove(event: MouseEvent) {
@@ -68,18 +104,5 @@ export class WindowComponent implements OnInit {
       return;
   }
 
-  //doMouseDownDrag(event: MouseEvent) {
-  //  this.mouseClick = { x: event.clientX, y: event.clientY, left: this.left, top: this.top };
-  //}
 
-  //doMouseUp(event: MouseEvent) {
-
-  //}
-  //doMouseDownResize(event: MouseEvent) {
-  //  event.stopPropagation();
-  //}
-  /*
-       (mousedown)="doMouseDownDrag($event)"
-       (window:mouseup)="doMouseUp($event)">
-    <div class="resize-action" (mousedown)="doMouseDownResize($event)"></div> */
 }

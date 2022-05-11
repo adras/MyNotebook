@@ -1,7 +1,9 @@
 <div class="window-container"
      [style.width.px]="width"
      [style.height.px]="height"
-     [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)'"
+     [style.top.px]="0"
+     [style.left.px]="0"
+     [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)!important'"
      *ngIf="isVisible">
 
   <div class="window-resize-left" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Left)"></div>
