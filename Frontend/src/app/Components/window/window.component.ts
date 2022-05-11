@@ -22,9 +22,15 @@ export class WindowComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   toggle() {
     this.isVisible = !this.isVisible;
   }
+
+  doStartResizeFrom(startPosition: string) {
+    this["width"]++;
+  }
+
   //doMouseDownDrag(event: MouseEvent) {
   //  this.mouseClick = { x: event.clientX, y: event.clientY, left: this.left, top: this.top };
   //}
