@@ -4,14 +4,14 @@
      [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)'"
      *ngIf="isVisible">
 
-  <div class="window-resize-left" (mousedown)="doStartResizeFrom('left')"></div>
-  <div class="window-resize-right" (mousedown)="doStartResizeFrom('right')"></div>
-  <div class="window-resize-top" (mousedown)="doStartResizeFrom('top')"></div>
-  <div class="window-resize-bottom" (mousedown)="doStartResizeFrom('bottom')"></div>
-  <div class="window-resize-topLeft" (mousedown)="doStartResizeFrom('topLeft')"></div>
-  <div class="window-resize-topRight" (mousedown)="doStartResizeFrom('topRight')"></div>
-  <div class="window-resize-bottomRight" (mousedown)="doStartResizeFrom('bottomRight')"></div>
-  <div class="window-resize-bottomLeft" (mousedown)="doStartResizeFrom('bottomLeft')"></div>
+  <div class="window-resize-left" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Left)"></div>
+  <div class="window-resize-right" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Right)"></div>
+  <div class="window-resize-top" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Top)"></div>
+  <div class="window-resize-bottom" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Bottom)"></div>
+  <div class="window-resize-topLeft" (mousedown)="doStartResizeFrom($event, resizeStartLocations.TopLeft)"></div>
+  <div class="window-resize-topRight" (mousedown)="doStartResizeFrom($event, resizeStartLocations.TopRight)"></div>
+  <div class="window-resize-bottomRight" (mousedown)="doStartResizeFrom($event, resizeStartLocations.BottomRight)"></div>
+  <div class="window-resize-bottomLeft" (mousedown)="doStartResizeFrom($event, resizeStartLocations.BottomLeft)"></div>
 
   <!--(mousedown)="doMouseDownDrag($event)"
   (window:mouseup)="doMouseUp($event)">-->

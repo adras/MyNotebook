@@ -1,4 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { ResizeStartLocations } from './ResizeStartLocations';
+import { ResizeState } from './ResizeState';
+import { WindowResizeService } from './windowResize.service';
 
 @Component({
   selector: 'app-window',
@@ -18,10 +21,13 @@ export class WindowComponent implements OnInit {
   @Input() left: number = 200;
   @Input() top: number = 100;
 
+  resizeStartLocations = ResizeStartLocations;
+
   private isResizing: boolean = false;
   private isDragging: boolean = false;
+  private resizeState: ResizeState | undefined;
 
-  constructor() { }
+  constructor(private resizeService: WindowResizeService) { }
 
   ngOnInit(): void {
   }
@@ -30,9 +36,12 @@ export class WindowComponent implements OnInit {
     this.isVisible = !this.isVisible;
   }
 
-  doStartResizeFrom(startPosition: string) {
+  doStartResizeFrom(mouseEvent: MouseEvent, startPosition: ResizeStartLocations) {
+    var resizeFunc = this.resizeService.getResizeFunc(startPosition);
+    console.log("Resize start from: " + startPosition);
+
+    this.resizeState = new ResizeState(mouseEvent.screenX, mouseEvent.screenY, resizeFunc);
     this.isResizing = true;
-    this["width"]++;
   }
 
   @HostListener('window:mouseup', ['$event'])
@@ -43,7 +52,22 @@ export class WindowComponent implements OnInit {
 
   @HostListener('window:mousemove', ['$event'])
   doMouseMove(event: MouseEvent) {
+    this.doResizeMouseMove(event);
+    this.doDragMouseMove(event);
   }
+
+  doResizeMouseMove(event: MouseEvent) {
+    if (!this.isResizing)
+      return;
+
+    this.resizeState?.resizeFunc(event, this, this.resizeState);
+  }
+
+  doDragMouseMove(event: MouseEvent) {
+    if (!this.isDragging)
+      return;
+  }
+
   //doMouseDownDrag(event: MouseEvent) {
   //  this.mouseClick = { x: event.clientX, y: event.clientY, left: this.left, top: this.top };
   //}

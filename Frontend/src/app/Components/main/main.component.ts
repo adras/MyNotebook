@@ -34,10 +34,10 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @ViewChild(WindowComponent) window: WindowComponent = new WindowComponent();
+  @ViewChild(WindowComponent) window: WindowComponent | undefined;
 
   toggleWindow(): void {
-    this.window.isVisible = !this.window?.isVisible;
+    this.window!.isVisible = !this.window?.isVisible;
   }
 
   doTagsChanged(change: TagChange): void {
