@@ -12,6 +12,7 @@
   width: var(--window-resizeAreaPixelSize);
   height: calc(100% - var(--window-resizeAreaPixelSize));
   background: blue;
+  cursor: w-resize;
 }
 
 .window-resize-right {
@@ -21,6 +22,7 @@
   width: var(--window-resizeAreaPixelSize);
   height: calc(100% - var(--window-resizeAreaPixelSize));
   background: cyan;
+  cursor: w-resize;
 }
 
 .window-resize-top {
@@ -30,6 +32,7 @@
   height: var(--window-resizeAreaPixelSize);
   width: calc(100% - var(--window-resizeAreaPixelSize));
   background: black;
+  cursor: s-resize;
 }
 
 .window-resize-bottom {
@@ -39,6 +42,7 @@
   height: var(--window-resizeAreaPixelSize);
   width: calc(100% - var(--window-resizeAreaPixelSize));
   background: magenta;
+  cursor: s-resize;
 }
 
 .window-resize-topLeft {
@@ -48,6 +52,7 @@
   width: var(--window-resizeAreaPixelSize);
   height: 5px;
   background: orange;
+  cursor: nw-resize;
 }
 
 .window-resize-topRight {
@@ -56,7 +61,8 @@
   top: 0%;
   width: var(--window-resizeAreaPixelSize);
   height: var(--window-resizeAreaPixelSize);
-  background: violet;
+  background: orange;
+  cursor: ne-resize;
 }
 
 .window-resize-bottomRight {
@@ -65,7 +71,8 @@
   top: 100%;
   width: var(--window-resizeAreaPixelSize);
   height: var(--window-resizeAreaPixelSize);
-  background: green;
+  background: orange;
+  cursor: se-resize;
 }
 
 .window-resize-bottomLeft {
@@ -74,5 +81,6 @@
   top: 100%;
   width: var(--window-resizeAreaPixelSize);
   height: var(--window-resizeAreaPixelSize);
-  background: purple;
+  background: orange;
+  cursor: sw-resize;
 }

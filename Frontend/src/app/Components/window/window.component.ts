@@ -1,7 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ResizeStartLocations } from './ResizeStartLocations';
 import { ResizeState } from './ResizeState';
-import { WindowResizeService } from './windowResize.service';
+import { WindowResize } from './WindowResize';
 
 @Component({
   selector: 'app-window',
@@ -27,7 +27,7 @@ export class WindowComponent implements OnInit {
   private isDragging: boolean = false;
   private resizeState: ResizeState | undefined;
 
-  constructor(private resizeService: WindowResizeService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -37,7 +37,7 @@ export class WindowComponent implements OnInit {
   }
 
   doStartResizeFrom(mouseEvent: MouseEvent, startPosition: ResizeStartLocations) {
-    var resizeFunc = this.resizeService.getResizeFunc(startPosition);
+    var resizeFunc = WindowResize.getResizeFunc(startPosition);
     console.log("Resize start from: " + startPosition);
 
     this.resizeState = new ResizeState(mouseEvent.screenX, mouseEvent.screenY, resizeFunc);
