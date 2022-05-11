@@ -6,6 +6,13 @@
 
 <div *ngIf="isLoggedIn">
   <h1>MyNotebook</h1>
+
+  <app-window></app-window>
+
+  <br />
+
+  <button (click)="toggleWindow()">Toggle Window</button>
+
   <div class="main-container">
     <app-logout (onLogout)="doLogout()"></app-logout>
     <app-search></app-search>

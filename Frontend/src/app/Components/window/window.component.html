@@ -1,0 +1,22 @@
+<div class="window-container"
+     [style.width.px]="width"
+     [style.height.px]="height"
+     [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)'"
+     *ngIf="isVisible">
+
+  <div class="window-resize-left"></div>
+  <div class="window-resize-right"></div>
+  <div class="window-resize-top"></div>
+  <div class="window-resize-bottom"></div>
+  <div class="window-resize-topLeft"></div>
+  <div class="window-resize-topRight"></div>
+  <div class="window-resize-bottomRight"></div>
+  <div class="window-resize-bottomLeft"></div>
+
+  <!--(mousedown)="doMouseDownDrag($event)"
+  (window:mouseup)="doMouseUp($event)">-->
+  <!--<div class="resize-action" (mousedown)="doMouseDownResize($event)"></div>-->
+  <!--<span>{{width | number:'1.0-0'}}px</span>
+  <span>{{height | number:'1.0-0'}}px</span>
+  <span>({{left}}, {{top}})</span>-->
+</div>

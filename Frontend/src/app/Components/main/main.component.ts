@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
 import { OnLoginEvent } from '../../Events/OnLoginEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
@@ -9,6 +9,7 @@ import { QueryAllResponse } from '../../Models/QueryAllResponse';
 import { Settings } from '../../Models/Settings';
 import { Tag } from '../../Models/Tag';
 import { MainService } from '../../Services/main.service';
+import { WindowComponent } from '../window/window.component';
 
 @Component({
   selector: 'app-main',
@@ -31,6 +32,12 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  @ViewChild(WindowComponent) window: WindowComponent = new WindowComponent();
+
+  toggleWindow(): void {
+    this.window.isVisible = !this.window?.isVisible;
   }
 
   doTagsChanged(change: TagChange): void {

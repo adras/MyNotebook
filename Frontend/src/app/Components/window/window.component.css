@@ -1,0 +1,84 @@
+.window-container {
+  background-color: aliceblue;
+  border: 1px solid black;
+}
+
+.window-resize-left {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+
+  width: 5px;
+  height: 100%;
+  background: blue;
+}
+
+.window-resize-right {
+  position: fixed;
+  left: 100%;
+  top: 0%;
+
+  width: 5px;
+  height: 100%;
+  background: cyan;
+}
+
+.window-resize-top {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+
+  height: 5px;
+  width: 100%;
+  background: black;
+}
+
+.window-resize-bottom {
+  position: fixed;
+  left: 0%;
+  top: 100%;
+
+  height: 5px;
+  width: 100%;
+  background: green;
+}
+
+.window-resize-topLeft {
+  position: fixed;
+  left: 0%;
+  top: 100%;
+
+  width: 5px;
+  height: 5px;
+  background: orange;
+}
+
+.window-resize-topRight {
+  position: fixed;
+  left: 100%;
+  top: 0%;
+
+  width: 5px;
+  height: 5px;
+  background: violet;
+}
+
+.window-resize-bottomRight {
+  position: fixed;
+  left: 100%;
+  top: 100%;
+
+  width: 5px;
+  height: 5px;
+  background: green;
+}
+
+.window-resize-bottomLeft {
+  position: fixed;
+  left: 0%;
+  top: 100%;
+
+  width: 5px;
+  height: 5px;
+  background: purple;
+}
