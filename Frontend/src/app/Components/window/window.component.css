@@ -44,7 +44,7 @@
 .window-resize-topLeft {
   position: fixed;
   left: 0%;
-  top: 100%;
+  top: 0%;
   width: var(--window-resizeAreaPixelSize);
   height: 5px;
   background: orange;
