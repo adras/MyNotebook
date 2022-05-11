@@ -1,11 +1,23 @@
 
 .window-container {
   --window-resizeAreaPixelSize: 5px;
-  background-color: aliceblue;
+  background-color: #EAEAEA;
   border: 1px solid black;
 
   position:absolute;
   z-index:1;
+}
+
+.window-title-bar {
+  height: 2em;
+  background-color: #333333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.window-title-text {
+
 }
 
 .window-resize-left {
@@ -14,7 +26,7 @@
   top: var(--window-resizeAreaPixelSize);
   width: var(--window-resizeAreaPixelSize);
   height: calc(100% - var(--window-resizeAreaPixelSize));
-  background: blue;
+  /*background: blue;*/
   cursor: w-resize;
 }
 
@@ -24,7 +36,7 @@
   top: var(--window-resizeAreaPixelSize);
   width: var(--window-resizeAreaPixelSize);
   height: calc(100% - var(--window-resizeAreaPixelSize));
-  background: cyan;
+  /*background: cyan;*/
   cursor: w-resize;
 }
 
@@ -34,7 +46,7 @@
   top: 0%;
   height: var(--window-resizeAreaPixelSize);
   width: calc(100% - var(--window-resizeAreaPixelSize));
-  background: black;
+  /*background: black;*/
   cursor: s-resize;
 }
 
@@ -44,7 +56,7 @@
   top: 100%;
   height: var(--window-resizeAreaPixelSize);
   width: calc(100% - var(--window-resizeAreaPixelSize));
-  background: magenta;
+  /*background: magenta;*/
   cursor: s-resize;
 }
 
@@ -54,7 +66,7 @@
   top: 0%;
   width: var(--window-resizeAreaPixelSize);
   height: 5px;
-  background: orange;
+  /*background: orange;*/
   cursor: nw-resize;
 }
 
@@ -64,7 +76,7 @@
   top: 0%;
   width: var(--window-resizeAreaPixelSize);
   height: var(--window-resizeAreaPixelSize);
-  background: orange;
+  /*background: orange;*/
   cursor: ne-resize;
 }
 
@@ -74,7 +86,7 @@
   top: 100%;
   width: var(--window-resizeAreaPixelSize);
   height: var(--window-resizeAreaPixelSize);
-  background: orange;
+  /*background: orange;*/
   cursor: se-resize;
 }
 
@@ -84,6 +96,6 @@
   top: 100%;
   width: var(--window-resizeAreaPixelSize);
   height: var(--window-resizeAreaPixelSize);
-  background: orange;
+  /*background: orange;*/
   cursor: sw-resize;
 }

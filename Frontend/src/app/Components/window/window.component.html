@@ -5,7 +5,9 @@
      [style.left.px]="0"
      [style.transform]="'translate3d(' + left + 'px,' + top + 'px,' + '0px)!important'"
      *ngIf="isVisible">
-
+  <div class="window-title-bar">
+    <div class="window-title-text" *ngIf="showTitleBar">{{title}}</div>
+  </div>
   <div class="window-resize-left" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Left)"></div>
   <div class="window-resize-right" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Right)"></div>
   <div class="window-resize-top" (mousedown)="doStartResizeFrom($event, resizeStartLocations.Top)"></div>

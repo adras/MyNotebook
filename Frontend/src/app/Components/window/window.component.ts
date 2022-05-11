@@ -15,11 +15,11 @@ export class WindowComponent implements OnInit {
   @Input() height: number | undefined;
   @Input() zIndex: number | undefined;
   @Input() lockSizeToScreen: boolean = false;
+  @Input() showTitleBar = true;
+  @Input() title: string = "Welcome Window";
 
   @Input() sizeWidthPercent: number = 80;
   @Input() sizeHeightPercent: number = 80;
-
-  @Input() showTitleBar: boolean = true;
 
   // These should be calculated at the start in case they are not set
   // so that the window is in the center
