@@ -14,6 +14,7 @@ export class WindowComponent implements OnInit {
   @Input() width: number | undefined;
   @Input() height: number | undefined;
   @Input() zIndex: number | undefined;
+  @Input() lockSizeToScreen: boolean = false;
 
   @Input() showTitleBar: boolean = true;
 
@@ -35,9 +36,6 @@ export class WindowComponent implements OnInit {
     if (this.zIndex === undefined) {
       this.zIndex = 1;
     }
-    // If the user didn't specify width, height, top, left, do so now
-    //const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    //const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
     var screenWidth = window.innerWidth;
     var screenHeight = window.innerHeight;
 
@@ -60,11 +58,6 @@ export class WindowComponent implements OnInit {
     if (this.top == undefined) {
       this.top = screenHeight / 2 - this.height / 2;
     }
-
-    console.log("top: " + this.top);
-    console.log("left: " + this.left);
-    console.log("width: " + this.width);
-    console.log("height: " + this.height);
   }
 
   toggle() {
@@ -89,7 +82,25 @@ export class WindowComponent implements OnInit {
   doMouseMove(event: MouseEvent) {
     this.doResizeMouseMove(event);
     this.doDragMouseMove(event);
-    //console.log("mousepos: " + event.screenY);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  doScreenResize(event: any) {
+    if (!this.lockSizeToScreen)
+      return;
+
+    this.resizeWindowToScreen();
+  }
+
+  resizeWindowToScreen() {
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+
+    this.width = screenWidth * 80 / 100;
+    this.height = screenHeight * 80 / 100;
+
+    this.left = screenWidth / 2 - this.width / 2;
+    this.top = screenHeight / 2 - this.height / 2;
   }
 
   doResizeMouseMove(event: MouseEvent) {
