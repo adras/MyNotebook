@@ -16,6 +16,9 @@ export class WindowComponent implements OnInit {
   @Input() zIndex: number | undefined;
   @Input() lockSizeToScreen: boolean = false;
 
+  @Input() sizeWidthPercent: number = 80;
+  @Input() sizeHeightPercent: number = 80;
+
   @Input() showTitleBar: boolean = true;
 
   // These should be calculated at the start in case they are not set
@@ -41,12 +44,12 @@ export class WindowComponent implements OnInit {
 
     // Use a default width
     if (this.width === undefined) {
-      this.width = screenWidth * 80 / 100;
+      this.width = screenWidth * this.sizeWidthPercent / 100;
     }
 
     // Use a default height
     if (this.height === undefined) {
-      this.height = screenHeight * 80 / 100;
+      this.height = screenHeight * this.sizeHeightPercent / 100;
     }
 
     // Center window horizontally
@@ -96,8 +99,8 @@ export class WindowComponent implements OnInit {
     var screenWidth = window.innerWidth;
     var screenHeight = window.innerHeight;
 
-    this.width = screenWidth * 80 / 100;
-    this.height = screenHeight * 80 / 100;
+    this.width = screenWidth * this.sizeWidthPercent / 100;
+    this.height = screenHeight * this.sizeHeightPercent / 100;
 
     this.left = screenWidth / 2 - this.width / 2;
     this.top = screenHeight / 2 - this.height / 2;
