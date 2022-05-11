@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-new-note',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-note.component.css']
 })
 export class NewNoteComponent implements OnInit {
+  @Input() isVisible: boolean = false;
 
   constructor() { }
 

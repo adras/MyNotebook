@@ -18,6 +18,7 @@ import { NgxEditorModule } from 'ngx-editor';
 import { NoteEditorComponent } from './Components/note-editor/note-editor.component';
 import { NewNoteComponent } from './Components/new-note/new-note.component';
 import { WindowComponent } from './Components/window/window.component';
+import { CreateNoteComponent } from './Components/create-note/create-note.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { WindowComponent } from './Components/window/window.component';
     NoteComponent,
     NoteEditorComponent,
     NewNoteComponent,
-    WindowComponent
+    WindowComponent,
+    CreateNoteComponent
   
   ],
   imports: [

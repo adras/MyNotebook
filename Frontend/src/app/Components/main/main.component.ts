@@ -9,6 +9,7 @@ import { QueryAllResponse } from '../../Models/QueryAllResponse';
 import { Settings } from '../../Models/Settings';
 import { Tag } from '../../Models/Tag';
 import { MainService } from '../../Services/main.service';
+import { NewNoteComponent } from '../new-note/new-note.component';
 import { WindowComponent } from '../window/window.component';
 
 @Component({
@@ -17,6 +18,8 @@ import { WindowComponent } from '../window/window.component';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  @ViewChild(NewNoteComponent) newNote: NewNoteComponent | undefined;
+
   // Note data
   allNotes: Array<Note> = [];
   allTags: Array<Tag> = [];
@@ -34,11 +37,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @ViewChild(WindowComponent) window: WindowComponent | undefined;
-
-  toggleWindow(): void {
-    this.window!.isVisible = !this.window?.isVisible;
-  }
 
   doTagsChanged(change: TagChange): void {
 
@@ -122,6 +120,10 @@ export class MainComponent implements OnInit {
     // TODO, search selectedNotes for searchText? could also be done in the loop above
     // Figure out what's faster
 
+  }
+
+  doCreateNote() {
+    this.newNote!.isVisible = !this.newNote!.isVisible;
   }
 
   doEditNote(event: OnEditNoteEvent) {
