@@ -17,6 +17,9 @@
   <div class="window-resize-bottomRight" (mousedown)="doStartResizeFrom($event, resizeStartLocations.BottomRight)"></div>
   <div class="window-resize-bottomLeft" (mousedown)="doStartResizeFrom($event, resizeStartLocations.BottomLeft)"></div>
 
+  <div class="window-content">
+    <ng-content></ng-content>
+  </div>
   <!--(mousedown)="doMouseDownDrag($event)"
   (window:mouseup)="doMouseUp($event)">-->
   <!--<div class="resize-action" (mousedown)="doMouseDownResize($event)"></div>-->

@@ -9,11 +9,16 @@ import { Tag } from '../../Models/Tag';
   styleUrls: ['./note-editor.component.css']
 })
 export class NoteEditorComponent implements OnInit, OnDestroy {
-  @Input() note: Note | undefined;
-  html: string = '';
+  @Input() leftButtonText: string = "Button";
+  @Input() rightButtonText: string = "Button";
+  @Input() tags: Array<Tag> | undefined;
 
-  @Output() onCancel = new EventEmitter();
-  @Output() onSave = new EventEmitter<Note>();
+  @Output() onLeftButtonClick = new EventEmitter();
+  @Output() onRightButtonClick = new EventEmitter();
+
+  @Input() note: Note | undefined;
+  public html: string = '';
+
 
   editor!: Editor;
 
@@ -28,13 +33,5 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   }
 
 
-  doSave() {
-    var newNote = Object.assign({} , this.note);
-    newNote.content = this.html;
-    this.onSave.emit(newNote);
-  }
 
-  doCancel() {
-    this.onCancel.emit();
-  }
 }

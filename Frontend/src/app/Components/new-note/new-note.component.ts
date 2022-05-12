@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Note } from '../../Models/Note';
 
 @Component({
   selector: 'app-new-note',
@@ -8,12 +9,29 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NewNoteComponent implements OnInit {
   @Input() isVisible: boolean = false;
 
+  note: Note = {
+    id: "",
+    tags: [],
+    content: "",
+    visibility: ""
+  };
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  doCreateNewNote() {
+  doCancel() {
+    console.log("Cancel");
 
+    // For now, we hide here directly, but this should probably trigger an output?
+    this.isVisible = false;
+  }
+
+  doCreate() {
+    console.log("Create");
+
+    // For now, we hide here directly, but this should probably trigger an output?
+    this.isVisible = false;
   }
 }

@@ -5,9 +5,9 @@
               [disabled]="false"
               [placeholder]="'Type here...'"></ngx-editor>
   <div class="button-container">
-    <app-button-bar leftButtonText="Cancel" rightButtonText="Save"
+    <app-button-bar [leftButtonText]="leftButtonText" [rightButtonText]="rightButtonText"
                     [tags]="note!.tags"
-                    (onLeftButtonClick)="doCancel()" (onRightButtonClick)="doSave()"></app-button-bar>
+                    (onLeftButtonClick)="onLeftButtonClick.emit()" (onRightButtonClick)="onRightButtonClick.emit()"></app-button-bar>
     <div style="clear:both;"></div>
   </div>
 </div>
