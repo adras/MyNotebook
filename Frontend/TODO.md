@@ -1,16 +1,9 @@
 # TODO
 * Implement change settings dialog
 * Implement rename/delete tag functionality
-* DONE Implement create note functionality
-  * DONE Update frontend with new information
-    * DONE Update tags
-    * DONE Add new note to view
-* DONE Implement note edit functionality
-  * DONE Update frontend with new information
-    * DONE Update tags
-    * DONE Update note text
 * Implement search for notes
-* Fix issue with special characters in notes, e.g. öä`' etc
+* Investigate if there's a difference in special characters between the old and the new editor
+  * Looks like the old editor replaces öä with &ouml; or &auml; - The new editor doesn't. Is this an issue?
 * Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
 * Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
   * Checkout angular styling which is a bit different to css
@@ -34,6 +27,16 @@
     * Possibly lock UI to focus user attention on the current action
 * Move the wysiwyg editor to a separate component so it can be reused. Create a new note and edit note component which also features
   the edit/cancel/insert buttons - maybe just create one component for the buttons which is customizable
+* DONE Implement create note functionality
+  * DONE Update frontend with new information
+    * DONE Update tags
+    * DONE Add new note to view
+* DONE Implement note edit functionality
+  * DONE Update frontend with new information
+    * DONE Update tags
+    * DONE Update note text
+* DONE Fix issue with special characters in notes, e.g. öä`' etc
+    Not sure how it got fixed, but it's not an issue anymore
 * DONE Improve Component/mainService dependency
   Right main service is injected to each component. Therefore the components are dependant to main service. This
   makes it impossible to reuse a component without having the MainService which is a bad design since components
