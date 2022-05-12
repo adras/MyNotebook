@@ -16,11 +16,6 @@ export class TagsComponent implements OnInit {
 
   constructor() { }
 
-  testX() {
-    this.selectedTags = ["hallo", "neu"];
-
-  }
-
   ngOnInit(): void {
   }
 
