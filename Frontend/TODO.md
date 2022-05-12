@@ -2,7 +2,13 @@
 * Implement change settings dialog
 * Implement rename/delete tag functionality
 * Implement create note functionality
+  * Update frontend with new information
+    * Update tags
+    * Add new note to view
 * Implement note edit functionality
+  * Update frontend with new information
+    * Update tags
+    * Update note text
 * Implement search for notes
 * Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
 * Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
