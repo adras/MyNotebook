@@ -19,6 +19,8 @@ import { NoteEditorComponent } from './Components/note-editor/note-editor.compon
 import { NewNoteComponent } from './Components/new-note/new-note.component';
 import { WindowComponent } from './Components/window/window.component';
 import { CreateNoteComponent } from './Components/create-note/create-note.component';
+import { ButtonBarComponent } from './Components/button-bar/button-bar.component';
+import { EditNoteComponent } from './Components/edit-note/edit-note.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { CreateNoteComponent } from './Components/create-note/create-note.compon
     NoteEditorComponent,
     NewNoteComponent,
     WindowComponent,
-    CreateNoteComponent
+    CreateNoteComponent,
+    ButtonBarComponent,
+    EditNoteComponent
   
   ],
   imports: [

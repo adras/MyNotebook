@@ -27,13 +27,6 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
     this.editor!.destroy();
   }
 
-  getTagStringFromArray(tags: Array<Tag>): string {
-    // This method sucks. It would be cool to do this only with databinding
-    const tagNames = tags.map(tag => tag.name);
-    const allTags = tagNames.join(' ');
-
-    return allTags;
-  }
 
   doSave() {
     var newNote = Object.assign({} , this.note);

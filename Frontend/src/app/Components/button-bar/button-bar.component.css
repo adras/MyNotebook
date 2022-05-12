@@ -1,0 +1,13 @@
+.button-container {
+  margin-top: 1em;
+}
+
+.left-button {
+  float: left;
+  width: 100px;
+}
+
+.right-button {
+  float: right;
+  width: 100px;
+}
