@@ -7,6 +7,8 @@
 * Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
 * Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
   * Checkout angular styling which is a bit different to css
+  * Improve component theming. Right now each component is themed by it's own style sheet. However that style sheet should only contain a minimalistic default
+    style and not the final style.
 * Implement mobile phone support -> Allow for the layout to change between portrait and landscape
 * Implement intelli tags -> tag suggestion when tags are typed
 * Improve note-editor functionality e.g. Add bold, inverse, headings and all other stylings which can be required. Don't
@@ -18,6 +20,7 @@
 * Implement support for error responses which have the error flag set. This probably means to show a dialog with error
   information. It might make sense to allow the user to try the action again
 * Add dialog in case login fails
+* Fix warning:"Could not find Angular Material core theme"
 * Implement proper UI-state handling. 
     * E.g. If one note is being edited, what happens when edit on another note is clicked?
     * When the tag rename/edit popup is open and another action is done, the popup should hide
