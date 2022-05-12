@@ -6,7 +6,15 @@ class DatabaseManager {
 		if ($mysqli->errno !== 0) {
 			throw new Exception ($mysqli->error ."\n" . "Query: " . $query);
 		}
+
 		return $result;
+	}
+
+	private static function createSqlConnection() {
+		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
+		$mysqli->select_db (Config::$db_name);
+		
+		return $mysqli;
 	}
 
 	// Returns an array which contains all tag-names of a specific note
@@ -97,8 +105,7 @@ class DatabaseManager {
 	}
 	
 	public static function SelectAllTags () {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 
 		$query = "SELECT tagname, id FROM `" . Config::$db_tagTableName . "`;";
 		// CreateSafeSqlQuery not required since there are no variables used in query
@@ -116,9 +123,8 @@ class DatabaseManager {
 	}
 
 	private static function QueryNotes ($query) {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
-
+		$mysqli = self::createSqlConnection();
+		
 		$result = self::ExecuteQuery ($mysqli, $query);
 		
 		$notes = array();
@@ -154,8 +160,7 @@ class DatabaseManager {
 	public static function CreateNote ($note) {
 		self::checkForEmptyNote ($note);
 		
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 		
 		$dateTime = time ();
 		$query = "INSERT INTO `". Config::$db_tableName . "` (content, visibility, datetime) VALUES ('%1\$s', 0, '%2\$s');";
@@ -173,8 +178,7 @@ class DatabaseManager {
 	public static function EditNote ($note) {
 		self::checkForEmptyNote($note);
 
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 
 		$query = "UPDATE `". Config::$db_tableName . "` SET content='%1\$s' WHERE id='%2\$s';";
 		$query = HelperFunctions::CreateSafeSqlQuery($mysqli, $query, array($note->content, $note->id));
@@ -188,8 +192,7 @@ class DatabaseManager {
 	}
 	
 	public static function SetNoteVisibility($note) {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 
 		$query = "UPDATE `". Config::$db_tableName . "` SET visibility='%1\$d' WHERE id='%1\$d';";
 		$query = HelperFunctions::CreateSafeSqlQuery($mysqli, $query, array($note->visibility, $note->id));
@@ -200,8 +203,7 @@ class DatabaseManager {
 	}
 
 	public static function DeleteNote ($note) {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 
 		$query = "DELETE FROM `"	.Config::$db_tableName . "` WHERE id='%1\$d';";
 		$query = HelperFunctions::CreateSafeSqlQuery($mysqli, $query, array($note->id));
@@ -212,8 +214,7 @@ class DatabaseManager {
 	}
 	
 	public static function GetSettings () {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 
 		$settings = array ();
 
@@ -247,8 +248,7 @@ class DatabaseManager {
 	}
 	
 	public static function UpdateSettings ($settings) {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 		
 		// Check if old passwords are correct
 		
@@ -260,8 +260,7 @@ class DatabaseManager {
 	}
 	
 	public static function DeleteTag ($tagId) {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 
 		$query = "DELETE FROM `" . Config::$db_tagTableName . "` WHERE id='%1\$d';";
 		$query = HelperFunctions::CreateSafeSqlQuery($mysqli, $query, array($tagId));
@@ -275,8 +274,7 @@ class DatabaseManager {
 	}
 	
 	public static function RenameTag ($tag) {
-		$mysqli = new mysqli(Config::$db_address, Config::$db_username, Config::$db_pwd);
-		$mysqli->select_db (Config::$db_name);
+		$mysqli = self::createSqlConnection();
 		
 		$query = "UPDATE `" . Config::$db_tagTableName . "` SET tagname='%1\$s' WHERE id='%2\$d';";
 		$query = HelperFunctions::CreateSafeSqlQuery($mysqli, $query, array($tag->newName, $tag->id));
