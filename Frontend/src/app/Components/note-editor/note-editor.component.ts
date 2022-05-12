@@ -12,13 +12,14 @@ import { Tag } from '../../Models/Tag';
 export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() leftButtonText: string = "Button";
   @Input() rightButtonText: string = "Button";
-  @Input() tags: Array<Tag> | undefined;
 
   @Output() onLeftButtonClick = new EventEmitter<NoteEditorEvent>();
   @Output() onRightButtonClick = new EventEmitter<NoteEditorEvent>();
 
   @Input() note: Note | undefined;
-  public html: string = '';
+
+  html: string = '';
+  tags: Array<Tag> | undefined;
 
 
   editor!: Editor;
@@ -26,6 +27,7 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.editor = new Editor();
     this.html = this.note!.content;
+    this.tags = this.note!.tags;
   }
 
   // make sure to destory the editor
