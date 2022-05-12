@@ -4,6 +4,7 @@ import * as CryptoJS from 'crypto-js';
 import { NoteEditorEvent } from '../Events/NoteEditorEvent';
 import { OnLoginEvent } from '../Events/OnLoginEvent';
 import { BaseResponse } from '../Models/BaseResponse';
+import { CreateNoteResponse } from '../Models/CreateNoteResponse';
 import { EditNoteResponse } from '../Models/EditNoteResponse';
 import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
@@ -60,8 +61,8 @@ export class MainService {
     const tagString = event.tags.join(' ');
     var note = ({
       id: event.noteId,
-      tags: tagString,
-      content: event.noteContent
+      content: event.noteContent,
+      tags: tagString
     });
 
     // TODO: There was a bug where tags were send as an array which was encapsulated with quotes and therefore interpreted by
@@ -74,7 +75,27 @@ export class MainService {
 
     const result = this.http.post<EditNoteResponse>(this.apiPath, params);
     return result;
+  }
 
+  public doCreateNote(event: NoteEditorEvent) {
+    // PHP Backend does not accept a tag array, instead it's a string of tags separated by spaces
+    // Working code
+    const tagString = event.tags.join(' ');
+    var note = ({
+      content: event.noteContent,
+      tags: tagString
+    });
+
+    // TODO: There was a bug where tags were send as an array which was encapsulated with quotes and therefore interpreted by
+    // the backend as string and not array. This needs to be investigated at one point, because the tag-handling in the backend
+    // is quite cumbersome at the moment
+
+    const params = new HttpParams()
+      .set("action", "newNote")
+      .set("note", JSON.stringify(note));
+
+    const result = this.http.post<CreateNoteResponse>(this.apiPath, params);
+    return result;
   }
 
 }

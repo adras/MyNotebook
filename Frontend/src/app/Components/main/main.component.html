@@ -10,8 +10,8 @@
 
   <br />
 
-  <app-create-note (onCreateNote)="doCreateNote()"></app-create-note>
-  <app-new-note></app-new-note>
+  <app-create-note (onCreateNote)="doShowCreateNote()"></app-create-note>
+  <app-new-note (onCreateNote)="doCreateNote($event)"></app-new-note>
 
   <div class="main-container">
     <app-logout (onLogout)="doLogout()"></app-logout>

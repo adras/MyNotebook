@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { Note } from '../../Models/Note';
 
@@ -9,6 +9,8 @@ import { Note } from '../../Models/Note';
 })
 export class NewNoteComponent implements OnInit {
   @Input() isVisible: boolean = false;
+
+  @Output() onCreateNote = new EventEmitter<NoteEditorEvent>();
 
   note: Note = {
     id: "",
@@ -31,7 +33,7 @@ export class NewNoteComponent implements OnInit {
 
   doCreate(event: NoteEditorEvent) {
     console.log("Create");
-
+    this.onCreateNote.emit(event);
     // For now, we hide here directly, but this should probably trigger an output?
     this.isVisible = false;
   }

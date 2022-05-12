@@ -3,6 +3,7 @@ import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnLoginEvent } from '../../Events/OnLoginEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
+import { CreateNoteResponse } from '../../Models/CreateNoteResponse';
 import { EditNoteResponse } from '../../Models/EditNoteResponse';
 import { Note } from '../../Models/Note';
 import { QueryAllResponse } from '../../Models/QueryAllResponse';
@@ -123,8 +124,12 @@ export class MainComponent implements OnInit {
 
   }
 
-  doCreateNote() {
+  doShowCreateNote() {
     this.newNote!.isVisible = !this.newNote!.isVisible;
+  }
+
+  doCreateNote(event: NoteEditorEvent) {
+    this.mainService.doCreateNote(event).subscribe((response: CreateNoteResponse) => this.onCreateNote(response));
   }
 
   doEditNote(event: NoteEditorEvent) {
@@ -175,5 +180,9 @@ export class MainComponent implements OnInit {
     // TODO: Umlauts broken in edited note, fix that somehow
     // Response needs to be evaluated, and UI needs to be updated with new note and tags
     console.log("Edit done");
+  }
+
+  onCreateNote(response: CreateNoteResponse) {
+    console.log("New note done");
   }
 }
