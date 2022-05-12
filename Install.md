@@ -28,6 +28,9 @@ If everything worked, you should see a "Success" message.
 
 After the upgrade you can delete the tables from install.php with the "old" suffix.
 
+## Old Uranus-Upgrade
+Uranus-Databases need a manual update since the encoding changed from utf8_unicode_ci to: utf8_general_ci
+
 ## upgrade config.php
 Since the upgrade script does not update the config, you have to do it manually. The config.php was rewritten by the install.php script and uses the mynotebook-delta file format. However now you need the mynotebook-uranus file format. Luckily, the config.php which comes with this repo already has the
 mynotebook-uranus format. So all you need to do is to update the Backend/php/config.php with your credentials and tablenames (choose the "new table prefix" from upgrde.php). Upload the file, and you should be able to login.
