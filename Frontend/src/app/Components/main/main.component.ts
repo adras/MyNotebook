@@ -30,6 +30,9 @@ export class MainComponent implements OnInit {
   isLoggedIn: boolean = false;
   selectedNotes: Array<Note> = [];
 
+  // TODO: There are now Array-Extensions in /Extensions/ArrayExtensions these can be used
+  // To simplify a few places here
+
   constructor(private mainService: MainService) {
     this.doQueryAll();
   }
@@ -39,8 +42,6 @@ export class MainComponent implements OnInit {
 
 
   doTagsChanged(change: TagChange): void {
-
-
     // We require some casts since we consider these values to be never undefined
     const allNotesTagName = this.allSettings?.allNotesTagName.value as string;
     const isAllNotesTag = allNotesTagName == change.tagName;
