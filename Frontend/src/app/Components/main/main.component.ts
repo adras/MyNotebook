@@ -177,6 +177,17 @@ export class MainComponent implements OnInit {
   }
 
   onEditNote(response: EditNoteResponse) {
+    var noteIdx = this.allNotes.findIndex(note => note.id == response.note.id);
+    if (noteIdx == -1) {
+      // This should never happen since the id of the note reported from the backend also should exist in the
+      // frontend
+      console.log("Error: Edited a note with an id that doesn't exist in the frontent");
+      return;
+    }
+    this.allNotes[noteIdx] = response.note;
+    this.allTags = response.tags;
+
+    this.updateSelectedNotes();
     // TODO: Umlauts broken in edited note, fix that somehow
     // Response needs to be evaluated, and UI needs to be updated with new note and tags
     console.log("Edit done");

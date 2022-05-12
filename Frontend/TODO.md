@@ -5,11 +5,12 @@
   * Update frontend with new information
     * Update tags
     * Add new note to view
-* Implement note edit functionality
-  * Update frontend with new information
-    * Update tags
-    * Update note text
+* DONE Implement note edit functionality
+  * DONE Update frontend with new information
+    * DONE Update tags
+    * DONE Update note text
 * Implement search for notes
+* Fix issue with special characters in notes, e.g. öä`' etc
 * Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
 * Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
   * Checkout angular styling which is a bit different to css
