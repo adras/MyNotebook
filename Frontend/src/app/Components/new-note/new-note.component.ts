@@ -22,7 +22,7 @@ export class NewNoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doCancel(event: NoteEditorEvent) {
+  doCancel() {
     console.log("Cancel");
 
     // For now, we hide here directly, but this should probably trigger an output?

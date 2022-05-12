@@ -35,7 +35,7 @@ export class NoteComponent implements OnInit {
     this.isEditing = false;
   }
 
-  doCancel(event: NoteEditorEvent) {
+  doCancel() {
     this.isEditing = false;
   }
 

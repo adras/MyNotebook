@@ -7,7 +7,7 @@
   <div class="button-container">
     <app-button-bar [leftButtonText]="leftButtonText" [rightButtonText]="rightButtonText"
                     [tags]="tags"
-                    (onLeftButtonClick)="doLeftButtonClick()" (onRightButtonClick)="doRightButtonClick()"></app-button-bar>
+                    (onLeftButtonClick)="doLeftButtonClick($event)" (onRightButtonClick)="doRightButtonClick($event)"></app-button-bar>
     <div style="clear:both;"></div>
   </div>
 </div>

@@ -3,6 +3,6 @@
   <button (click)="doRightButton()" class="right-button">{{rightButtonText}}</button>
   <div class="tags-container">
     <label>Tags:</label>
-    <input type="text" [value]="getTagStringFromArray(tags!)" />
+    <input type="text" [(ngModel)]="tags"/>
   </div>
 </div>

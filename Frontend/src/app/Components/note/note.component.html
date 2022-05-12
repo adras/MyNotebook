@@ -8,6 +8,6 @@
   </div>
   <div *ngIf="isEditing">
     <app-note-editor [note]="note" leftButtonText="Cancel" rightButtonText="Save"
-                     (onLeftButtonClick)="doCancel($event)" (onRightButtonClick)="doSave($event)"></app-note-editor>
+                     (onLeftButtonClick)="doCancel()" (onRightButtonClick)="doSave($event)"></app-note-editor>
   </div>
 </div>

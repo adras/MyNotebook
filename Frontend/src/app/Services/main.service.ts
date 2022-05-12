@@ -57,12 +57,11 @@ export class MainService {
   public doEditNote(event: NoteEditorEvent) {
     // PHP Backend does not accept a tag array, instead it's a string of tags separated by spaces
     // Working code
-    const tagNames = event.note.tags.map(tag => tag.name);
-    const tagString = tagNames.join(' ');
+    const tagString = event.tags.join(' ');
     var note = ({
-      id: event.note.id,
+      id: event.noteId,
       tags: tagString,
-      content: event.note.content
+      content: event.noteContent
     });
 
     // TODO: There was a bug where tags were send as an array which was encapsulated with quotes and therefore interpreted by

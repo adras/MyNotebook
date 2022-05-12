@@ -1,9 +1,13 @@
 import { Note } from "../Models/Note";
 
 export class NoteEditorEvent {
-  public note: Note;
+  public noteContent: string;
+  public noteId: string;
+  public tags: Array<string>;
 
-  constructor(note: Note) {
-    this.note = note;
+  constructor(noteContent: string, noteId: string, tags: Array<string>) {
+    this.noteContent = noteContent;
+    this.noteId = noteId;
+    this.tags = tags;
   }
 }

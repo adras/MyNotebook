@@ -9,10 +9,10 @@ import { Tag } from '../../Models/Tag';
 export class ButtonBarComponent implements OnInit {
   @Input() leftButtonText: string = "Button";
   @Input() rightButtonText: string = "Button";
-  @Input() tags: Array<Tag> | undefined;
+  @Input() tags: string | undefined;
 
-  @Output() onLeftButtonClick = new EventEmitter();
-  @Output() onRightButtonClick = new EventEmitter();
+  @Output() onLeftButtonClick = new EventEmitter<string>();
+  @Output() onRightButtonClick = new EventEmitter<string>();
 
   constructor() { }
 
@@ -20,19 +20,12 @@ export class ButtonBarComponent implements OnInit {
   }
 
   doLeftButton() {
-    this.onLeftButtonClick.emit();
+    this.onLeftButtonClick.emit(this.tags);
   }
 
   doRightButton() {
-    this.onRightButtonClick.emit();
+    this.onRightButtonClick.emit(this.tags);
   }
 
 
-  getTagStringFromArray(tags: Array<Tag>): string {
-    // This method sucks. It would be cool to do this only with databinding
-    const tagNames = tags.map(tag => tag.name);
-    const allTags = tagNames.join(' ');
-
-    return allTags;
-  }
 }

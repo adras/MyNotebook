@@ -13,13 +13,13 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() leftButtonText: string = "Button";
   @Input() rightButtonText: string = "Button";
 
-  @Output() onLeftButtonClick = new EventEmitter<NoteEditorEvent>();
+  @Output() onLeftButtonClick = new EventEmitter();
   @Output() onRightButtonClick = new EventEmitter<NoteEditorEvent>();
 
   @Input() note: Note | undefined;
 
   html: string = '';
-  tags: Array<Tag> | undefined;
+  tags: string | undefined;
 
 
   editor!: Editor;
@@ -27,7 +27,7 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.editor = new Editor();
     this.html = this.note!.content;
-    this.tags = this.note!.tags;
+    this.tags = this.getTagStringFromArray(this.note!.tags);
   }
 
   // make sure to destory the editor
@@ -35,23 +35,28 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
     this.editor!.destroy();
   }
 
-  doLeftButtonClick() {
-    // Send the note which was bound to this component
-    // It should be unchanged, otherwise it's a bug
-    var event = new NoteEditorEvent(this.note!);
-    this.onLeftButtonClick.emit(event);
+  getTagStringFromArray(tags: Array<Tag>): string {
+    // This method sucks. It would be cool to do this only with databinding
+    const tagNames = tags.map(tag => tag.name);
+    const allTags = tagNames.join(' ');
+
+    return allTags;
   }
 
-  doRightButtonClick() {
-    // Create a copy of the bound note
-    // Update it's content and tags and send it
-    var newNote = Object.assign({}, this.note);
+  doLeftButtonClick(event: string) {
+    this.onLeftButtonClick.emit();
+  }
+
+  doRightButtonClick(event:string) {
+    // event should be tags
+    const tagsArray = event.split(' ');
+
 
     // TODO: Tags missing
-    newNote.content = this.html;
+    const newNoteContent = this.html;
 
-    var event = new NoteEditorEvent(newNote);
-    this.onRightButtonClick.emit(event);
+    var newEvent = new NoteEditorEvent(newNoteContent, this.note!.id, tagsArray);
+    this.onRightButtonClick.emit(newEvent);
   }
 
 }
