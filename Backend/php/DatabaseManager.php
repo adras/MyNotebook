@@ -32,7 +32,7 @@ class DatabaseManager {
 		while (($row = $result->fetch_array ()) != null) {
 			$tag = new stdClass();;
 			$tag->id = $row["id"];
-			$tag->name = utf8_encode($row["tagname"]);
+			$tag->name = $row["tagname"];
 			$tags[] = $tag;
 		}
 		return $tags;
@@ -116,7 +116,7 @@ class DatabaseManager {
 		while (($row = $result->fetch_array ()) != null) {
 			$tag = new stdClass();;
 			$tag->id = $row["id"];
-			$tag->name = utf8_encode($row["tagname"]);
+			$tag->name = $row["tagname"];
 			$tags[] = $tag;
 		}
 		return $tags;
@@ -133,7 +133,7 @@ class DatabaseManager {
 			$id = $row["id"];
 			$visibility = $row["visibility"];
 			
-			$content = utf8_encode(stripslashes($row["content"]));
+			$content = stripslashes($row["content"]);
 
 			$tags = self::GetNoteTags($mysqli, $id);
 

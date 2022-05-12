@@ -33,11 +33,11 @@
 		global $mysqli;
 		$query = "CREATE TABLE `" . $notesTableName . "` (
 				`id` int(6) NOT NULL AUTO_INCREMENT,
-				`content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+				`content` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 				`datetime` int(16) NOT NULL,
 				`visibility` binary(1) NOT NULL,
 				PRIMARY KEY (`id`)
-			) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;";
+			) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;";
 
 		$result = $mysqli->query ($query);
 
@@ -54,7 +54,7 @@
 					`noteid` int(8) NOT NULL,
 					`tagid` int(11) NOT NULL,
 					PRIMARY KEY (`noteid`,`tagid`)
-				) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+				) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;";
 
 		$result  = $mysqli->query ($query);
 
@@ -72,7 +72,7 @@
 					`tagname` varchar(40) CHARACTER SET utf8 NOT NULL,
 					`rating` int(4) NOT NULL,
 					PRIMARY KEY (`id`)
-				) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;";
+				) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;";
 		
 		$result  = $mysqli->query ($query);
 
@@ -92,7 +92,7 @@
 				`value` varchar(64) NOT NULL,
 				`description` varchar(160) NOT NULL,
 			PRIMARY KEY (`id`)
-			) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;"; 
+			) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;"; 
 		
 		$result  = $mysqli->query ($query);
 

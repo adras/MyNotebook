@@ -111,7 +111,7 @@ if(is_writable("config.php"))
 				//$queries[]="DROP TABLE `$db_noteTagsTableName`";
 				//$queries[]="DROP TABLE `$db_tagTableName`";
 				
-				$queries[]="CREATE TABLE `$db_tableName` (`id` int(4) NOT NULL auto_increment,`note` text character set utf8 collate utf8_unicode_ci NOT NULL,`datetime` int(16) NOT NULL,  `new` binary(1) NOT NULL,  PRIMARY KEY  (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=196;";
+				$queries[]="CREATE TABLE `$db_tableName` (`id` int(4) NOT NULL auto_increment,`note` text character set utf8 collate utf8_general_ci NOT NULL,`datetime` int(16) NOT NULL,  `new` binary(1) NOT NULL,  PRIMARY KEY  (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=196;";
 				$queries[]="CREATE TABLE `$db_noteTagsTableName` (  `noteid` int(8) NOT NULL,  `tagid` int(11) NOT NULL,  PRIMARY KEY  (`noteid`,`tagid`)) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
 				$queries[]="CREATE TABLE `$db_tagTableName` (  `id` int(8) NOT NULL auto_increment,  `tagname` varchar(40) character set utf8 NOT NULL,  `rating` int(4) NOT NULL,  PRIMARY KEY  (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;";
 
