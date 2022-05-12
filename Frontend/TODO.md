@@ -17,10 +17,13 @@
   In this case also show a proper error dialog with a retry option
 * Implement support for error responses which have the error flag set. This probably means to show a dialog with error
   information. It might make sense to allow the user to try the action again
+* Add dialog in case login fails
 * Implement proper UI-state handling. 
     * E.g. If one note is being edited, what happens when edit on another note is clicked?
     * When the tag rename/edit popup is open and another action is done, the popup should hide
     * Possibly lock UI to focus user attention on the current action
+* Move the wysiwyg editor to a separate component so it can be reused. Create a new note and edit note component which also features
+  the edit/cancel/insert buttons - maybe just create one component for the buttons which is customizable
 * DONE Improve Component/mainService dependency
   Right main service is injected to each component. Therefore the components are dependant to main service. This
   makes it impossible to reuse a component without having the MainService which is a bad design since components
