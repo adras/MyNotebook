@@ -1,6 +1,6 @@
 import { Note } from "../Models/Note";
 
-export class OnEditNoteEvent {
+export class NoteEditorEvent {
   public note: Note;
 
   constructor(note: Note) {

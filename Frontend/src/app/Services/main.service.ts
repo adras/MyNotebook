@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
-import { OnEditNoteEvent } from '../Events/OnEditNoteEvent';
+import { NoteEditorEvent } from '../Events/NoteEditorEvent';
 import { OnLoginEvent } from '../Events/OnLoginEvent';
 import { BaseResponse } from '../Models/BaseResponse';
 import { EditNoteResponse } from '../Models/EditNoteResponse';
@@ -54,7 +54,7 @@ export class MainService {
     return result;
   }
 
-  public doEditNote(event: OnEditNoteEvent) {
+  public doEditNote(event: NoteEditorEvent) {
     // PHP Backend does not accept a tag array, instead it's a string of tags separated by spaces
     // Working code
     const tagNames = event.note.tags.map(tag => tag.name);

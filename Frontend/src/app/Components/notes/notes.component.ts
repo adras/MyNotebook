@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
+import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { Note } from '../../Models/Note';
 
 
@@ -10,13 +10,13 @@ import { Note } from '../../Models/Note';
 })
 export class NotesComponent implements OnInit {
   @Input() selectedNotes: Array<Note> = [];
-  @Output() onEditNote = new EventEmitter<OnEditNoteEvent>();
+  @Output() onEditNote = new EventEmitter<NoteEditorEvent>();
   constructor() { }
 
   ngOnInit(): void {
     
   }
-  doEditNote(event: OnEditNoteEvent) {
+  doEditNote(event: NoteEditorEvent) {
     this.onEditNote.emit(event);
   }
 }

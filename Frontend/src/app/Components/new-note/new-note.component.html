@@ -1,6 +1,6 @@
 <div class="newNote-container" *ngIf="isVisible">
   <app-window [zIndex]="2" [lockSizeToScreen]="true" [isVisible]="true">
     <app-note-editor [note]="note" leftButtonText="Cancel" rightButtonText="Create"
-                     (onLeftButtonClick)="doCancel()" (onRightButtonClick)="doCreate()"></app-note-editor>
+                     (onLeftButtonClick)="doCancel($event)" (onRightButtonClick)="doCreate($event)"></app-note-editor>
   </app-window>
 </div>

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
+import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnSearch } from '../../Events/OnSearchEvent';
 import { Note } from '../../Models/Note';
 import { NoteEditorComponent } from '../note-editor/note-editor.component';
@@ -14,7 +14,7 @@ export class NoteComponent implements OnInit {
   @ViewChild(NoteEditorComponent) noteEditor: NoteEditorComponent | undefined;
 
   @Input() note: Note | undefined;
-  @Output() onEditNote = new EventEmitter<OnEditNoteEvent>();
+  @Output() onEditNote = new EventEmitter<NoteEditorEvent>();
 
   isEditing: boolean = false;
 
@@ -29,17 +29,13 @@ export class NoteComponent implements OnInit {
   }
 
 
-  doSave() {
-    var newNote = Object.assign({}, this.note);
-    newNote.content = this.noteEditor!.html;
-
-    var event = new OnEditNoteEvent(newNote);
+  doSave(event: NoteEditorEvent) {
     this.onEditNote.emit(event);
 
     this.isEditing = false;
   }
 
-  doCancel() {
+  doCancel(event: NoteEditorEvent) {
     this.isEditing = false;
   }
 

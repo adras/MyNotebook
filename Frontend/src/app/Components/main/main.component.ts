@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { OnEditNoteEvent } from '../../Events/OnEditNoteEvent';
+import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnLoginEvent } from '../../Events/OnLoginEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
@@ -127,7 +127,7 @@ export class MainComponent implements OnInit {
     this.newNote!.isVisible = !this.newNote!.isVisible;
   }
 
-  doEditNote(event: OnEditNoteEvent) {
+  doEditNote(event: NoteEditorEvent) {
     this.mainService.doEditNote(event).subscribe((response: EditNoteResponse) => this.onEditNote(response));
   }
 

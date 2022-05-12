@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { Note } from '../../Models/Note';
 
 @Component({
@@ -21,14 +22,14 @@ export class NewNoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doCancel() {
+  doCancel(event: NoteEditorEvent) {
     console.log("Cancel");
 
     // For now, we hide here directly, but this should probably trigger an output?
     this.isVisible = false;
   }
 
-  doCreate() {
+  doCreate(event: NoteEditorEvent) {
     console.log("Create");
 
     // For now, we hide here directly, but this should probably trigger an output?

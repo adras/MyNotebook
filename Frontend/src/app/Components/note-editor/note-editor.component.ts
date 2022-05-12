@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Editor } from 'ngx-editor';
+import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { Note } from '../../Models/Note';
 import { Tag } from '../../Models/Tag';
 
@@ -13,8 +14,8 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() rightButtonText: string = "Button";
   @Input() tags: Array<Tag> | undefined;
 
-  @Output() onLeftButtonClick = new EventEmitter();
-  @Output() onRightButtonClick = new EventEmitter();
+  @Output() onLeftButtonClick = new EventEmitter<NoteEditorEvent>();
+  @Output() onRightButtonClick = new EventEmitter<NoteEditorEvent>();
 
   @Input() note: Note | undefined;
   public html: string = '';
@@ -32,6 +33,23 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
     this.editor!.destroy();
   }
 
+  doLeftButtonClick() {
+    // Send the note which was bound to this component
+    // It should be unchanged, otherwise it's a bug
+    var event = new NoteEditorEvent(this.note!);
+    this.onLeftButtonClick.emit(event);
+  }
 
+  doRightButtonClick() {
+    // Create a copy of the bound note
+    // Update it's content and tags and send it
+    var newNote = Object.assign({}, this.note);
+
+    // TODO: Tags missing
+    newNote.content = this.html;
+
+    var event = new NoteEditorEvent(newNote);
+    this.onRightButtonClick.emit(event);
+  }
 
 }
