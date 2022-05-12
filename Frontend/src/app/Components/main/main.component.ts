@@ -184,16 +184,24 @@ export class MainComponent implements OnInit {
       console.log("Error: Edited a note with an id that doesn't exist in the frontent");
       return;
     }
+    // Replace old note with new one
     this.allNotes[noteIdx] = response.note;
+
+    // Update tags
     this.allTags = response.tags;
 
+    // Update view
     this.updateSelectedNotes();
-    // TODO: Umlauts broken in edited note, fix that somehow
-    // Response needs to be evaluated, and UI needs to be updated with new note and tags
-    console.log("Edit done");
   }
 
   onCreateNote(response: CreateNoteResponse) {
-    console.log("New note done");
+    // Insert new note
+    this.allNotes.splice(0, 0, response.note);
+
+    // Update tags
+    this.allTags = response.tags;
+
+    // Update view
+    this.updateSelectedNotes();
   }
 }

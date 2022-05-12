@@ -1,10 +1,10 @@
 # TODO
 * Implement change settings dialog
 * Implement rename/delete tag functionality
-* Implement create note functionality
-  * Update frontend with new information
-    * Update tags
-    * Add new note to view
+* DONE Implement create note functionality
+  * DONE Update frontend with new information
+    * DONE Update tags
+    * DONE Add new note to view
 * DONE Implement note edit functionality
   * DONE Update frontend with new information
     * DONE Update tags
