@@ -11,13 +11,13 @@
   <br />
 
   <app-create-note (onCreateNote)="doShowCreateNote()"></app-create-note>
-  <app-new-note (onCreateNote)="doCreateNote($event)"></app-new-note>
+  <app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>
 
   <div class="main-container">
     <app-logout (onLogout)="doLogout()"></app-logout>
     <app-search></app-search>
     <app-tags (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
-    <app-notes [selectedNotes]="selectedNotes" (onEditNote)="doEditNote($event)">
+    <app-notes [selectedNotes]="selectedNotes" [allTags]="allTags" (onEditNote)="doEditNote($event)">
     </app-notes>
   </div>
 </div>

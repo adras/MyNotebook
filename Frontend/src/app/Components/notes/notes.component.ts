@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { Note } from '../../Models/Note';
+import { Tag } from '../../Models/Tag';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { Note } from '../../Models/Note';
 })
 export class NotesComponent implements OnInit {
   @Input() selectedNotes: Array<Note> = [];
+  @Input() allTags: Array<Tag> = [];
   @Output() onEditNote = new EventEmitter<NoteEditorEvent>();
   constructor() { }
 

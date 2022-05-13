@@ -1,4 +1,4 @@
 <div *ngFor="let note of selectedNotes" class="note">
 
-  <app-note [note]="note" (onEditNote)="doEditNote($event)"></app-note>
+  <app-note [note]="note" [allTags]="allTags" (onEditNote)="doEditNote($event)"></app-note>
 </div>

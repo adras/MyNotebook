@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnSearch } from '../../Events/OnSearchEvent';
 import { Note } from '../../Models/Note';
+import { Tag } from '../../Models/Tag';
 import { NoteEditorComponent } from '../note-editor/note-editor.component';
 
 @Component({
@@ -12,7 +13,7 @@ import { NoteEditorComponent } from '../note-editor/note-editor.component';
 
 export class NoteComponent implements OnInit {
   @ViewChild(NoteEditorComponent) noteEditor: NoteEditorComponent | undefined;
-
+  @Input() allTags: Array<Tag> = [];
   @Input() note: Note | undefined;
   @Output() onEditNote = new EventEmitter<NoteEditorEvent>();
 

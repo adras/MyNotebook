@@ -10,17 +10,17 @@ import { Tag } from '../../Models/Tag';
   styleUrls: ['./note-editor.component.css']
 })
 export class NoteEditorComponent implements OnInit, OnDestroy {
+  @Input() note: Note | undefined;
+  @Input() allTags: Array<Tag> = [];
+
   @Input() leftButtonText: string = "Button";
   @Input() rightButtonText: string = "Button";
 
   @Output() onLeftButtonClick = new EventEmitter();
   @Output() onRightButtonClick = new EventEmitter<NoteEditorEvent>();
 
-  @Input() note: Note | undefined;
-
   html: string = '';
   tags: string | undefined;
-
 
   editor!: Editor;
 

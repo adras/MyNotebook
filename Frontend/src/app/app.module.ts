@@ -21,6 +21,7 @@ import { WindowComponent } from './Components/window/window.component';
 import { CreateNoteComponent } from './Components/create-note/create-note.component';
 import { ButtonBarComponent } from './Components/button-bar/button-bar.component';
 import { EditNoteComponent } from './Components/edit-note/edit-note.component';
+import { TagSuggestComponent } from './Components/tag-suggest/tag-suggest.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { EditNoteComponent } from './Components/edit-note/edit-note.component';
     WindowComponent,
     CreateNoteComponent,
     ButtonBarComponent,
-    EditNoteComponent
+    EditNoteComponent,
+    TagSuggestComponent
   
   ],
   imports: [

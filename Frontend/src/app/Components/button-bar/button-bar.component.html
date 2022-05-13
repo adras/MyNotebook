@@ -1,8 +1,5 @@
 <div class="button-container">
   <button (click)="doLeftButton()" class="left-button">{{leftButtonText}}</button>
   <button (click)="doRightButton()" class="right-button">{{rightButtonText}}</button>
-  <div class="tags-container">
-    <label>Tags:</label>
-    <input type="text" [(ngModel)]="tags"/>
-  </div>
+  <app-tag-suggest [allTags]="allTags"></app-tag-suggest>
 </div>

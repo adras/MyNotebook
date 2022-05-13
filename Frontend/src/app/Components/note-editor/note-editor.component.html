@@ -6,7 +6,7 @@
               [placeholder]="'Type here...'"></ngx-editor>
   <div class="button-container">
     <app-button-bar [leftButtonText]="leftButtonText" [rightButtonText]="rightButtonText"
-                    [tags]="tags"
+                    [tags]="tags" [allTags]="allTags"
                     (onLeftButtonClick)="doLeftButtonClick($event)" (onRightButtonClick)="doRightButtonClick($event)"></app-button-bar>
     <div style="clear:both;"></div>
   </div>

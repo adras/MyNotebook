@@ -1,0 +1,8 @@
+<div class="tags-container">
+  <label>Tags:</label>
+  <input type="text" [(ngModel)]="tags" (keyup)="updateSuggestions()" />
+
+  <div class="tags-items-container" *ngFor="let tag of suggestedTags">
+    <div class="tags-items-item">{{tag.name}}</div>
+  </div>
+</div>

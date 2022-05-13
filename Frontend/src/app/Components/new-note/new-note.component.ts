@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { Note } from '../../Models/Note';
+import { Tag } from '../../Models/Tag';
 
 @Component({
   selector: 'app-new-note',
@@ -9,7 +10,7 @@ import { Note } from '../../Models/Note';
 })
 export class NewNoteComponent implements OnInit {
   @Input() isVisible: boolean = false;
-
+  @Input() allTags: Array<Tag> = [];
   @Output() onCreateNote = new EventEmitter<NoteEditorEvent>();
 
   note: Note = {

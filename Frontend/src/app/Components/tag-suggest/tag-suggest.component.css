@@ -1,0 +1,16 @@
+.tags-container {
+  margin: 0 auto;
+  width: 15em;
+}
+
+.tags-items-container{
+
+}
+
+.tags-items-item{
+    font-weight: normal;
+}
+
+.tags-items-item-selected {
+    font-weight: bold;
+}
