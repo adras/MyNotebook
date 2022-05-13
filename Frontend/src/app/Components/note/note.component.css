@@ -1,11 +1,23 @@
+.note-container {
+  background-image: linear-gradient(350deg, #FFFFFF, #EEEEEE);
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 5px;
+}
 
 .tags-container {
   margin: 0 auto;
   width: 25%;
 }
 
-
-#container {
-  width: 100%;
+.note-tag {
+  color: #00AAEE;
+  font-weight: bold;
 }
 
+.note-tag-area {
+  padding-bottom: 4px;
+  border-bottom: 1px solid black;
+}

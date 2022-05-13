@@ -1,4 +1,4 @@
-<div>
+<div class="note-container">
   <div *ngIf="!isEditing" (dblclick)="enterEdit()">
     <div class="note-tag-area">
       <b>Tags:&nbsp;</b> <span *ngFor="let tag of note!.tags" class="note-tag">{{tag.name}}&nbsp;</span>
