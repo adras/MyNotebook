@@ -30,6 +30,12 @@
     * Possibly lock UI to focus user attention on the current action
 * Move the wysiwyg editor to a separate component so it can be reused. Create a new note and edit note component which also features
   the edit/cancel/insert buttons - maybe just create one component for the buttons which is customizable
+* https://angular.io/guide/styleguide#decorate-input-and-output-properties
+* https://angular.io/guide/styleguide#dont-prefix-output-properties
+  Remove on from events. Think about using *on syntax
+* https://angular.io/guide/styleguide#dont-prefix-output-properties
+  Update properties which are optional with ? in their declaration - Remove default values where appropriate
+* Check out angular directives
 * DONE Implement create note functionality
   * DONE Update frontend with new information
     * DONE Update tags
