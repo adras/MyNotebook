@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tag } from '../../Models/Tag';
-
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-button-bar',
   templateUrl: './button-bar.component.html',
@@ -18,6 +18,7 @@ export class ButtonBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   doLeftButton() {

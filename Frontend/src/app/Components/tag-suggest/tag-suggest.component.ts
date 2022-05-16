@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tag } from '../../Models/Tag';
+import { FormControl } from '@angular/forms';
+import { map, Observable, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-tag-suggest',
@@ -9,19 +11,24 @@ import { Tag } from '../../Models/Tag';
 export class TagSuggestComponent implements OnInit {
   @Input() tags: string | undefined;
   @Input() allTags: Array<Tag> = [];
+  myControl = new FormControl();
 
-  suggestedTags: Array<Tag> = [];
-  selectedSuggestedTagIdx : number = -1;
+  filteredTags?: Observable<string[]>;
+
+
   constructor() { }
 
   ngOnInit(): void {
+    this.filteredTags = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value)),
+    );
   }
 
-  updateSuggestions() {
-    var currentInput = this.tags!.split(' ');
-    var lastTag = currentInput[currentInput.length - 1];
-    // If lastTag is empty, we could show all tags
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
 
-    this.suggestedTags = this.allTags.filter(tag => tag.name.includes(lastTag));
+    return this.allTags.filter(tag => tag.name.toLowerCase().includes(filterValue)).map(tag => tag.name);
   }
+
 }
