@@ -14,3 +14,6 @@ https://getbootstrap.com/
 # Autocomplete
 Angular already has an autocomplete component
 https://material.angular.io/components/autocomplete/overview
+
+# Angular material theming
+https://material.angular.io/guide/theming
