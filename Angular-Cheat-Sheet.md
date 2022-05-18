@@ -8,6 +8,10 @@ NOTE: "Service" will be automatically added to the name of the service which is 
 * Right-click on the Frontend-project in Visual Studio, choose Open in Terminal
 * In Terminal type: ng generate service heroes/hero
 
+# Adding new packages
+To install as normal package run: `npm install packagename`
+To install as a dev packge run: `npm install Use npm install packagename --save-dev`
+
 # Proxy config
 Proxy config is required to access e.g. mynotebook.xx/notes
 For this the proxy.conf.json is enabled, and there's a reference in angular.json to it
@@ -20,6 +24,11 @@ make sure to stop all node.exe instances before, otherwise the port will be bloc
 Note: After configuring the proxy requests are not supposed to got to the remote endpoint. They are mapped
 to localhost. E.g. http://myserver/mynoteboook will be mapped to http://localhost/mynotebook, therefore
 although the requests will end up being send to myserver, in your code you use localhost
+
+# SCSS <-> CSS Migration
+* Install the scss migration package as dev package: `npm install schematics-scss-migrate --save-dev`
+* Do a dry run to check what's about to be changed: `ng g schematics-scss-migrate:scss-migrate --dry-run=true`
+* The script will ask from which format to which you want to migrate, so it's possible to go from css->scss or from scss->css
 
 # Install Windows
 * Install node.js
