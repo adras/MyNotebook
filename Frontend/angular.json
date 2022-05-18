@@ -28,7 +28,11 @@
             ],
             "styles": [
               "src/styles.css",
-              "@angular/material/prebuilt-themes/deeppurple-amber.css"
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+                "inject": false,
+                "bundleName": "external-module"
+              }
             ],
             "scripts": []
           },
