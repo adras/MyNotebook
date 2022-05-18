@@ -1,6 +1,6 @@
 .tags-container {
   margin: 0 auto;
-  width: 15em;
+  width: 75%;
 }
 
 .tags-items-container{
@@ -16,12 +16,6 @@
 }
 
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
+.example-chip-list {
   width: 100%;
 }

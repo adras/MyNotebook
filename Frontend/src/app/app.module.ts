@@ -23,6 +23,9 @@ import { EditNoteComponent } from './Components/edit-note/edit-note.component';
 import { TagSuggestComponent } from './Components/tag-suggest/tag-suggest.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,8 +54,9 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
+    MatChipsModule,
+    MatIconModule,
     ReactiveFormsModule // Required for FormsModule
-
   ],
 
   providers: [],
