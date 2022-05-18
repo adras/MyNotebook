@@ -13,7 +13,7 @@ export class TagSuggestComponent implements OnInit {
   @Input() allTags: Array<Tag> = [];
   myControl = new FormControl();
 
-  filteredTags?: Observable<string[]>;
+  filteredTags!: Observable<string[]>;
 
 
   constructor() { }
@@ -28,7 +28,11 @@ export class TagSuggestComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allTags.filter(tag => tag.name.toLowerCase().includes(filterValue)).map(tag => tag.name);
+    const result = this.allTags.filter(tag => tag.name.toLowerCase().includes(filterValue)).map(tag => tag.name);
+    const result2 = Object.assign([], result);
+
+    const result3 = ['allnotes', 'new', 'test', 'SvenRules', 'neu', 'empty'];
+    return result2;
   }
 
 }

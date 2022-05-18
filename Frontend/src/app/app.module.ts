@@ -22,8 +22,7 @@ import { ButtonBarComponent } from './Components/button-bar/button-bar.component
 import { EditNoteComponent } from './Components/edit-note/edit-note.component';
 import { TagSuggestComponent } from './Components/tag-suggest/tag-suggest.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
-
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +50,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NgxEditorModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule // Required for FormsModule
 
   ],
