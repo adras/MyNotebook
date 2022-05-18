@@ -129,6 +129,8 @@ export class MainComponent implements OnInit {
   }
 
   doCreateNote(event: NoteEditorEvent) {
+    // Note: It might be required to unsubscribe from these observables to avoid memory leaks
+
     this.mainService.doCreateNote(event).subscribe((response: CreateNoteResponse) => this.onCreateNote(response));
   }
 
