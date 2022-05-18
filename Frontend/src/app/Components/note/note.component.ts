@@ -8,7 +8,7 @@ import { NoteEditorComponent } from '../note-editor/note-editor.component';
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
-  styleUrls: ['./note.component.css']
+  styleUrls: ['./note.component.scss']
 })
 
 export class NoteComponent implements OnInit {

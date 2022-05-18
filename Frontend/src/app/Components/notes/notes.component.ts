@@ -7,7 +7,7 @@ import { Tag } from '../../Models/Tag';
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css']
+  styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
   @Input() selectedNotes: Array<Note> = [];

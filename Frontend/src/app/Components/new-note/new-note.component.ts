@@ -6,7 +6,7 @@ import { Tag } from '../../Models/Tag';
 @Component({
   selector: 'app-new-note',
   templateUrl: './new-note.component.html',
-  styleUrls: ['./new-note.component.css']
+  styleUrls: ['./new-note.component.scss']
 })
 export class NewNoteComponent implements OnInit {
   @Input() isVisible: boolean = false;
