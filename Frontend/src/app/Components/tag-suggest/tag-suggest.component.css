@@ -1,6 +1,6 @@
 .tags-container {
   margin: 0 auto;
-  width: 15em;
+  width: 75%;
 }
 
 .tags-items-container{
@@ -13,4 +13,9 @@
 
 .tags-items-item-selected {
     font-weight: bold;
+}
+
+
+.example-chip-list {
+  width: 100%;
 }

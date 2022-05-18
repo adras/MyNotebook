@@ -14,6 +14,9 @@
 }
 
 /* mat-button-toggle styles the elements aka tags in this case */
+
+/* Temporarily disabled custom style */
+/*
 .mat-button-toggle-checked {
   background-color: #00AAEE !important;
   color: #000000 !important;
@@ -27,7 +30,7 @@
 }
 
 .mat-button-toggle-group {
-}
+}*/
 
 
 

@@ -20,14 +20,14 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   @Output() onRightButtonClick = new EventEmitter<NoteEditorEvent>();
 
   html: string = '';
-  tags: string | undefined;
+  tags: string[] = [];
 
   editor!: Editor;
 
   ngOnInit(): void {
     this.editor = new Editor();
     this.html = this.note!.content;
-    this.tags = this.getTagStringFromArray(this.note!.tags);
+    this.tags = this.note!.tags.map(tag => tag.name);
   }
 
   // make sure to destory the editor
@@ -35,27 +35,25 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
     this.editor!.destroy();
   }
 
-  getTagStringFromArray(tags: Array<Tag>): string {
-    // This method sucks. It would be cool to do this only with databinding
-    const tagNames = tags.map(tag => tag.name);
-    const allTags = tagNames.join(' ');
+  //getTagStringFromArray(tags: Array<Tag>): string {
+  //  // This method sucks. It would be cool to do this only with databinding
+  //  const tagNames = tags.map(tag => tag.name);
+  //  const allTags = tagNames.join(' ');
 
-    return allTags;
-  }
+  //  return allTags;
+  //}
 
-  doLeftButtonClick(event: string) {
+  doLeftButtonClick(event: string[]) {
+    // event should be tags
     this.onLeftButtonClick.emit();
   }
 
-  doRightButtonClick(event:string) {
+  doRightButtonClick(event:string[]) {
     // event should be tags
-    const tagsArray = event.split(' ');
 
-
-    // TODO: Tags missing
     const newNoteContent = this.html;
 
-    var newEvent = new NoteEditorEvent(newNoteContent, this.note!.id, tagsArray);
+    var newEvent = new NoteEditorEvent(newNoteContent, this.note!.id, event);
     this.onRightButtonClick.emit(newEvent);
   }
 
