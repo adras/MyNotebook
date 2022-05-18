@@ -9,16 +9,16 @@ import { FormControl } from '@angular/forms';
 export class ButtonBarComponent implements OnInit {
   @Input() leftButtonText: string = "Button";
   @Input() rightButtonText: string = "Button";
-  @Input() tags: string | undefined;
+  @Input() tags: string[] = [];
   @Input() allTags: Array<Tag> = [];
 
-  @Output() onLeftButtonClick = new EventEmitter<string>();
-  @Output() onRightButtonClick = new EventEmitter<string>();
+  @Output() onLeftButtonClick = new EventEmitter<string[]>();
+  @Output() onRightButtonClick = new EventEmitter<string[]>();
 
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
   doLeftButton() {

@@ -13,19 +13,18 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
   styleUrls: ['./tag-suggest.component.css']
 })
 export class TagSuggestComponent implements OnInit {
-  @Input() tags: string | undefined;
+  @Input() tags!: string[] ;
   @Input() allTags: Array<Tag> = [];
 
   separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
-  fruitCtrl = new FormControl();
+  tagCtrl = new FormControl();
   filteredTags: Observable<string[]>;
-  fruits: string[] = ['Lemon'];
   //allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
   @ViewChild('fruitInput') fruitInput!: ElementRef<HTMLInputElement>;
 
   constructor() {
-    this.filteredTags = this.fruitCtrl.valueChanges.pipe(
+    this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
       map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allTags.slice().map(tag => tag.name))),
     );
@@ -39,27 +38,27 @@ export class TagSuggestComponent implements OnInit {
 
     // Add our fruit
     if (value) {
-      this.fruits.push(value);
+      this.tags.push(value);
     }
 
     // Clear the input value
     event.chipInput!.clear();
 
-    this.fruitCtrl.setValue(null);
+    this.tagCtrl.setValue(null);
   }
 
   remove(fruit: string): void {
-    const index = this.fruits.indexOf(fruit);
+    const index = this.tags.indexOf(fruit);
 
     if (index >= 0) {
-      this.fruits.splice(index, 1);
+      this.tags.splice(index, 1);
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.fruits.push(event.option.viewValue);
+    this.tags.push(event.option.viewValue);
     this.fruitInput.nativeElement.value = '';
-    this.fruitCtrl.setValue(null);
+    this.tagCtrl.setValue(null);
   }
 
   private _filter(value: string): string[] {
