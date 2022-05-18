@@ -6,8 +6,12 @@
            aria-label="Tags"
            matInput
            [formControl]="myControl"
-           [matAutocomplete]="auto"/>
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+           [matAutocomplete]="auto" />
+    <!--
+    Switch to chips to allow for multiple tag selection
+    https://material.angular.io/components/chips/examples
+    -->
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
       <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
         {{tag}}
       </mat-option>
