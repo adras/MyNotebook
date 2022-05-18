@@ -1,12 +1,11 @@
 # TODO
+## Main features
 * Implement change settings dialog
 * Implement rename/delete tag functionality
 * Implement search for notes
-* Fix issue with special characters in notes, e.g. öä`' etc
-    Works fine, when editing/creating a note, however when the page is loaded
-    all special characters are messed up.
-* Investigate if there's a difference in special characters between the old and the new editor
-  * Looks like the old editor replaces öä with &ouml; or &auml; - The new editor doesn't. Is this an issue?
+
+## Bugs and improvements
+
 * Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
 * Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
   * Checkout angular styling which is a bit different to css
@@ -36,6 +35,17 @@
 * https://angular.io/guide/styleguide#dont-prefix-output-properties
   Update properties which are optional with ? in their declaration - Remove default values where appropriate
 * Check out angular directives
+* Implementing the angular-material designs and components increased the app size from ~0.6mb to ~1.2mb
+  Check if this can be improved
+* DONE Fix issue with special characters in notes, e.g. öä`' etc
+    Works fine, when editing/creating a note, however when the page is loaded
+    all special characters are messed up.
+  This happened because the database used the wrong encoding which was changed in the install and upgrade scripts.
+  The transport layer was fine, it happened when data was added to the database
+  * RELATED DONE Investigate if there's a difference in special characters between the old and the new editor
+    * Looks like the old editor replaces öä with &ouml; or &auml; - The new editor doesn't. Is this an issue?
+    This should be an issue anymore. Although old special characters are stored e.g. as "&szlig;" in the database
+    new special characters will be in plain unicode format
 * DONE Implement create note functionality
   * DONE Update frontend with new information
     * DONE Update tags
