@@ -17,7 +17,24 @@
   font-weight: bold;
 }
 
-.note-tag-area {
+.note-tag-container {
   padding-bottom: 4px;
   border-bottom: 1px solid black;
+  display: flex;
+  width: 100%;
+/*  align-items: flex-start;*/
+  justify-content: space-between;
+/*  text-align: center;*/
+}
+.tag-spacer {
+    width: 10px;
+}
+.note-tag-area{
+    width: 100%;
+    /*border: 1px solid green;*/
+}
+
+.note-buttons {
+    width: 11em;
+    /*border: 1px solid red;*/
 }
