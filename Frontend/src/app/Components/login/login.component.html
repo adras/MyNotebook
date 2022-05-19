@@ -1,6 +1,9 @@
 
-<div>
-  <label>Password: </label>
-  <input type="password" (keypress)="onKeyPress($event, password.value)" #password/>
+<div class="login-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input type="password" (keypress)="onKeyPress($event, password.value)" matInput placeholder="" #password>
+  </mat-form-field>
+
   <button mat-raised-button color="primary" (click)="execLogin(password.value)">Login</button>
 </div>
