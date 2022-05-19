@@ -15,7 +15,6 @@
   - [ ] Improve component theming. Right now each component is themed by it's own style sheet. However that style sheet should only contain a minimalistic default
         style and not the final style.
 - [ ] Implement mobile phone support -> Allow for the layout to change between portrait and landscape
-- [ ] Implement intelli tags -> tag suggestion when tags are typed
 - [ ] Improve note-editor functionality e.g. Add bold, inverse, headings and all other stylings which can be required. Don't
       clutter it though
 - [ ] Turn off all tags when allnotes tag is selected. Turn off allnotes tag when another tag is selected
@@ -25,13 +24,11 @@
 - [ ] Implement support for error responses which have the error flag set. This probably means to show a dialog with error
       information. It might make sense to allow the user to try the action again
 - [ ] Add dialog in case login fails
-- [ ] Fix warning:"Could not find Angular Material core theme"
 - [ ] Implement proper UI-state handling. 
     - [ ] E.g. If one note is being edited, what happens when edit on another note is clicked?
     - [ ] When the tag rename/edit popup is open and another action is done, the popup should hide
     - [ ] Possibly lock UI to focus user attention on the current action
-- [ ] Move the wysiwyg editor to a separate component so it can be reused. Create a new note and edit note component which also features
-      the edit/cancel/insert buttons - maybe just create one component for the buttons which is customizable
+
 - [ ] https://angular.io/guide/styleguide#decorate-input-and-output-properties
 - [ ] https://angular.io/guide/styleguide#dont-prefix-output-properties
       Remove on from events. Think about using *on syntax
@@ -40,6 +37,11 @@
 - [ ] Check out angular directives
 - [ ] Implementing the angular-material designs and components increased the app size from ~0.6mb to ~1.2mb
       Check if this can be improved
+
+- [x] Fix warning:"Could not find Angular Material core theme"
+- [x] Move the wysiwyg editor to a separate component so it can be reused. Create a new note and edit note component which also features
+      the edit/cancel/insert buttons - maybe just create one component for the buttons which is customizable- [X] Implement intelli tags -> tag suggestion when tags are typed
+- [x] Implement delete note
 - [x] Implement search for notes
 - [x] Fix issue with special characters in notes, e.g. öä`' etc
     Works fine, when editing/creating a note, however when the page is loaded
