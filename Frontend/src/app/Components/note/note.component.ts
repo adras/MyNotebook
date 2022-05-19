@@ -32,6 +32,9 @@ export class NoteComponent implements OnInit {
   }
 
   deleteNote() {
+    if (!confirm("Do you really want to delete the note?")) {
+      return;
+    }
     const event: NoteDeleteEvent = new NoteDeleteEvent(this.note!.id);
     this.onDeleteNote.emit(event);
   }
