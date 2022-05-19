@@ -30,10 +30,10 @@ CREATE TABLE `MyNotebook_notes` (
 --
 
 INSERT INTO `MyNotebook_notes` (`id`, `content`, `datetime`, `visibility`) VALUES
-(1, 'Welcome to MyNotebook', 1177104551, 0x30),
-(2, 'This is an example of a note with \"new\" tag', 1177104604, 0x30),
-(3, 'I am a note with read Tag', 1177104647, 0x30),
-(4, 'Read and new', 1177104689, 0x30),
+(1, '<p>Welcome to MyNotebook</p>', 1177104551, 0x30),
+(2, '<p>This is an example of a note with \"new\" tag</p>', 1177104604, 0x30),
+(3, '<p>I am a note with read Tag</p>', 1177104647, 0x30),
+(4, '<p>Read and new</p>', 1177104689, 0x30),
 (5, '<p>Yeah, well, do whatever you like the database is reset every hour :P</p>', 1652103734, 0x30),
 (6, '<p>Just remember, if you changed it, nobody can access this demo anymore. And people will be sad. Do you really want to make people sad?</p>', 1652104196, 0x30),
 (7, '<p>Seriously, changing it causes bad karma .... very, very bad karma</p>', 1652104206, 0x30),
