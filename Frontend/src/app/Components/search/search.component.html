@@ -1,6 +1,8 @@
 <div class="search-container">
   <div class="search-elements">
-    <span>Search:&nbsp;</span>
-    <input type="text" (keyup)="onKeyUp($event)" [value]="searchText"/>
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="" #searchText>
+    </mat-form-field>
   </div>
 </div>
