@@ -7,7 +7,7 @@ import { Tag } from '../../Models/Tag';
 @Component({
   selector: 'app-note-editor',
   templateUrl: './note-editor.component.html',
-  styleUrls: ['./note-editor.component.css']
+  styleUrls: ['./note-editor.component.scss']
 })
 export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() note: Note | undefined;

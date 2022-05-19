@@ -16,7 +16,7 @@ import { WindowComponent } from '../window/window.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
   @ViewChild(NewNoteComponent) newNote: NewNoteComponent | undefined;
@@ -129,6 +129,8 @@ export class MainComponent implements OnInit {
   }
 
   doCreateNote(event: NoteEditorEvent) {
+    // Note: It might be required to unsubscribe from these observables to avoid memory leaks
+
     this.mainService.doCreateNote(event).subscribe((response: CreateNoteResponse) => this.onCreateNote(response));
   }
 

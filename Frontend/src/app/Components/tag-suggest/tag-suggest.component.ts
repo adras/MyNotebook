@@ -10,7 +10,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 @Component({
   selector: 'app-tag-suggest',
   templateUrl: './tag-suggest.component.html',
-  styleUrls: ['./tag-suggest.component.css']
+  styleUrls: ['./tag-suggest.component.scss']
 })
 export class TagSuggestComponent implements OnInit {
   @Input() tags!: string[] ;
