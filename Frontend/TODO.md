@@ -1,21 +1,21 @@
 # TODO
 ## Main features / high priority
-[ ] Implement change settings dialog
+- [ ] Implement change settings dialog
 
-[ ] Implement rename/delete tag functionality
+- [ ] Implement rename/delete tag functionality
 
-[ ] Implement search for notes
+- [ ] Implement search for notes
 
-[ ] Checkout Material/Dialog component https://material.angular.io/components/dialog/examples
+- [ ] Checkout Material/Dialog component https://material.angular.io/components/dialog/examples
   This might be a better fit for create note
   It probably also suits rename tags popup - Menu could be a better choice though
   It can also be used for the settings dialog
 
 ## Bugs and improvements
-[ ] Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
-[ ] Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
-  [ ] Checkout angular styling which is a bit different to css
-  [ ] Improve component theming. Right now each component is themed by it's own style sheet. However that style sheet should only contain a minimalistic default
+- [ ] Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
+- [ ] Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
+  - [ ] Checkout angular styling which is a bit different to css
+  - [ ] Improve component theming. Right now each component is themed by it's own style sheet. However that style sheet should only contain a minimalistic default
       style and not the final style.
 [ ] Implement mobile phone support -> Allow for the layout to change between portrait and landscape
 [ ] Implement intelli tags -> tag suggestion when tags are typed
