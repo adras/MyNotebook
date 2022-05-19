@@ -1,6 +1,14 @@
-<div class="button-container">
-  <button mat-raised-button color="primary" (click)="doLeftButton()" class="left-button">{{leftButtonText}}</button>
-  <button mat-raised-button color="primary" (click)="doRightButton()" class="right-button">{{rightButtonText}}</button>
-  <app-tag-suggest [allTags]="allTags" [tags]="tags"></app-tag-suggest>
 
-</div>
+<section id="header-blue">
+  <div id="header-wrap">
+    <div class="header-left">
+      <button mat-raised-button color="primary" (click)="doLeftButton()" class="left-button">{{leftButtonText}}</button>
+    </div>
+    <div class="header-center">
+      <app-tag-suggest [allTags]="allTags" [tags]="tags" class="tag-suggestion"></app-tag-suggest>
+    </div>
+    <div class="header-right">
+      <button mat-raised-button color="primary" (click)="doRightButton()" class="right-button">{{rightButtonText}}</button>
+    </div>
+  </div>
+</section>

@@ -1,14 +1,28 @@
-.button-container {
+
+#header-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#header-blue {
+}
+
+.header-left {
+  /*border: 1px solid red;*/
+  margin-top: 2em;
+  width: 100px;
+}
+
+.header-right {
+  /*border: 1px solid red;*/
+  margin-top: 2em;
+  width: 100px;
+}
+
+.header-center {
   margin-top: 1em;
+  /*border: 1px solid red;*/
+  width: 100%;
 }
-
-.left-button {
-  float: left;
-  width: 100px;
-}
-
-.right-button {
-  float: right;
-  width: 100px;
-}
-
