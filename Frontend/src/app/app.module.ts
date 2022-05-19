@@ -26,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     BrowserModule,
     FormsModule, // Required for [(ngModel)] bindings
+    ReactiveFormsModule, // Required for FormsModule
     HttpClientModule,
     MatButtonToggleModule,
     NgxEditorModule,
@@ -58,7 +60,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatChipsModule,
     MatIconModule,
     MatButtonModule,
-    ReactiveFormsModule // Required for FormsModule
+    BrowserAnimationsModule
   ],
 
   providers: [],

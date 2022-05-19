@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onKeyUp(keyboardEvent: KeyboardEvent): void {
+  doSearch(keyboardEvent: KeyboardEvent): void {
     const event = new OnSearch(this.searchText);
     this.onSearch.emit(event);
   }

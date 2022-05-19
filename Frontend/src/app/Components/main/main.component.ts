@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnLoginEvent } from '../../Events/OnLoginEvent';
+import { OnSearch } from '../../Events/OnSearchEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
 import { CreateNoteResponse } from '../../Models/CreateNoteResponse';
@@ -30,6 +31,7 @@ export class MainComponent implements OnInit {
   selectedTags: Array<string> = [];
   isLoggedIn: boolean = false;
   selectedNotes: Array<Note> = [];
+  searchText: string = "";
 
   // TODO: There are now Array-Extensions in /Extensions/ArrayExtensions these can be used
   // To simplify a few places here
@@ -70,6 +72,7 @@ export class MainComponent implements OnInit {
       // For some reason, the databinding doesn't work properly, when
       // just splicing and pushing the array
       // Therefore we reassign it, which fixes that
+
       this.selectedTags = Object.assign([], this.selectedTags);
       this.updateSelectedNotes();
       return;
@@ -99,29 +102,26 @@ export class MainComponent implements OnInit {
     this.updateSelectedNotes();
   }
 
-  updateSelectedNotes(): void {
-    // If allnotes tag is selected, show all notes
-    const allNotesTag = this.allSettings?.allNotesTagName.value as string;
-    if (this.selectedTags.includes(allNotesTag)) {
-      this.selectedNotes = Object.assign([], this.allNotes);
-      return;
-    }
+  doSearch(event: OnSearch) {
+    // Actual search will be performed by updateSelectedNotes();
+    this.searchText = event.searchText;
+    this.updateSelectedNotes();
+  }
 
-    // Show all notes which contain one of the selected tags
-    // There should be a more modern way to do this
-    this.selectedNotes.splice(0, this.selectedNotes.length);
+  updateSelectedNotes(): void {
+    // Stupid extension doesn't work
+    // this.selectedNotes.clear();
+    this.selectedNotes.length = 0;
+
+    const allNotesTag = this.allSettings?.allNotesTagName.value as string;
+    const allNotesSelected = this.selectedTags.indexOf(allNotesTag) != -1;
     for (var i = 0; i < this.allNotes.length; i++) {
-      for (var j = 0; j < this.allNotes[i].tags.length; j++) {
-        if (this.selectedTags.includes(this.allNotes[i].tags[j].name)) {
-          this.selectedNotes.push(this.allNotes[i]);
-          break;
-        }
+      const currentNote = this.allNotes[i];
+      if (allNotesSelected ||
+        currentNote.tags.map(tag => tag.name).some(tagName => this.selectedTags.includes(tagName))) {
+        this.selectedNotes.push(currentNote);
       }
     }
-
-    // TODO, search selectedNotes for searchText? could also be done in the loop above
-    // Figure out what's faster
-
   }
 
   doShowCreateNote() {
@@ -162,7 +162,9 @@ export class MainComponent implements OnInit {
 
     // value in Settings is defined as string, however for defaultTags it's an array
     // Casting the string directly to an array would result in an error, therefore we cast to unknown first
-    this.selectedTags = this.allSettings.defaultTags.value as unknown as Array<string>;
+    const defaultTags = this.allSettings.defaultTags.value as unknown as Array<string>;
+    //
+    this.selectedTags = Object.assign([], defaultTags);;
 
     this.updateSelectedNotes();
   }

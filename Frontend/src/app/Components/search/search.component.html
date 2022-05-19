@@ -2,7 +2,7 @@
   <div class="search-elements">
     <mat-form-field appearance="fill">
       <mat-label>Search</mat-label>
-      <input matInput placeholder="" #searchText>
+      <input matInput placeholder="" (keyup)="doSearch($event)" [(ngModel)]="searchText">
     </mat-form-field>
   </div>
 </div>

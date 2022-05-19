@@ -16,7 +16,7 @@
 
   <div class="main-container">
     <app-logout (onLogout)="doLogout()"></app-logout>
-    <app-search></app-search>
+    <app-search (onSearch)="doSearch($event)"></app-search>
     <app-tags (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
     <app-notes [selectedNotes]="selectedNotes" [allTags]="allTags" (onEditNote)="doEditNote($event)">
     </app-notes>
