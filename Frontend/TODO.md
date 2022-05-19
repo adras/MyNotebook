@@ -1,11 +1,15 @@
 # TODO
-## Main features
+## Main features / high priority
 * Implement change settings dialog
 * Implement rename/delete tag functionality
 * Implement search for notes
 
-## Bugs and improvements
+* Checkout Material/Dialog component https://material.angular.io/components/dialog/examples
+  This might be a better fit for create note
+  It probably also suits rename tags popup - Menu could be a better choice though
+  It can also be used for the settings dialog
 
+## Bugs and improvements
 * Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
 * Improve UI styling - Maybe allow the user to switch between different templates, e.g. light/dark mode
   * Checkout angular styling which is a bit different to css
