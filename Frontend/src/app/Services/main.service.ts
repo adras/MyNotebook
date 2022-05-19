@@ -1,10 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
+import { NoteDeleteEvent } from '../Events/NoteDeleteEvent';
 import { NoteEditorEvent } from '../Events/NoteEditorEvent';
 import { OnLoginEvent } from '../Events/OnLoginEvent';
 import { BaseResponse } from '../Models/BaseResponse';
 import { CreateNoteResponse } from '../Models/CreateNoteResponse';
+import { DeleteNoteResponse } from '../Models/DeleteNoteResponse';
 import { EditNoteResponse } from '../Models/EditNoteResponse';
 import { Note } from '../Models/Note';
 import { QueryAllResponse } from '../Models/QueryAllResponse';
@@ -74,6 +76,22 @@ export class MainService {
       .set("note", JSON.stringify(note));
 
     const result = this.http.post<EditNoteResponse>(this.apiPath, params);
+    return result;
+  }
+
+  public doDeleteNote(event: NoteDeleteEvent) {
+
+    var note = ({
+      id: event.noteId,
+      content: "",
+      tags: ""
+    });
+
+    const params = new HttpParams()
+      .set("action", "deleteNote")
+      .set("note", JSON.stringify(note));
+
+    const result = this.http.post<DeleteNoteResponse>(this.apiPath, params);
     return result;
   }
 

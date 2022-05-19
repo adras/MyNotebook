@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NoteDeleteEvent } from '../../Events/NoteDeleteEvent';
 import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnLoginEvent } from '../../Events/OnLoginEvent';
 import { OnSearch } from '../../Events/OnSearchEvent';
 import { TagChange } from '../../Events/TagChangeEvent';
 import { BaseResponse } from '../../Models/BaseResponse';
 import { CreateNoteResponse } from '../../Models/CreateNoteResponse';
+import { DeleteNoteResponse } from '../../Models/DeleteNoteResponse';
 import { EditNoteResponse } from '../../Models/EditNoteResponse';
 import { Note } from '../../Models/Note';
 import { QueryAllResponse } from '../../Models/QueryAllResponse';
@@ -154,6 +156,10 @@ export class MainComponent implements OnInit {
     this.mainService.doEditNote(event).subscribe((response: EditNoteResponse) => this.onEditNote(response));
   }
 
+  doDeleteNote(event: NoteDeleteEvent) {
+    this.mainService.doDeleteNote(event).subscribe((response: DeleteNoteResponse) => this.onDeleteNote(response));
+  }
+
   doLogin(event: OnLoginEvent) {
     this.mainService.doLogin(event).subscribe((response: BaseResponse) => this.onLogin(response));
   }
@@ -211,6 +217,11 @@ export class MainComponent implements OnInit {
     this.allTags = response.tags;
 
     // Update view
+    this.updateSelectedNotes();
+  }
+
+  onDeleteNote(response: DeleteNoteResponse) {
+    this.allNotes = this.allNotes.filter(note => note.id != response.note.id);
     this.updateSelectedNotes();
   }
 

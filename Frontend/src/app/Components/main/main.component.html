@@ -18,7 +18,11 @@
     <app-logout (onLogout)="doLogout()"></app-logout>
     <app-search (onSearch)="doSearch($event)"></app-search>
     <app-tags (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
-    <app-notes [selectedNotes]="selectedNotes" [allTags]="allTags" (onEditNote)="doEditNote($event)">
+    <app-notes
+               [selectedNotes]="selectedNotes"
+               [allTags]="allTags"
+               (onEditNote)="doEditNote($event)"
+               (onDeleteNote)="doDeleteNote($event)">
     </app-notes>
   </div>
 </div>

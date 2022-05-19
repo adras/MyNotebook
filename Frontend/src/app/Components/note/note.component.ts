@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NoteDeleteEvent } from '../../Events/NoteDeleteEvent';
 import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnSearch } from '../../Events/OnSearchEvent';
 import { Note } from '../../Models/Note';
@@ -16,6 +17,7 @@ export class NoteComponent implements OnInit {
   @Input() allTags: Array<Tag> = [];
   @Input() note: Note | undefined;
   @Output() onEditNote = new EventEmitter<NoteEditorEvent>();
+  @Output() onDeleteNote = new EventEmitter<NoteDeleteEvent>();
 
   isEditing: boolean = false;
 
@@ -29,6 +31,10 @@ export class NoteComponent implements OnInit {
     this.isEditing = true;
   }
 
+  deleteNote() {
+    const event: NoteDeleteEvent = new NoteDeleteEvent(this.note!.id);
+    this.onDeleteNote.emit(event);
+  }
 
   doSave(event: NoteEditorEvent) {
     this.onEditNote.emit(event);
