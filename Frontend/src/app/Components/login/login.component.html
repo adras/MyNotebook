@@ -2,5 +2,5 @@
 <div>
   <label>Password: </label>
   <input type="password" (keypress)="onKeyPress($event, password.value)" #password/>
-  <button mat-raised-button (click)="execLogin(password.value)">Login</button>
+  <button mat-raised-button color="primary" (click)="execLogin(password.value)">Login</button>
 </div>

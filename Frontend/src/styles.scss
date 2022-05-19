@@ -1,4 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use '/src/app/Themes/carousel-theme' as carousel;
+
+/* Now that there's a custom theme this is no longer required */
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ ),
+ typography: mat.define-typography-config(
+    $font-family: arial
+  )
+));
+@include mat.all-component-themes($my-theme);
 
 /* The main page container, this includes everything displayed */
 .page-container {

@@ -1,6 +1,6 @@
 <div class="button-container">
-  <button mat-raised-button (click)="doLeftButton()" class="left-button">{{leftButtonText}}</button>
-  <button mat-raised-button (click)="doRightButton()" class="right-button">{{rightButtonText}}</button>
+  <button mat-raised-button color="primary" (click)="doLeftButton()" class="left-button">{{leftButtonText}}</button>
+  <button mat-raised-button color="primary" (click)="doRightButton()" class="right-button">{{rightButtonText}}</button>
   <app-tag-suggest [allTags]="allTags" [tags]="tags"></app-tag-suggest>
 
 </div>
