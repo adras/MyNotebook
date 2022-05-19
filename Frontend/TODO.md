@@ -1,7 +1,9 @@
 # TODO
 ## Main features / high priority
 [ ] Implement change settings dialog
+
 [ ] Implement rename/delete tag functionality
+
 [ ] Implement search for notes
 
 [ ] Checkout Material/Dialog component https://material.angular.io/components/dialog/examples
