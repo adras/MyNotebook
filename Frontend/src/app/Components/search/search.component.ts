@@ -20,4 +20,10 @@ export class SearchComponent implements OnInit {
     this.onSearch.emit(event);
   }
 
+  clearSearch() {
+    this.searchText = "";
+    const event = new OnSearch(this.searchText);
+    this.onSearch.emit(event);
+  }
+
 }

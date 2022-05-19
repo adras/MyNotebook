@@ -104,7 +104,7 @@ export class MainComponent implements OnInit {
 
   doSearch(event: OnSearch) {
     // Actual search will be performed by updateSelectedNotes();
-    this.searchText = event.searchText;
+    this.searchText = event.searchText.toLowerCase().trim();
     this.updateSelectedNotes();
   }
 
@@ -118,8 +118,24 @@ export class MainComponent implements OnInit {
     for (var i = 0; i < this.allNotes.length; i++) {
       const currentNote = this.allNotes[i];
       if (allNotesSelected ||
-        currentNote.tags.map(tag => tag.name).some(tagName => this.selectedTags.includes(tagName))) {
-        this.selectedNotes.push(currentNote);
+          currentNote.tags.map(tag => tag.name)
+                          .some(tagName => this.selectedTags.includes(tagName))) {
+        // Either allNotes tag is selected, or the note has one of the selected tag
+
+        // Check if note contains the search text, continue if not
+        if (currentNote.content.toLowerCase().indexOf(this.searchText) == -1) {
+          continue;
+        }
+
+        // Add <mark> tags around the text found in the note
+        // Could also use Pipes for this: https://stackoverflow.com/questions/44961759/highlight-the-search-text-angular-2
+        var regex = "(>?)(" + this.searchText + ")([^>]*<)";
+        var replace = "$1<mark class=\"search-text\">$2</mark>$3";
+
+        var newNote = Object.assign([], currentNote);
+        newNote.content = newNote.content.replace(new RegExp(regex, "gi"), replace);
+
+        this.selectedNotes.push(newNote);
       }
     }
   }
@@ -163,7 +179,7 @@ export class MainComponent implements OnInit {
     // value in Settings is defined as string, however for defaultTags it's an array
     // Casting the string directly to an array would result in an error, therefore we cast to unknown first
     const defaultTags = this.allSettings.defaultTags.value as unknown as Array<string>;
-    //
+
     this.selectedTags = Object.assign([], defaultTags);;
 
     this.updateSelectedNotes();

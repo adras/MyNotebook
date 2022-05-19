@@ -4,8 +4,9 @@
       <b>Tags:&nbsp;</b> <span *ngFor="let tag of note!.tags" class="note-tag">{{tag.name}}&nbsp;</span>
     </div>
 
-    <div [innerHTML]="note!.content"></div>
+    <div [innerHTML]="note!.content" class="no-search"></div>
   </div>
+
   <div *ngIf="isEditing">
     <app-note-editor [note]="note" leftButtonText="Cancel" rightButtonText="Save" [allTags]="allTags"
                      (onLeftButtonClick)="doCancel()" (onRightButtonClick)="doSave($event)"></app-note-editor>

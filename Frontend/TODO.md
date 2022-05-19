@@ -2,7 +2,6 @@
 ## Main features / high priority
 - [ ] Implement change settings dialog
 - [ ] Implement rename/delete tag functionality
-- [ ] Implement search for notes
 
 - [ ] Checkout Material/Dialog component https://material.angular.io/components/dialog/examples
       This might be a better fit for create note
@@ -41,6 +40,7 @@
 - [ ] Check out angular directives
 - [ ] Implementing the angular-material designs and components increased the app size from ~0.6mb to ~1.2mb
       Check if this can be improved
+- [x] Implement search for notes
 - [x] Fix issue with special characters in notes, e.g. öä`' etc
     Works fine, when editing/creating a note, however when the page is loaded
     all special characters are messed up.
