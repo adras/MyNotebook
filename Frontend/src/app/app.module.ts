@@ -24,7 +24,8 @@ import { TagSuggestComponent } from './Components/tag-suggest/tag-suggest.compon
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatChipsModule,
     MatIconModule,
+    MatButtonModule,
     ReactiveFormsModule // Required for FormsModule
   ],
 

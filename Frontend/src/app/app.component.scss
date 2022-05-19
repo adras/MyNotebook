@@ -4,8 +4,12 @@
     For now, every component will define it's own style though
     @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 */
+@use '@angular/material' as mat;
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+// TODO: https://material.angular.io/guide/theming-your-components
 
 .app-container {
 }
