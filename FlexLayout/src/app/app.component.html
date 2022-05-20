@@ -1,12 +1,30 @@
 <div class="main-container">
-  <!--App component flex me
-  TODO:
-  Create divs for:
-  * search
-  * tags selection
-  * Logout
-  * NoteContainer - with many notes
-  * Note with tags and buttons-->
+  <!--
+  TODO: Figure out which parts of the UI should scroll along to always be visible
+    It makes sense that you can always: search, create a note, select tags
+    settings could be next to logout, not scrolling
+  -->
+
+  <div class="title"><h1>MyNotebook</h1></div>
+
+  <div class="logout">
+    <button>Logout</button>
+  </div>
+
+  <div class="settings">
+    <button>Settings</button>
+  </div>
+
+  <div class="search">
+    <label>Search:</label>
+    <input type="text" value="search" />
+  </div>
+
+  <div class="create-note">
+    <button>CreateNote</button>
+  </div>
+
+
 
   <div class="notes-container">
     <!-- Note -->
