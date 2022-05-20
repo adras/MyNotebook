@@ -7,23 +7,29 @@
 
   <div class="title"><h1>MyNotebook</h1></div>
 
-  <div class="logout">
-    <button>Logout</button>
+  <div class="logout-seetings-container">
+    <!-- To have buttons horizontally aligned use this: -->
+    <!-- fxLayout="row" fxLayoutAlign="end" -->
+    <div class="settings" fxLayoutAlign="end">
+      <button>Settings</button>
+    </div>
+
+    <div class="logout" fxLayoutAlign="end">
+      <button>Logout</button>
+    </div>
   </div>
 
-  <div class="settings">
-    <button>Settings</button>
-  </div>
+  <div class="search-createnote-container" fxLayout="row">
+    <div class="create-note" fxFlex>
+      <button>CreateNote</button>
+    </div>
 
-  <div class="search">
-    <label>Search:</label>
-    <input type="text" value="search" />
+    <div class="search">
+      <!-- To align center use fxFlex="66" fxFlexOffset="15" -->
+      <label>Search:</label>
+      <input type="text" value="search" />
+    </div>
   </div>
-
-  <div class="create-note">
-    <button>CreateNote</button>
-  </div>
-
 
 
   <div class="notes-container">
@@ -46,8 +52,8 @@
         Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
       </div>
     </div>
+    <br />
     <!-- end note-->
-
     <!-- Note -->
     <div class="note-container">
       <!-- Tags and buttons on the same line, so probably a container missing -->
@@ -73,6 +79,7 @@
         Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
       </div>
     </div>
+    <br />
     <!-- end note-->
     <!-- Note -->
     <div class="note-container">
@@ -93,6 +100,7 @@
         Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
       </div>
     </div>
+    <br />
     <!-- end note-->
   </div>
 

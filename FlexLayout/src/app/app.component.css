@@ -33,6 +33,17 @@
   border: 1px solid black;
 }
 
-.tag {
-    border: 1px solid black;
+.tag
+{
+  border: 1px solid black;
+}
+
+.search
+{
+  border: 1px solid red;
+}
+
+.create-note
+{
+  border: 1px solid green;
 }
