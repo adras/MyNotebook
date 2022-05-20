@@ -1,0 +1,38 @@
+.notes-container
+{
+  border: 1px solid black;
+}
+
+.note-container
+{
+  border: 1px solid black;
+}
+
+.note-headline
+{
+  border: 1px solid black;
+}
+
+.note-tags
+{
+  border: 1px solid black;
+}
+
+.note-buttons
+{
+  border: 1px solid black;
+}
+
+.note-content
+{
+  border: 1px solid black;
+}
+
+.tags-container
+{
+  border: 1px solid black;
+}
+
+.tag {
+    border: 1px solid black;
+}
