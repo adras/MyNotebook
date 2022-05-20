@@ -37,7 +37,10 @@
   <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between none">
     <div style="border: 1px solid green;" >Notes</div>
     <div fxFlex></div>
-    <div style="border: 1px solid red;" fxFlex="20">Tags<br />moretags</div>
+    <div fxFlex="20" fxLayoutAlign="end">
+      <div style="border: 1px solid red; position:fixed"
+           >Tags<br />moretags</div>
+    </div>
   </div>
   <br />
   <br />
@@ -123,11 +126,13 @@
     <div fxFlex></div>
     
     <div class="tags-container" fxFlex="20">
-      <div class="tag">Tag1</div>
-      <div class="tag">Tag2</div>
-      <div class="tag">Tag3</div>
-      <div class="tag">Tag4</div>
-      <div class="tag">Tag5</div>
+      <div style="position: fixed; width:100%" fxFlex="20">
+        <div class="tag" >Tag1</div>
+        <div class="tag">Tag2</div>
+        <div class="tag">Tag3</div>
+        <div class="tag">Tag4</div>
+        <div class="tag">Tag5</div>
+      </div>
     </div>
   </div>
 
