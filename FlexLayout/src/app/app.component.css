@@ -47,3 +47,18 @@
 {
   border: 1px solid green;
 }
+
+
+@media (max-width: 400px) {
+  .notes-tags-selection {
+    fxLayout: "column";
+  }
+  .tags-container {
+    position: unset;
+  }
+}
+@media (max-width: 800px) {
+  .tags-container {
+    position: sticky;
+  }
+}
