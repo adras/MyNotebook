@@ -5,26 +5,28 @@
 </div>
 
 <div *ngIf="isLoggedIn">
-  <div class="main-title">
-    <h1>My Notebook</h1>
-  </div>
+
 
   <br />
   <div class="main-container">
     <div style="position: fixed; width: 100%; z-index: 1">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <div></div>
-        <app-logout (onLogout)="doLogout()"></app-logout>
+        <div class="main-title">
+          <h1>My Notebook</h1>
+        </div>
+        <app-logout (onLogout)="doLogout()" style="margin-right: 50px;"></app-logout>
       </div>
       <div id="create-search-container" fxLayout="row" fxLayoutAlign="space-between center">
         <!--<app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>-->
-        <app-create-note (onCreateNote)="doShowCreateNote()"></app-create-note>
+        <app-create-note (onCreateNote)="doShowCreateNote()" style="margin-left: 50px;"></app-create-note>
         <app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>
-        <app-search (onSearch)="doSearch($event)"></app-search>
+
+        <app-search (onSearch)="doSearch($event)" style="margin-right: 50px;"></app-search>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="space-between center" >
-        <div fxFlex="100" style=" overflow-y:scroll; height: 40em;"  class="note-container">
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxFlex="90" style=" overflow-y:scroll; height: 40em;" class="note-container">
           <app-notes fxFlex="100" [selectedNotes]="selectedNotes"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"
