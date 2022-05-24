@@ -10,16 +10,22 @@
   </div>
 
   <br />
-
-  <app-create-note (onCreateNote)="doShowCreateNote()"></app-create-note>
-  <app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>
+  <div style="position: fixed; width: 100%; z-index: 1">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div></div>
+      <app-logout (onLogout)="doLogout()"></app-logout>
+    </div>
+    <div id="create-search-container" fxLayout="row" fxLayoutAlign="space-between center">
+      <!--<app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>-->
+      <app-create-note (onCreateNote)="doShowCreateNote()"></app-create-note>
+      <app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>
+      <app-search (onSearch)="doSearch($event)"></app-search>
+    </div>
+  </div>
 
   <div class="main-container">
-    <app-logout (onLogout)="doLogout()"></app-logout>
-    <app-search (onSearch)="doSearch($event)"></app-search>
     <app-tags (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
-    <app-notes
-               [selectedNotes]="selectedNotes"
+    <app-notes [selectedNotes]="selectedNotes"
                [allTags]="allTags"
                (onEditNote)="doEditNote($event)"
                (onDeleteNote)="doDeleteNote($event)">
