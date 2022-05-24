@@ -23,8 +23,8 @@
         <app-search (onSearch)="doSearch($event)"></app-search>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="space-between center" style="background-color: green;">
-        <div fxFlex="100" style=" overflow-y:scroll; height: 40em; background-color: blue;" class="note-container">
+      <div fxLayout="row" fxLayoutAlign="space-between center" >
+        <div fxFlex="100" style=" overflow-y:scroll; height: 40em;"  class="note-container">
           <app-notes fxFlex="100" [selectedNotes]="selectedNotes"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"
