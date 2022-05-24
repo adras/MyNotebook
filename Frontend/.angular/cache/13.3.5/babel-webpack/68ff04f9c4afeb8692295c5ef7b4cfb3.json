@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class TagChange {\n  constructor(isChecked, tagName) {\n    this.isChecked = isChecked;\n    this.tagName = tagName;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
