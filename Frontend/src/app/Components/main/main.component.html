@@ -34,7 +34,7 @@
           </app-notes>
 
         </div>
-        <div fxFlex="10">
+        <div fxFlex="10" class="tags-container">
           <app-tags style="position: fixed; " (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
         </div>
       </div>
