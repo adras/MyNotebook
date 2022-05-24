@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 
 
+/Frontend/.angular/cache/13.3.5/angular-webpack/b3cd28802510a95d39ae5cbd46da63123a4d0c4b
+/Frontend/.angular/cache/13.3.5/babel-webpack
