@@ -1,7 +1,7 @@
-<div class="tag-container">
+<div class="tag-container" >
 
     <!--TODO: Fix tag binding, it seems like it doesn't work when tags are deselected -->
-    <mat-button-toggle-group name="Tags" aria-label="Tags"
+    <mat-button-toggle-group name="Tags" aria-label="Tags" fxLayout="column"
                              multiple="true" vertical="true" [value]="selectedTags">
       <mat-button-toggle *ngFor="let tag of allTags"
                          (change)="tagChange($event)"
