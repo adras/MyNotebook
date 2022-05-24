@@ -24,17 +24,18 @@
 
         <app-search (onSearch)="doSearch($event)" style="margin-right: 50px;"></app-search>
       </div>
-
-      <div fxLayout="row" fxLayoutAlign="space-around center">
-        <div fxFlex="90" style=" overflow-y:scroll; height: 40em;" class="note-container">
-          <app-notes fxFlex="100" [selectedNotes]="selectedNotes"
+ 
+      <div fxLayout="row" fxLayoutAlign="end start">
+        <div fxFlex="85" style=" overflow-y:scroll; height: 40em;" class="note-container">
+          <app-notes fxFlex="95" [selectedNotes]="selectedNotes"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"
                      (onDeleteNote)="doDeleteNote($event)">
           </app-notes>
-          <div fxFlex="10">
-            <app-tags style="position: fixed; " (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
-          </div>
+
+        </div>
+        <div fxFlex="10">
+          <app-tags style="position: fixed; " (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
         </div>
       </div>
     </div>
