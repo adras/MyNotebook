@@ -54,11 +54,26 @@
     fxLayout: "column";
   }
   .tags-container {
-    position: unset;
+    position: sticky;
+/*    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;*/
+  }
+  .spacer {
+      visibility: hidden;
   }
 }
 @media (max-width: 800px) {
+  .notes-tags-selection {
+    fxLayout: "row";
+  }
   .tags-container {
+    /*position: sticky;*/
     position: sticky;
+  }
+  .spacer {
+    visibility: visible;
   }
 }
