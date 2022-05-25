@@ -80,6 +80,16 @@ $my-theme: mat.define-light-theme((
     $font-family: arial
   )
 ));
+.mat-button-base {
+    height: 2em;
+}
+
+.mat-button-wrapper{
+    margin: 0px;
+    top: -3px;
+    position: relative;
+}
+
 @include mat.all-component-themes($my-theme);
 
 /*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
