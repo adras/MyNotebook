@@ -2,13 +2,21 @@
   display: inline-block;
   /* background-image: linear-gradient(350deg, #FFFFFF, #EEEEEE);*/
   background-color: white;
+
   border-width: 1px;
   border-color: black;
   border-style: solid;
   border-radius: 4px;
+
+
+  height:10px;
   /*width: 100px;*/
 }
-
+.mat-button-toggle {
+  height: 10px;
+  /*padding: 0px 15px 0px 5px;*/
+ padding: 0 0 25px 0 ;
+}
 /* mat-button-toggle styles the elements aka tags in this case */
 
 /* Temporarily disabled custom style */
@@ -19,11 +27,7 @@
   font-weight: bold;
 }
 
-.mat-button-toggle {
-  background-color: #FFFFFF;
-  color: #00AAEE;
 
-}
 
 .mat-button-toggle-group {
 }*/

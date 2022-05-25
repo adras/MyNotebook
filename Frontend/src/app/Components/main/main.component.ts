@@ -120,8 +120,8 @@ export class MainComponent implements OnInit {
     for (var i = 0; i < this.allNotes.length; i++) {
       const currentNote = this.allNotes[i];
       if (allNotesSelected ||
-          currentNote.tags.map(tag => tag.name)
-                          .some(tagName => this.selectedTags.includes(tagName))) {
+        currentNote.tags.map(tag => tag.name)
+          .some(tagName => this.selectedTags.includes(tagName))) {
         // Either allNotes tag is selected, or the note has one of the selected tag
 
         // Check if note contains the search text, continue if not
@@ -161,7 +161,9 @@ export class MainComponent implements OnInit {
   }
 
   doLogin(event: OnLoginEvent) {
-    this.mainService.doLogin(event).subscribe((response: BaseResponse) => this.onLogin(response));
+    var request = this.mainService.doLogin(event).subscribe(
+      (response: BaseResponse) => this.onLogin(response), (error: any) => alert("oh noes: " + error), () => alert("Wohoooz"));
+
   }
 
   doLogout() {

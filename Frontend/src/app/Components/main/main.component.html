@@ -25,7 +25,7 @@
         <app-search (onSearch)="doSearch($event)" style="margin-right: 50px;"></app-search>
       </div>
       <div fxLayout="row" fxLayout.xs="column"  [ngStyle.xs]="{'height': '60vh'}" fxLayoutAlign="space-evenly start" >
-        <div style="width: 85%; " [ngStyle.xs]="{'width': '100%'}" class="note-container" >
+        <div style="width: 82%; " [ngStyle.xs]="{'width': '100%'}" class="note-container" >
           <app-notes fxFlex="100" [selectedNotes]="selectedNotes"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"
@@ -34,7 +34,7 @@
 
         </div>
         <div style="width: 10px;"></div>
-        <div fxFlex="10" style="background-color:red;">
+        <div fxFlex="15" style="background-color:red;">
           <app-tags (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags>
         </div>
       </div>
