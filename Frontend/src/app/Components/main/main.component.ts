@@ -148,6 +148,7 @@ export class MainComponent implements OnInit {
 
   doShowCreateNote() {
     this.newNote!.isVisible = !this.newNote!.isVisible;
+    this.newNote!.showDialog();
   }
 
   doCreateNote(event: NoteEditorEvent) {

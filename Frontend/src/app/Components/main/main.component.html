@@ -6,9 +6,10 @@
 
 <div *ngIf="isLoggedIn">
 
+  <app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>
 
   <br />
-  <div class="main-container" >
+  <div class="main-container">
     <div style="width: 100%; z-index: 1">
       <div fxLayout="row" fxLayoutAlign="space-between center" style="height:100px">
         <div></div>
@@ -20,12 +21,15 @@
       <div id="create-search-container" fxLayout="row" fxLayoutAlign="space-between center">
         <!--<app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>-->
         <app-create-note (onCreateNote)="doShowCreateNote()" style="margin-left: 50px;"></app-create-note>
-        <app-new-note (onCreateNote)="doCreateNote($event)" [allTags]="allTags"></app-new-note>
 
         <app-search (onSearch)="doSearch($event)" style="margin-right: 50px;"></app-search>
       </div>
-      <div fxLayout="row" fxLayout.xs="column"  [ngStyle.xs]="{'height': '60vh'}" fxLayoutAlign="space-evenly start" >
-        <div style="width: 82%; " [ngStyle.xs]="{'width': '100%'}" class="note-container" >
+
+
+
+
+      <div fxLayout="row" fxLayout.xs="column" [ngStyle.xs]="{'height': '60vh'}" fxLayoutAlign="space-evenly start">
+        <div style="width: 82%; " [ngStyle.xs]="{'width': '100%'}" class="note-container">
           <app-notes fxFlex="100" [selectedNotes]="selectedNotes"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"
