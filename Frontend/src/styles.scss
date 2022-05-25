@@ -11,8 +11,65 @@
 
 @include mat.core();
 
+/*$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+*/
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$contrast-color: white;
+
+$monster-palette: (
+  50 :   #eef4ff,
+  100 :  #c5cbe9,
+  200 :  #9fa8da,
+  300 :  #7985cb,
+  400 :  #5c6bc0,
+  500 :  #3f51b5,
+  600 :  #394aae,
+  700 :  #3140a5,
+  800 :  #29379d,
+  900 :  #1b278d,
+  A100 : #ef21a6,
+  A200 : #ffd966,
+  A400 : #f6b26b,
+  A700 : #b9551c,
+  contrastDarkColors: (
+    100,
+    200,
+    300,
+    A100,
+    A200,
+    A400
+  ),
+  contrast: (
+    50   : $contrast-color,
+    400  : $contrast-color,
+    500  : $contrast-color,
+    600  : $contrast-color,
+    700  : $contrast-color,
+    800  : $contrast-color,
+    900  : $contrast-color,
+    A700 : $contrast-color
+  )
+
+    );
+
+// $my-primary: mat.define-palette($monster-palette, 500);
+// $my-accent: mat.define-palette($monster-palette, A100, A200, A400);
+
 $my-primary: mat.define-palette(mat.$indigo-palette, 500);
 $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
 
 $my-theme: mat.define-light-theme((
  color: (
@@ -24,6 +81,7 @@ $my-theme: mat.define-light-theme((
   )
 ));
 @include mat.all-component-themes($my-theme);
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
 
 /* The main page container, this includes everything displayed */
 .page-container {
