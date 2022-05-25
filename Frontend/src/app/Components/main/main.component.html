@@ -24,8 +24,8 @@
 
         <app-search (onSearch)="doSearch($event)" style="margin-right: 50px;"></app-search>
       </div>
-      <div fxLayout="row" fxLayout.xs="column" [ngStyle.xs]="{'height': '100px'}" fxLayoutAlign="space-between start">
-        <div style="width: 80%" class="note-container">
+      <div fxLayout="row" fxLayout.xs="column" [ngStyle.xs]="{'height': '200px'}" fxLayoutAlign="space-between start">
+        <div style="width: 80%" [ngStyle.xs]="{'width': '100%'}" class="note-container">
           <app-notes fxFlex="100" [selectedNotes]="selectedNotes"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"

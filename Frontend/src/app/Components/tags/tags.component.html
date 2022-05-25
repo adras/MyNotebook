@@ -1,10 +1,15 @@
-<div class="tag-container" >
+<div class="tag-container" "
+     [ngStyle.xs]="{'height': '200px'}"
+     [ngStyle.gt-xs]="{'height': '100%'}"
+    >
 
-    <!--TODO: Fix tag binding, it seems like it doesn't work when tags are deselected -->
-    <mat-button-toggle-group name="Tags" aria-label="Tags" fxLayout="column"
-                             multiple="true" vertical="true" [value]="selectedTags">
-      <mat-button-toggle *ngFor="let tag of allTags"
-                         (change)="tagChange($event)"
-                         value="{{tag.name}}">{{tag.name}}</mat-button-toggle>
-    </mat-button-toggle-group>
+  <!--TODO: Fix tag binding, it seems like it doesn't work when tags are deselected -->
+  <mat-button-toggle-group name="Tags" aria-label="Tags"
+                           fxFlex="100"
+                           fxLayout.xs="16px grid" fxLayout="column"
+                           multiple="true" [value]="selectedTags" vartical="false " style=" overflow:auto">
+    <mat-button-toggle *ngFor="let tag of allTags"
+                       (change)="tagChange($event)"
+                       value="{{tag.name}}">{{tag.name}}</mat-button-toggle>
+  </mat-button-toggle-group>
 </div>
