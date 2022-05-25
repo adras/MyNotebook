@@ -30,6 +30,14 @@ although the requests will end up being send to myserver, in your code you use l
 * Do a dry run to check what's about to be changed: `ng g schematics-scss-migrate:scss-migrate --dry-run=true`
 * The script will ask from which format to which you want to migrate, so it's possible to go from css->scss or from scss->css
 
+# Updating npm packages
+* Run ```npm ci``` for a clean install
+* To check if packages are old run: ```npm outdated```
+* To update all packages to their respected version run: ```npm update```
+* NOTE: If package is referenced with a ^ in the version number the newest number will be installed
+* This also resolves a lot of build and startup errors
+
+
 # Install Windows
 * Install node.js
 * Install Chrome
