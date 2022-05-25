@@ -9,7 +9,7 @@
 
   <br />
   <div class="main-container">
-    <div style="position: fixed; width: 100%; z-index: 1">
+    <div style="width: 100%; z-index: 1">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <div></div>
         <div class="main-title">
@@ -26,7 +26,7 @@
       </div>
       <!--[ngStyle.sm]="{'height.px': '100'}"-->
       <div fxLayout="row" fxLayoutAlign="end start" fxLayout.lt-sm="column">
-        <div fxFlex="85" style=" overflow-y: scroll;" class="note-container">
+        <div fxFlex="85" style=" overflow-y: scroll; " class="note-container">
           <app-notes fxFlex="95" [selectedNotes]="selectedNotes"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"
@@ -35,11 +35,10 @@
 
         </div>
 
-        <div>
-        </div>
 
-        <div fxFlex="10" [ngStyle.sm]="{'font-weight': 'bolder'}">
-          <app-tags style="position: fixed; " (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
+
+        <div fxFlex="15" [ngStyle.sm]="{'font-weight': 'bolder'}">
+          <app-tags  (tagsChanged)="doTagsChanged($event)" [selectedTags]="selectedTags" [allTags]="allTags"></app-tags><!--(newItemEvent)="updateTags($event)"-->
         </div>
       </div>
     </div>

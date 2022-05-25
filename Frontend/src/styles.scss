@@ -27,4 +27,5 @@ $my-theme: mat.define-light-theme((
 
 /* The main page container, this includes everything displayed */
 .page-container {
+    overflow: hidden;
 }

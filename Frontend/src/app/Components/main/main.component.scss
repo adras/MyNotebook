@@ -12,20 +12,25 @@
 }
 
 .tags-container {
- 
+}
+
+.note-container {
+    height: 60vh;
 }
 
 @media only screen and (max-width: 900px) {
   .tags-container {
   }
+
   .note-container {
-      
   }
 }
+
 @media only screen and (min-width: 900px) {
   .tags-container {
     font-weight: bolder;
   }
+
   .note-container {
   }
 }
