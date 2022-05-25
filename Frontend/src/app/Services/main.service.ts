@@ -33,6 +33,8 @@ export class MainService {
     //var shaPwd = sha256(password).toString();
 
     const params = new HttpParams()
+      // Try this out some time
+/*      .set("timeout", 10)*/
       .set("action", "login")
       .set("password", shaPwd);
 
