@@ -34,7 +34,7 @@ export class MainService {
 
     const params = new HttpParams()
       // Try this out some time
-/*      .set("timeout", 10)*/
+      .set("timeout", 3)
       .set("action", "login")
       .set("password", shaPwd);
 

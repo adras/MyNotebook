@@ -115,6 +115,7 @@ export class MainComponent implements OnInit {
     // this.selectedNotes.clear();
     this.selectedNotes.length = 0;
 
+
     const allNotesTag = this.allSettings?.allNotesTagName.value as string;
     const allNotesSelected = this.selectedTags.indexOf(allNotesTag) != -1;
     for (var i = 0; i < this.allNotes.length; i++) {
@@ -134,8 +135,11 @@ export class MainComponent implements OnInit {
         var regex = "(>?)(" + this.searchText + ")([^>]*<)";
         var replace = "$1<mark class=\"search-text\">$2</mark>$3";
 
+        // Hmm ... search also finds when one looks for html code
         var newNote = Object.assign([], currentNote);
-        newNote.content = newNote.content.replace(new RegExp(regex, "gi"), replace);
+        if (this.searchText.length != 0) {
+          newNote.content = newNote.content.replace(new RegExp(regex, "gi"), replace);
+        }
 
         this.selectedNotes.push(newNote);
       }
