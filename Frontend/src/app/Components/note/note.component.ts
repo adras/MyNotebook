@@ -4,7 +4,9 @@ import { NoteEditorEvent } from '../../Events/NoteEditorEvent';
 import { OnSearch } from '../../Events/OnSearchEvent';
 import { Note } from '../../Models/Note';
 import { Tag } from '../../Models/Tag';
+import { SafeHtmlPipe } from '../../SaveHtmlPipe';
 import { NoteEditorComponent } from '../note-editor/note-editor.component';
+
 
 @Component({
   selector: 'app-note',

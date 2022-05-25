@@ -28,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SafeHtmlPipe } from './SaveHtmlPipe';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ButtonBarComponent,
     EditNoteComponent,
     TagSuggestComponent,
-
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,

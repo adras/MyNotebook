@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div [innerHTML]="note!.content"></div>
+    <div [innerHTML]="note!.content | safeHtml"></div>
   </div>
 
   <div *ngIf="isEditing">
