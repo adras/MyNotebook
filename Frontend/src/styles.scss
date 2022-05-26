@@ -1,14 +1,13 @@
 @use '@angular/material' as mat;
 @use '/src/app/Themes/_carousel-theme' as carousel;
+@import "~bootstrap/dist/css/bootstrap.css";
 
 /* Now that there's a custom theme this is no longer required */
 /*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
-
 // TODO: https://material.angular.io/guide/theming-your-components
 // See also: https://indepth.dev/tutorials/angular/angular-material-theming-system-complete-guide
 // For custom components, check out how mat-button does it's theming https://github.com/angular/components/blob/0d3a730631fae77ce4af49b4b9853da2a5fe09f9/src/material/button/_button-theme.scss#L64
 // Angular pallettes: https://github.com/angular/components/blob/main/src/material/core/theming/_palette.scss
-
 @include mat.core();
 
 $my-primary: mat.define-palette(mat.$indigo-palette, 500);
