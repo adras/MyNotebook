@@ -28,9 +28,10 @@
 
 
 
-      <div fxLayout="row" fxLayout.xs="column" [ngStyle.xs]="{'height': '60vh'}" fxLayoutAlign="space-evenly start">
-        <div style="width: 82%; " [ngStyle.xs]="{'width': '100%'}" class="note-container">
-          <app-notes fxFlex="100" [selectedNotes]="selectedNotes"
+      <div fxLayout="row" fxLayout.xs="column" [ngStyle.xs]="{'height': '60vh'}" fxLayoutAlign="space-evenly start"
+           class="fade-container-bottom">
+        <div style="width: 82%; " [ngStyle.xs]="{'width': '100%'}" class="fade-container-top">
+          <app-notes fxFlex="100" [selectedNotes]="selectedNotes" class="note-container"
                      [allTags]="allTags"
                      (onEditNote)="doEditNote($event)"
                      (onDeleteNote)="doDeleteNote($event)">
