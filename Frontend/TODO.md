@@ -7,6 +7,15 @@
       This might be a better fit for create note
       It probably also suits rename tags popup - Menu could be a better choice though
       It can also be used for the settings dialog
+- [ ] When deleting a tag, add an option to delete related notes as well. Keep in mind, that there are notes which have multiple tags, should the be removed as well?
+      Or should only notes which have solely the tag be removed? Add multiple options to the delete dialog? Explain the options in the tooltip?
+- [ ] From a design perspective it could be better to have the tags on top of the page (floating, multiple rows), even on widescreen monitors.
+
+## Improvements
+I just caught myself adding "tags" to the content of a note to ensure that it can be found by using the search in the future. This shows that the current implementation
+of tags is not sufficient. Furthermore for myself, tags transformed into categories.
+I also noticed that I'm no longer using tags at all. One reason is that the list of tags is already quite big (22 tags), another reason is that I could require even more tags, making the list even bigger.
+At first glance an idea to improve that could be to rename ```tags``` into ```categories```, and add a new field in the database named ```keywords```. A note then gets two input boxes, ```categories``` and ```keywords```. This however conflicts with the ```As simple as possible``` design of MyNotebook, furthermore it seems kinda cluttered and redundant. Main issue is, that you'd still have the ```tags/categories``` on the right side, to make a selection; But what do you do with the keywords? Are these selectable? Only included in the search? How could they be deleted/managed?
 
 ## Bugs and improvements
 - [ ] Try to find usecases where user's can lose their data. E.g. start editing note X, start edit note Y, X changes are lost
