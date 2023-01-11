@@ -12,12 +12,14 @@ cumbersome since the install-script was never upgraded, and the upgrade script o
 config. Anyway, I just installed it successfuly and created the install instructions below.
 
 # Demo
-You can find a demo of the old php version MyNotebook-Uranus [here](http://adras.bplaced.net/notes-uranus/)
-As long as nobody changed it, the password it `demo`. The database will be reset every hour.
+~~You can find a demo of the old php version MyNotebook-Uranus [here](http://adras.bplaced.net/notes-uranus/)
+As long as nobody changed it, the password it `demo`. The database will be reset every hour.~~
+Demo currently not available due to lack of php-server
 
 # Demo Angular
-Although the angular project is still under development and there's a lot to do, you can check out the current state [here](http://adras.bplaced.net/notes-angular/)
-It uses the same backend and therefore the same database as the demo. Password is also `demo`
+~~Although the angular project is still under development and there's a lot to do, you can check out the current state [here](http://adras.bplaced.net/notes-angular/)
+It uses the same backend and therefore the same database as the demo. Password is also `demo`~~
+Demo currently not available due to lack of php-server
 
 # Install
 To install MyNotebook-Uranus see the install instructions in [install.md](https://github.com/adras/MyNotebook/blob/main/Install.md)
